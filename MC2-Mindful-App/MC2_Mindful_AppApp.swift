@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct MC2_Mindful_AppApp: App {
     let persistenceController = PersistenceController.shared
-
+//misalnya
     var body: some Scene {
         WindowGroup {
             ContentView()
