@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6E7286F077C005D7DF6 /* MainView.swift */; };
+		0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */; };
+		0640C6ED286F07B8005D7DF6 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6EC286F07B8005D7DF6 /* SheetView.swift */; };
+		0640C6EF286F07CA005D7DF6 /* BerandaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6EE286F07CA005D7DF6 /* BerandaView.swift */; };
+		0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F0286F07DA005D7DF6 /* MindfulView.swift */; };
+		0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */; };
+		0640C6F6286F082E005D7DF6 /* JournallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F5286F082E005D7DF6 /* JournallingView.swift */; };
 		EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */; };
 		EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DEA285C6CB80092C195 /* ContentView.swift */; };
 		EE585DED285C6CBA0092C195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE585DEC285C6CBA0092C195 /* Assets.xcassets */; };
@@ -16,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0640C6E7286F077C005D7DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessActivities.swift; sourceTree = "<group>"; };
+		0640C6EC286F07B8005D7DF6 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		0640C6EE286F07CA005D7DF6 /* BerandaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaView.swift; sourceTree = "<group>"; };
+		0640C6F0286F07DA005D7DF6 /* MindfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulView.swift; sourceTree = "<group>"; };
+		0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatView.swift; sourceTree = "<group>"; };
+		0640C6F5286F082E005D7DF6 /* JournallingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournallingView.swift; sourceTree = "<group>"; };
 		EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-Mindful-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_Mindful_AppApp.swift; sourceTree = "<group>"; };
 		EE585DEA285C6CB80092C195 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +50,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0640C6EB286F07AC005D7DF6 /* Main-Tab-Bar-Views */ = {
+			isa = PBXGroup;
+			children = (
+				0640C6EC286F07B8005D7DF6 /* SheetView.swift */,
+				0640C6EE286F07CA005D7DF6 /* BerandaView.swift */,
+				0640C6F0286F07DA005D7DF6 /* MindfulView.swift */,
+				0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */,
+			);
+			path = "Main-Tab-Bar-Views";
+			sourceTree = "<group>";
+		};
+		0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */ = {
+			isa = PBXGroup;
+			children = (
+				0640C6F5286F082E005D7DF6 /* JournallingView.swift */,
+			);
+			path = "Mindful-Activities-Views";
+			sourceTree = "<group>";
+		};
 		EE585DDC285C6CB80092C195 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +92,10 @@
 				EE585DEA285C6CB80092C195 /* ContentView.swift */,
 				EE585DEC285C6CBA0092C195 /* Assets.xcassets */,
 				EE585DF1285C6CBA0092C195 /* Persistence.swift */,
+				0640C6E7286F077C005D7DF6 /* MainView.swift */,
+				0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */,
+				0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */,
+				0640C6EB286F07AC005D7DF6 /* Main-Tab-Bar-Views */,
 				EE585DF3285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld */,
 				EE585DEE285C6CBA0092C195 /* Preview Content */,
 			);
@@ -144,9 +181,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE585DF5285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld in Sources */,
+				0640C6ED286F07B8005D7DF6 /* SheetView.swift in Sources */,
+				0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */,
+				0640C6F6286F082E005D7DF6 /* JournallingView.swift in Sources */,
 				EE585DF2285C6CBA0092C195 /* Persistence.swift in Sources */,
 				EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */,
+				0640C6EF286F07CA005D7DF6 /* BerandaView.swift in Sources */,
+				0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */,
 				EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */,
+				0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */,
+				0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
