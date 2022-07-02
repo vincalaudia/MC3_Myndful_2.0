@@ -35,7 +35,7 @@ For example: <br/>
   
 ### 3. Commit and Push Changes.
 Finally!! after you make some changes needed, its time to commit your changes and push it to remote. <br/>
-run `git status` to check what files changes and new files.
-![image](https://user-images.githubusercontent.com/40418196/177019241-4aba4f70-0e31-4856-af69-d88374ef2a33.png)
+run `git status` to check what files changes and new files. <br/>
+![image](https://user-images.githubusercontent.com/40418196/177019241-4aba4f70-0e31-4856-af69-d88374ef2a33.png) <br/>
 
 
