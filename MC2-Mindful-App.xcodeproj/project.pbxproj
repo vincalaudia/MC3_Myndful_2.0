@@ -20,6 +20,9 @@
 		EE585DF0285C6CBA0092C195 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE585DEF285C6CBA0092C195 /* Preview Assets.xcassets */; };
 		EE585DF2285C6CBA0092C195 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DF1285C6CBA0092C195 /* Persistence.swift */; };
 		EE585DF5285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE585DF3285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld */; };
+		EEDD20172870123F003AB92E /* Recommendation1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD20162870123F003AB92E /* Recommendation1View.swift */; };
+		EEDD201B2870126A003AB92E /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD201A2870126A003AB92E /* EmotionView.swift */; };
+		EEDD201D28704DAA003AB92E /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD201C28704DAA003AB92E /* DurationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		EE585DEF285C6CBA0092C195 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE585DF1285C6CBA0092C195 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		EE585DF4285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_Mindful_App.xcdatamodel; sourceTree = "<group>"; };
+		EEDD20162870123F003AB92E /* Recommendation1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation1View.swift; sourceTree = "<group>"; };
+		EEDD201A2870126A003AB92E /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
+		EEDD201C28704DAA003AB92E /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +100,10 @@
 				EE585DF1285C6CBA0092C195 /* Persistence.swift */,
 				0640C6E7286F077C005D7DF6 /* MainView.swift */,
 				0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */,
+				EEDD20152870119E003AB92E /* recommendation */,
 				0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */,
 				0640C6EB286F07AC005D7DF6 /* Main-Tab-Bar-Views */,
+				EEDD201928701257003AB92E /* Questions */,
 				EE585DF3285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld */,
 				EE585DEE285C6CBA0092C195 /* Preview Content */,
 			);
@@ -108,6 +116,23 @@
 				EE585DEF285C6CBA0092C195 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EEDD20152870119E003AB92E /* recommendation */ = {
+			isa = PBXGroup;
+			children = (
+				EEDD20162870123F003AB92E /* Recommendation1View.swift */,
+			);
+			path = recommendation;
+			sourceTree = "<group>";
+		};
+		EEDD201928701257003AB92E /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+				EEDD201C28704DAA003AB92E /* DurationView.swift */,
+				EEDD201A2870126A003AB92E /* EmotionView.swift */,
+			);
+			path = Questions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEDD201D28704DAA003AB92E /* DurationView.swift in Sources */,
 				EE585DF5285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld in Sources */,
+				EEDD20172870123F003AB92E /* Recommendation1View.swift in Sources */,
 				0640C6ED286F07B8005D7DF6 /* SheetView.swift in Sources */,
 				0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */,
 				0640C6F6286F082E005D7DF6 /* JournallingView.swift in Sources */,
@@ -190,6 +217,7 @@
 				0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */,
 				EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */,
 				0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */,
+				EEDD201B2870126A003AB92E /* EmotionView.swift in Sources */,
 				0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
