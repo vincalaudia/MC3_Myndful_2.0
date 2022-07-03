@@ -39,10 +39,26 @@ Finally!! after you make some changes needed, its time to commit your changes an
   ```
     git status
   ``` 
-![image](https://user-images.githubusercontent.com/40418196/177019327-6196e58d-5b2b-4b42-b747-0dd560723f0d.png) <br/><br/>
+![image](https://user-images.githubusercontent.com/40418196/177019327-6196e58d-5b2b-4b42-b747-0dd560723f0d.png) <br/>
+   As you can see above the picture, all changes already commit. <br/><br/>                                                
 
-2. As you can see above the picture, all changes already commit. So, now we can update the current `branch` to make sure is up to date with `main branch` by running the following git command: <br/>
+2.  So, now we can update the current `branch` to make sure is up to date with `main branch` by running the following git command: <br/>
+  ```
+    git fetch origin main:main
+  ``` 
+![image](https://user-images.githubusercontent.com/40418196/177019400-1b2d3014-9c93-4087-a7ea-6cd26d610134.png) <br/><br/>
 
-![image](https://user-images.githubusercontent.com/40418196/177019241-4aba4f70-0e31-4856-af69-d88374ef2a33.png) <br/>
+3. Then run `git rebase origin main` to apply or update the `current branch` with `master branch`, like this picture below: <br/>|
+  ```
+    git rebase origin main
+  ``` 
+![image](https://user-images.githubusercontent.com/40418196/177019492-84f563c9-a2f3-4cc7-805d-9c39d8633a55.png) <br/><br/>
+
+4. After that push all your commit, by running the following git command: <br/>
+  ```
+    git push origin --force-with-lease
+  ``` 
+![image](https://user-images.githubusercontent.com/40418196/177019566-269e07fa-a326-43a3-8a40-67434cea5823.png)
+
 
 
