@@ -29,12 +29,13 @@ struct MainView: View {
             }.navigationBarTitle("")
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                
                 .overlay( // Overlay the custom TabView component here
                     Color.white // Base color for Tab Bar
                         .edgesIgnoringSafeArea(.vertical)
-                        .frame(height: 90) // Match Height of native bar
+                        .frame(height: 100) // Match Height of native bar
                         .cornerRadius(radius: 20.0, corners: [.topLeft, .topRight])
-                        .padding(.bottom, -26)
+                        .padding(.bottom, -35)
                         .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.05), radius: 5, x: 0, y: -5)
                         .overlay(HStack(spacing : 75) {
                             
@@ -93,7 +94,8 @@ struct MainView: View {
                         }
                                 )
                     ,alignment: .bottom) // Align the overlay to bottom to ensure tab bar stays pinned.
-        }
+        }.navigationBarTitle("")
+            .navigationBarHidden(true)
     }
 }
 
