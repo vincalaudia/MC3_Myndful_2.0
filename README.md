@@ -58,7 +58,8 @@ Finally!! after you make some changes needed, its time to commit your changes an
   ```
     git push origin --force-with-lease
   ``` 
-![image](https://user-images.githubusercontent.com/40418196/177019566-269e07fa-a326-43a3-8a40-67434cea5823.png)
+![image](https://user-images.githubusercontent.com/40418196/177019566-269e07fa-a326-43a3-8a40-67434cea5823.png) <br/><br/>
 
-
+### Create Pull Request.
+when
 
