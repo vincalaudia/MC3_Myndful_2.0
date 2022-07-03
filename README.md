@@ -31,8 +31,6 @@ check the current branch by running this command: <br/>
   ```
     git branch --show-current
   ``` 
-![image](https://user-images.githubusercontent.com/40418196/177019198-f22ba5aa-c3e0-44f5-93c6-d527179acef8.png)<br/>
-
 if you were still in branch `main` , then create a new branch by running the following git command: <br/>
   ```
     git checkout -b "branch name"
@@ -54,7 +52,6 @@ If there is any changes have not commit yet, then run : <br/>
   ```
     git add <file_name>
   ```
-![Screenshot from 2022-07-03 07-10-59](https://user-images.githubusercontent.com/40418196/177019787-a5afc07d-5324-448e-ad06-5f9c50b21be7.png) <br/>
 Then commit the changes with `git commit -m "your_comment_f0r_the_changes"` <br/>
 Now update the current `branch` to make sure is up to date with `main branch` by running the following git command: <br/>
   ```
@@ -65,11 +62,13 @@ Then run `git rebase origin main` to apply or update the `current branch` with `
   ```
     git rebase origin main
   ``` 
+For example: <br/>
 ![image](https://user-images.githubusercontent.com/40418196/177019492-84f563c9-a2f3-4cc7-805d-9c39d8633a55.png) <br/>
 After that push all your commit, by running the following git command: <br/>
   ```
     git push origin --force-with-lease
   ``` 
+Like this picture below: <br/>
 ![image](https://user-images.githubusercontent.com/40418196/177019566-269e07fa-a326-43a3-8a40-67434cea5823.png) <br/>
 
 ### Submit Your changes for review.
