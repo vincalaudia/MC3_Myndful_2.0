@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Mindful_Breathing_Timer: View {
-    @State var tarikNafas: String = "Tarik Nafas"
+    @State var bernafas: String = "Tarik Nafas"
     @State var brethingFinish: Bool = false
     @State var moveToNextScreen: Bool = false
     @State var buttonColor: Color = .blue
@@ -22,7 +22,7 @@ struct Mindful_Breathing_Timer: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack {
+        VStack (spacing : 30){
             
             Button {
                 simpleSuccess()
@@ -54,18 +54,21 @@ struct Mindful_Breathing_Timer: View {
                         case 0:
                             scalePoint = 1.5
                             breathState = 1
+                            bernafas = "Tarik Nafas"
                         case 1:
                             scalePoint = 1.5
                             breathState = 2
+                            bernafas = "Tahan Nafas"
                         case 2:
                             scalePoint = 1
                             breathState = 0
                             brethingFinish = true
+                            bernafas = "Hembuskan Nafas"
                         default:
                             print("fail")
                         }
-                            
-                            timerRunning = true
+                        
+                        timerRunning = true
                     }
                     
                 }
@@ -73,15 +76,24 @@ struct Mindful_Breathing_Timer: View {
             .scaleEffect(scalePoint)
             .animation(.linear(duration: animationDuration), value: scalePoint)
             .padding()
-
+            
             NavigationLink(destination: Mindful_Breathing_Congrats(), isActive: $moveToNextScreen) {
                 EmptyView()
                 
             }
+            
+            Text(bernafas)
+                .bold()
+                .font(.title2)
+                .foregroundColor(
+                    Color(red: 170/255, green: 184/255, blue: 243/255))
+                .padding(.top, 20)
+            
         }.onAppear {
             
-           
+            
         }
+        .navigationBarTitle("", displayMode: .inline)
         
     }
     
@@ -89,6 +101,7 @@ struct Mindful_Breathing_Timer: View {
         switch(breathState){
         case 0:
             countDownTimer = 4
+            bernafas = "Tarik Nafas"
         case 1:
             countDownTimer = 7
         case 2:
