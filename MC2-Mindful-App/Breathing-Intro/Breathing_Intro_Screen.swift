@@ -29,7 +29,7 @@ struct Breathing_Intro_Screen: View {
                         
                     
                     HStack {
-                        NavigationLink(destination: TimerBreathing()) {
+                        NavigationLink(destination: Breathing_Intro_Timer()) {
                             Text("Mulai Sesi").frame(height: 50).padding([.leading, .trailing], 80)
                         }
                         

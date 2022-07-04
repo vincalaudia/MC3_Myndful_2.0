@@ -90,7 +90,7 @@ struct Breathing_Intro_Timer: View {
         HStack {
             Text(bernafas)
                 .padding(.top, 20)
-                .foregroundColor(Color(uiColor: .init(named: "warna_test")!))
+                .foregroundColor(Color(uiColor: .init(named: "darkBrown")!))
             
         }
         

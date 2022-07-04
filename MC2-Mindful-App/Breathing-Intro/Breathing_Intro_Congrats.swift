@@ -24,7 +24,8 @@ struct Breathing_Intro_Congrats: View {
                         .multilineTextAlignment(.center)
                 }.padding(.bottom,250)
                 
-            }
+            }.navigationBarHidden(true)
+
         }
 
 }
