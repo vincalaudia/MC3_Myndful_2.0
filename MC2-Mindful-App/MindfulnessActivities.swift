@@ -27,9 +27,9 @@ struct Activities : Identifiable{
     }
 }
 
-let activities : [Activities] = [Activities(title: "Teknik Pernafasan 4-7-8", type: "Pernafasan", image: Image(systemName: "wind"), time: "20 Detik", description: "Dapat digunakan dimanapun dan kapanpun dan saat kondisi apapun. untuk lebih\ntenang dan nyaman.", viewDestination: AnyView(JournalingView())),
+let activities : [Activities] = [Activities(title: "Teknik Pernafasan 4-7-8", type: "Pernafasan", image: Image(systemName: "wind"), time: "20 Detik", description: "Dapat digunakan dimanapun dan kapanpun dan saat kondisi apapun. untuk lebih\ntenang dan nyaman.", viewDestination: AnyView(Mindful_Breathing_Intro())),
 
-                                 Activities(title: "Jurnal Afirmasi Harian", type: "Kesadaran Menjurnal", image: Image(systemName: "text.book.closed.fill"), time: "1-2 menit", description: "Tuliskan keadaan anda hari ini walaupun\nhanya 1 kata. untuk lebih jujur mengenal\ndiri sendiri.", viewDestination: AnyView(JournalingView())),
+                                 Activities(title: "Jurnal Afirmasi Harian", type: "Kesadaran Menjurnal", image: Image(systemName: "text.book.closed.fill"), time: "1-2 menit", description: "Tuliskan keadaan anda hari ini walaupun\nhanya 1 kata. untuk lebih jujur mengenal\ndiri sendiri.", viewDestination: AnyView(JournalingView(pilihan: Image(systemName: "wind") ))),
 
                                  Activities(title: "Kesadaran Saat Berjalan", type: "Kesadaran  Mengobservasi", image: Image(systemName: "figure.walk"), time: "> 2 menit", description: "Dapat digunakan dimanapun dan kapanpun\ndan saat kondisi apapun. untuk lebih\nmengenal lingkungan sekitar anda.", viewDestination: AnyView(ComingSoonView(item: 2))),
                                  
