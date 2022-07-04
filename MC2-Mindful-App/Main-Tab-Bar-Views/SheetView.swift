@@ -18,7 +18,6 @@ struct SheetView: View {
     var body: some View {
         NavigationView(){
             VStack(spacing : 20) {
-                Text("\(currentDate)")
                 
                 DatePicker( "Waktu", selection: $currentDate, displayedComponents: .hourAndMinute)
                     .datePickerStyle(GraphicalDatePickerStyle())
