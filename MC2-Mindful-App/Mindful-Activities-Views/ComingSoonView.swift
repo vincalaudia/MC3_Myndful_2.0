@@ -56,8 +56,7 @@ struct ComingSoonView: View {
         }.frame(width: 330, height: 550, alignment: .center)
             .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 7, x: 0, y: 0)
             .cornerRadius(25)
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

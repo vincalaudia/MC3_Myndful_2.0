@@ -101,17 +101,14 @@ struct BerandaView: View {
                             .background(Image("BGRecents")
                                 .resizable()
                             )
-                    }.navigationBarTitle("")
-                        .navigationBarHidden(true)
-
+                    }
                 }
                     
                 }.padding(.top, 30)
                 
                 
             }.background(Image("BGDashboard"))
-                .navigationBarTitle("")
-                .navigationBarBackButtonHidden(true)
+                .navigationBarTitle("Back")
                 .navigationBarHidden(true)
         }
     

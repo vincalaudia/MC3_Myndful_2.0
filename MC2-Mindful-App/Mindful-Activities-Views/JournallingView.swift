@@ -10,6 +10,7 @@ import Foundation
 
 
 struct JournalingView: View {
+    @State var pilihan : Image
     
     
     var body: some View {
@@ -135,11 +136,5 @@ struct JournalingView: View {
         dateFormatter.dateFormat = "E, d MMM y"
         let strDate = dateFormatter.string(from: date)
         return strDate
-    }
-}
-
-struct JournalingView_Previews: PreviewProvider {
-    static var previews: some View {
-        JournalingView()
     }
 }
