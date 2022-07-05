@@ -28,35 +28,33 @@ struct RiwayatView: View {
             //Apakah perlu dikasih navigation link???
             //Harusnya nanti di sini pakai coredata, cm sementara pake dummy dulu
             ForEach (activities) {item in
-                NavigationLink(destination: item.viewDestination) {
-                    HStack(){
-                        item.image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 25, maxHeight: 25)
-                            .padding(.leading, 30)
+                HStack(){
+                    item.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 25, maxHeight: 25)
+                        .padding(.leading, 30)
+                    
+                    
+                    VStack(alignment : .leading){
+                        Text(item.title)
+                            .font(.headline)
                         
+                        Text(item.type)
+                            .font(.caption)
                         
-                        VStack(alignment : .leading){
-                            Text(item.title)
-                                .font(.headline)
-                            
-                            Text(item.type)
-                                .font(.caption)
-                            
-                            Text(item.time)
-                                .font(.caption)
-                        }.padding([.leading, .trailing], 20)
-                        
-                    }.frame(width : 339, height: 86, alignment: .leading)
-                        .foregroundColor(Color.white)
-                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
-                        .background(Image("BGRecents")
-                            .resizable()
-                        )
-                }.navigationBarTitle("")
-                    .navigationBarHidden(true)
-                
+                        Text(item.time)
+                            .font(.caption)
+                    }.padding([.leading, .trailing], 20)
+                    
+                }.frame(width : 339, height: 86, alignment: .leading)
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
+                    .background(Image("BGRecents")
+                        .resizable()
+                    )
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)                
             }
             
             

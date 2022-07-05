@@ -53,13 +53,12 @@ struct MindfulView: View {
                         .background(Image("BGRecents")
                             .resizable()
                         )
-                }.navigationBarTitle("")
-                    .navigationBarHidden(true)
+                }
                 
             }
             
         }.background(Image("BGDashboard"))
-            .navigationBarTitle("")
+            .navigationBarTitle("Back")
             .navigationBarHidden(true)
     }
     
