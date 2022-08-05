@@ -7,52 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		062171F92872D85A008A8399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 062171F82872D85A008A8399 /* Assets.xcassets */; };
 		0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6E7286F077C005D7DF6 /* MainView.swift */; };
 		0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */; };
 		0640C6ED286F07B8005D7DF6 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6EC286F07B8005D7DF6 /* SheetView.swift */; };
 		0640C6EF286F07CA005D7DF6 /* BerandaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6EE286F07CA005D7DF6 /* BerandaView.swift */; };
 		0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F0286F07DA005D7DF6 /* MindfulView.swift */; };
 		0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */; };
-		0640C6F6286F082E005D7DF6 /* JournallingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F5286F082E005D7DF6 /* JournallingView.swift */; };
+		0640C6F6286F082E005D7DF6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F5286F082E005D7DF6 /* JournalingView.swift */; };
+		06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB0D712871D273002954C7 /* ComingSoonView.swift */; };
 		D1E7D4852872DD6200B1CEF4 /* Breathing_Intro_Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */; };
 		D1E7D4872872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */; };
 		D1E7D4892872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4882872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift */; };
 		D1E7D48C2872E15D00B1CEF4 /* Mindful_Breathing_Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D48B2872E15D00B1CEF4 /* Mindful_Breathing_Intro.swift */; };
 		D1E7D48E2872E17800B1CEF4 /* Mindful_Breathing_Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D48D2872E17800B1CEF4 /* Mindful_Breathing_Timer.swift */; };
 		D1E7D4902872E19800B1CEF4 /* Mindful_Breathing_Congrats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D48F2872E19800B1CEF4 /* Mindful_Breathing_Congrats.swift */; };
-		06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB0D712871D273002954C7 /* ComingSoonView.swift */; };
+		DC0D9C64289993AB006A53A1 /* CongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0D9C63289993AB006A53A1 /* CongratsView.swift */; };
+		DC1B62012896AC8300F0386E /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B62002896AC8300F0386E /* ActivityViewModel.swift */; };
+		DC1B62032896D89100F0386E /* activities.csv in Resources */ = {isa = PBXBuildFile; fileRef = DC1B62022896D89100F0386E /* activities.csv */; };
+		DC1B62052896FB5D00F0386E /* RecommendationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B62042896FB5D00F0386E /* RecommendationResultView.swift */; };
+		DC9DB0D22893DE3200FCF403 /* finishMindfulWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0CF2893DE3200FCF403 /* finishMindfulWriting.swift */; };
+		DC9DB0D32893DE3200FCF403 /* mindfulWriting1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0D02893DE3200FCF403 /* mindfulWriting1.swift */; };
+		DC9DB0D42893DE3200FCF403 /* mindfulWriting2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0D12893DE3200FCF403 /* mindfulWriting2.swift */; };
+		DC9DB0D62893DE4500FCF403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9DB0D52893DE4500FCF403 /* Assets.xcassets */; };
+		DC9DB0D82893DE5100FCF403 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC9DB0D72893DE5100FCF403 /* Preview Assets.xcassets */; };
+		DC9DB0E32893E04200FCF403 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0DC2893E04200FCF403 /* SplashScreenView.swift */; };
+		DC9DB0E42893E04200FCF403 /* OnboardingStepView.swift~Stashed changes in Resources */ = {isa = PBXBuildFile; fileRef = DC9DB0DD2893E04200FCF403 /* OnboardingStepView.swift~Stashed changes */; };
+		DC9DB0E52893E04200FCF403 /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0DE2893E04200FCF403 /* OnboardingDataModel.swift */; };
+		DC9DB0E62893E04200FCF403 /* OnboardingStepView.swift~Updated upstream in Resources */ = {isa = PBXBuildFile; fileRef = DC9DB0DF2893E04200FCF403 /* OnboardingStepView.swift~Updated upstream */; };
+		DC9DB0E72893E04200FCF403 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E02893E04200FCF403 /* OnboardingStepView.swift */; };
+		DC9DB0E82893E04200FCF403 /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E12893E04200FCF403 /* OnboardingViewPure.swift */; };
+		DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E92893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld */; };
 		EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */; };
 		EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DEA285C6CB80092C195 /* ContentView.swift */; };
 		EE585DF2285C6CBA0092C195 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DF1285C6CBA0092C195 /* Persistence.swift */; };
 		EE585DF5285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE585DF3285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld */; };
-		EEDD20172870123F003AB92E /* Recommendation1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD20162870123F003AB92E /* Recommendation1View.swift */; };
+		EEDD20172870123F003AB92E /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD20162870123F003AB92E /* RecommendationView.swift */; };
 		EEDD201B2870126A003AB92E /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD201A2870126A003AB92E /* EmotionView.swift */; };
 		EEDD201D28704DAA003AB92E /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDD201C28704DAA003AB92E /* DurationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		062171F82872D85A008A8399 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/MC2_Mindfull-main 2/MC2-Mindful-App/Assets.xcassets"; sourceTree = "<group>"; };
 		0640C6E7286F077C005D7DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessActivities.swift; sourceTree = "<group>"; };
 		0640C6EC286F07B8005D7DF6 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		0640C6EE286F07CA005D7DF6 /* BerandaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerandaView.swift; sourceTree = "<group>"; };
 		0640C6F0286F07DA005D7DF6 /* MindfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulView.swift; sourceTree = "<group>"; };
 		0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatView.swift; sourceTree = "<group>"; };
-		0640C6F5286F082E005D7DF6 /* JournallingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournallingView.swift; sourceTree = "<group>"; };
+		0640C6F5286F082E005D7DF6 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
+		06CB0D712871D273002954C7 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
 		D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Screen.swift; sourceTree = "<group>"; };
 		D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Timer.swift; sourceTree = "<group>"; };
 		D1E7D4882872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Congrats.swift; sourceTree = "<group>"; };
 		D1E7D48B2872E15D00B1CEF4 /* Mindful_Breathing_Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mindful_Breathing_Intro.swift; sourceTree = "<group>"; };
 		D1E7D48D2872E17800B1CEF4 /* Mindful_Breathing_Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mindful_Breathing_Timer.swift; sourceTree = "<group>"; };
 		D1E7D48F2872E19800B1CEF4 /* Mindful_Breathing_Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mindful_Breathing_Congrats.swift; sourceTree = "<group>"; };
-		06CB0D712871D273002954C7 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
+		DC0D9C63289993AB006A53A1 /* CongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratsView.swift; sourceTree = "<group>"; };
+		DC1B62002896AC8300F0386E /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		DC1B62022896D89100F0386E /* activities.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = activities.csv; sourceTree = "<group>"; };
+		DC1B62042896FB5D00F0386E /* RecommendationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationResultView.swift; sourceTree = "<group>"; };
+		DC9DB0CF2893DE3200FCF403 /* finishMindfulWriting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finishMindfulWriting.swift; sourceTree = "<group>"; };
+		DC9DB0D02893DE3200FCF403 /* mindfulWriting1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mindfulWriting1.swift; sourceTree = "<group>"; };
+		DC9DB0D12893DE3200FCF403 /* mindfulWriting2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mindfulWriting2.swift; sourceTree = "<group>"; };
+		DC9DB0D52893DE4500FCF403 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC9DB0D72893DE5100FCF403 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DC9DB0DC2893E04200FCF403 /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		DC9DB0DD2893E04200FCF403 /* OnboardingStepView.swift~Stashed changes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "OnboardingStepView.swift~Stashed changes"; sourceTree = "<group>"; };
+		DC9DB0DE2893E04200FCF403 /* OnboardingDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
+		DC9DB0DF2893E04200FCF403 /* OnboardingStepView.swift~Updated upstream */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "OnboardingStepView.swift~Updated upstream"; sourceTree = "<group>"; };
+		DC9DB0E02893E04200FCF403 /* OnboardingStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
+		DC9DB0E12893E04200FCF403 /* OnboardingViewPure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewPure.swift; sourceTree = "<group>"; };
+		DC9DB0EA2893E25A00FCF403 /* OnboardingDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnboardingDataModel.xcdatamodel; sourceTree = "<group>"; };
 		EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-Mindful-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_Mindful_AppApp.swift; sourceTree = "<group>"; };
 		EE585DEA285C6CB80092C195 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE585DF1285C6CBA0092C195 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		EE585DF4285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC2_Mindful_App.xcdatamodel; sourceTree = "<group>"; };
-		EEDD20162870123F003AB92E /* Recommendation1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation1View.swift; sourceTree = "<group>"; };
+		EEDD20162870123F003AB92E /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 		EEDD201A2870126A003AB92E /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
 		EEDD201C28704DAA003AB92E /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +112,10 @@
 		0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */ = {
 			isa = PBXGroup;
 			children = (
-				0640C6F5286F082E005D7DF6 /* JournallingView.swift */,
+				D1E7D48A2872E13800B1CEF4 /* Mindful-Breathing */,
+				DC0D9C6128999107006A53A1 /* Mindful-Journaling */,
 				06CB0D712871D273002954C7 /* ComingSoonView.swift */,
+				DC0D9C63289993AB006A53A1 /* CongratsView.swift */,
 			);
 			path = "Mindful-Activities-Views";
 			sourceTree = "<group>";
@@ -108,6 +140,86 @@
 			path = "Mindful-Breathing";
 			sourceTree = "<group>";
 		};
+		DC0D9C60289990E1006A53A1 /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DB0CE2893DE3200FCF403 /* Mindful-Writing */,
+				EEDD201928701257003AB92E /* Questions */,
+				D1E7D4832872D69700B1CEF4 /* Breathing-Intro */,
+			);
+			path = Unused;
+			sourceTree = "<group>";
+		};
+		DC0D9C6128999107006A53A1 /* Mindful-Journaling */ = {
+			isa = PBXGroup;
+			children = (
+				0640C6F5286F082E005D7DF6 /* JournalingView.swift */,
+			);
+			path = "Mindful-Journaling";
+			sourceTree = "<group>";
+		};
+		DC9DB0CE2893DE3200FCF403 /* Mindful-Writing */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DB0CF2893DE3200FCF403 /* finishMindfulWriting.swift */,
+				DC9DB0D02893DE3200FCF403 /* mindfulWriting1.swift */,
+				DC9DB0D12893DE3200FCF403 /* mindfulWriting2.swift */,
+			);
+			path = "Mindful-Writing";
+			sourceTree = "<group>";
+		};
+		DC9DB0D92893E04200FCF403 /* OnBoardingSection */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DB0DC2893E04200FCF403 /* SplashScreenView.swift */,
+				DC9DB0DD2893E04200FCF403 /* OnboardingStepView.swift~Stashed changes */,
+				DC9DB0DE2893E04200FCF403 /* OnboardingDataModel.swift */,
+				DC9DB0DF2893E04200FCF403 /* OnboardingStepView.swift~Updated upstream */,
+				DC9DB0E02893E04200FCF403 /* OnboardingStepView.swift */,
+				DC9DB0E12893E04200FCF403 /* OnboardingViewPure.swift */,
+				DC9DB0E92893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld */,
+			);
+			path = OnBoardingSection;
+			sourceTree = "<group>";
+		};
+		DCD3BCEA2896745100344DC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE585DF3285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld */,
+				0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DCD3BCEB2896745600344DC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC9DB0D92893E04200FCF403 /* OnBoardingSection */,
+				0640C6EB286F07AC005D7DF6 /* Main-Tab-Bar-Views */,
+				EEDD20152870119E003AB92E /* RecommendationView */,
+				0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */,
+				DC0D9C60289990E1006A53A1 /* Unused */,
+				0640C6E7286F077C005D7DF6 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DCD3BCEC2896745B00344DC0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B62002896AC8300F0386E /* ActivityViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DCD3BCED2896751700344DC0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EE585DF1285C6CBA0092C195 /* Persistence.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		EE585DDC285C6CB80092C195 = {
 			isa = PBXGroup;
 			children = (
@@ -127,18 +239,14 @@
 		EE585DE7285C6CB80092C195 /* MC2-Mindful-App */ = {
 			isa = PBXGroup;
 			children = (
-				D1E7D48A2872E13800B1CEF4 /* Mindful-Breathing */,
-				D1E7D4832872D69700B1CEF4 /* Breathing-Intro */,
+				DCD3BCEA2896745100344DC0 /* Model */,
+				DC1B62022896D89100F0386E /* activities.csv */,
+				DCD3BCED2896751700344DC0 /* Helper */,
+				DCD3BCEC2896745B00344DC0 /* ViewModel */,
+				DCD3BCEB2896745600344DC0 /* View */,
+				DC9DB0D52893DE4500FCF403 /* Assets.xcassets */,
 				EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */,
 				EE585DEA285C6CB80092C195 /* ContentView.swift */,
-				EE585DF1285C6CBA0092C195 /* Persistence.swift */,
-				0640C6E7286F077C005D7DF6 /* MainView.swift */,
-				0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */,
-				EEDD20152870119E003AB92E /* recommendation */,
-				0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */,
-				0640C6EB286F07AC005D7DF6 /* Main-Tab-Bar-Views */,
-				EEDD201928701257003AB92E /* Questions */,
-				EE585DF3285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld */,
 				EE585DEE285C6CBA0092C195 /* Preview Content */,
 			);
 			path = "MC2-Mindful-App";
@@ -147,17 +255,18 @@
 		EE585DEE285C6CBA0092C195 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				062171F82872D85A008A8399 /* Assets.xcassets */,
+				DC9DB0D72893DE5100FCF403 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		EEDD20152870119E003AB92E /* recommendation */ = {
+		EEDD20152870119E003AB92E /* RecommendationView */ = {
 			isa = PBXGroup;
 			children = (
-				EEDD20162870123F003AB92E /* Recommendation1View.swift */,
+				EEDD20162870123F003AB92E /* RecommendationView.swift */,
+				DC1B62042896FB5D00F0386E /* RecommendationResultView.swift */,
 			);
-			path = recommendation;
+			path = RecommendationView;
 			sourceTree = "<group>";
 		};
 		EEDD201928701257003AB92E /* Questions */ = {
@@ -227,7 +336,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				062171F92872D85A008A8399 /* Assets.xcassets in Resources */,
+				DC1B62032896D89100F0386E /* activities.csv in Resources */,
+				DC9DB0E62893E04200FCF403 /* OnboardingStepView.swift~Updated upstream in Resources */,
+				DC9DB0D82893DE5100FCF403 /* Preview Assets.xcassets in Resources */,
+				DC9DB0E42893E04200FCF403 /* OnboardingStepView.swift~Stashed changes in Resources */,
+				DC9DB0D62893DE4500FCF403 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,16 +352,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1E7D4852872DD6200B1CEF4 /* Breathing_Intro_Screen.swift in Sources */,
+				DC9DB0E82893E04200FCF403 /* OnboardingViewPure.swift in Sources */,
+				DC9DB0E32893E04200FCF403 /* SplashScreenView.swift in Sources */,
 				EEDD201D28704DAA003AB92E /* DurationView.swift in Sources */,
 				EE585DF5285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld in Sources */,
+				DC1B62012896AC8300F0386E /* ActivityViewModel.swift in Sources */,
 				D1E7D48C2872E15D00B1CEF4 /* Mindful_Breathing_Intro.swift in Sources */,
-				EEDD20172870123F003AB92E /* Recommendation1View.swift in Sources */,
+				DC9DB0D32893DE3200FCF403 /* mindfulWriting1.swift in Sources */,
+				DC9DB0D42893DE3200FCF403 /* mindfulWriting2.swift in Sources */,
+				DC0D9C64289993AB006A53A1 /* CongratsView.swift in Sources */,
+				EEDD20172870123F003AB92E /* RecommendationView.swift in Sources */,
 				0640C6ED286F07B8005D7DF6 /* SheetView.swift in Sources */,
+				DC9DB0E72893E04200FCF403 /* OnboardingStepView.swift in Sources */,
+				DC1B62052896FB5D00F0386E /* RecommendationResultView.swift in Sources */,
+				DC9DB0E52893E04200FCF403 /* OnboardingDataModel.swift in Sources */,
 				D1E7D4902872E19800B1CEF4 /* Mindful_Breathing_Congrats.swift in Sources */,
 				D1E7D4872872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift in Sources */,
 				D1E7D48E2872E17800B1CEF4 /* Mindful_Breathing_Timer.swift in Sources */,
 				0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */,
-				0640C6F6286F082E005D7DF6 /* JournallingView.swift in Sources */,
+				0640C6F6286F082E005D7DF6 /* JournalingView.swift in Sources */,
 				EE585DF2285C6CBA0092C195 /* Persistence.swift in Sources */,
 				EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */,
 				0640C6EF286F07CA005D7DF6 /* BerandaView.swift in Sources */,
@@ -256,9 +378,11 @@
 				EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */,
 				D1E7D4892872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift in Sources */,
 				0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */,
+				DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */,
 				EEDD201B2870126A003AB92E /* EmotionView.swift in Sources */,
 				06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */,
 				0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */,
+				DC9DB0D22893DE3200FCF403 /* finishMindfulWriting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = HTHQDDC4TA;
+				DEVELOPMENT_TEAM = JR8723F8QY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -416,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = HTHQDDC4TA;
+				DEVELOPMENT_TEAM = JR8723F8QY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -461,6 +585,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		DC9DB0E92893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC9DB0EA2893E25A00FCF403 /* OnboardingDataModel.xcdatamodel */,
+			);
+			currentVersion = DC9DB0EA2893E25A00FCF403 /* OnboardingDataModel.xcdatamodel */;
+			path = OnboardingDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		EE585DF3285C6CBA0092C195 /* MC2_Mindful_App.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
