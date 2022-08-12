@@ -31,6 +31,7 @@ struct Mindful_Breathing_Intro: View {
                 .multilineTextAlignment(.center)
                 .padding()
             
+            //di sini nanti var nya diganti tergantung berapa detikannya sih
             NavigationLink(destination: Mindful_Breathing_Timer(activityModel: activityModel)) {
                 Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                     .background(Color.white)

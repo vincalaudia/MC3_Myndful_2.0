@@ -1,127 +1,214 @@
 //
-//  Mindful_Breathing_Timer.swift
-//  MC2-Mindful-App
+//  BreathingTimerView.swift
+//  Mindful_WatchApp WatchKit Extension
 //
-//  Created by Billi Umar Daeli on 04/07/22.
+//  Created by Jovinca Claudia on 14/07/22.
 //
 
 import SwiftUI
+import UIKit
+import AVFoundation
+
+var audioPlayer: AVAudioPlayer?
 
 struct Mindful_Breathing_Timer: View {
+    @State var breathingSeconds : [Int] = [4, 7, 8, 0]
+    //breath. hold. release. hold
+    @State var breathingRepeat : Int = 3
+    @State var totalSeconds : Float = 57
     
     @ObservedObject var activityModel: ActivityViewModel
     @Environment(\.self) var env
     
+    //setted
+    @State var progressValue: Float = 0.0
+    @State var countdownTimer = 1
+    @State var timerRunning = true
+    @State var moveToNextScreen = false
+    @State var finish = false
+    @State var scalePoint : Double = 1.0
+    @State var breathDescription : String = "Inhale"
+    @State var breathState : Int = 0
+    @State var opacityAppear = false
     
-    @State var bernafas: String = "Tarik Nafas"
-    @State var brethingFinish: Bool = false
-    @State var moveToNextScreen: Bool = false
-    @State var buttonColor: Color = .blue
-    @State var buttonRadius: CGFloat = 0
-    @State var scalePoint: Double = 1
-    @State var countDownTimer = 4
-    @State var animationDuration = 1.0
-    @State var breathState = 0 //0: Breateh, 1: Hold, 2: Release
-    @State var timerRunning = false
+    @State var animationDuration : Double = 0
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        VStack (spacing : 30){
-            
-            Button {
-                simpleSuccess()
-            } label: {
-                Text("\(countDownTimer)")
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .background(LinearGradient(
-                        colors: [Color(red: 180/255, green: 194/255, blue: 253/255), Color(red: 122/255, green: 181/255, blue: 252/255)],
+        GeometryReader { geo in
+            VStack{
+                
+                ZStack{
+                    
+                    ProgressBar(progress: self.$progressValue)
+                                        .frame(width: geo.size.width/2+80, height: geo.size.width/2+80)
+                                      
+                    
+                    LinearGradient(
+                        colors: [Color(red: 93/255, green: 164/255, blue: 255/255), Color(red: 222/255, green: 230/255, blue: 255/255)],
                         startPoint: .top,
                         endPoint: .bottom
-                    ))
-                    .cornerRadius(75)
-                    .font(.system(size: 40))
-                    .tint(.white)
-                    .onReceive(timer)
-                { _ in
-                    if countDownTimer > 1 && timerRunning {
-                        countDownTimer -= 1
+                    ).frame(width: geo.size.width/2, height: geo.size.width/2, alignment: .center)
+                        .mask(
+                            Circle()
+                                .frame(width: geo.size.width/3, height: geo.size.width/3, alignment: .center)
+                                .blur(radius: 3)
+                        )
+                        .scaleEffect(scalePoint)
+                        .animation(.linear(duration: animationDuration), value: scalePoint)
+                    NavigationLink(destination: Mindful_Breathing_Congrats(activityModel: activityModel), isActive: $moveToNextScreen) {
+                        EmptyView()
                         
-                    } else {
-                        timerRunning = false
-                        
-                        if brethingFinish {
-                            moveToNextScreen = true
-                            return
-                        }
-                        resetTimer()
-                        switch(breathState){
-                        case 0:
-                            scalePoint = 1.5
-                            breathState = 1
-                            bernafas = "Tarik Nafas"
-                        case 1:
-                            scalePoint = 1.5
-                            breathState = 2
-                            bernafas = "Tahan Nafas"
-                        case 2:
-                            scalePoint = 1
-                            breathState = 0
-                            brethingFinish = true
-                            bernafas = "Hembuskan Nafas"
-                        default:
-                            print("fail")
-                        }
-                        
-                        timerRunning = true
                     }
                     
+                    Text("\(countdownTimer)")
+                        .foregroundColor(.white)
+                        .font(.system(size: 50))
+                        .bold()
+                        .onReceive(timer){ _ in
+                            progressValue += 1/totalSeconds
+                            
+                            if countdownTimer>1 && timerRunning{
+                                countdownTimer -= 1
+                                Haptics.shared.play(.soft)
+                     
+                            }
+                            else{
+                                if finish {
+                                    timerRunning = false
+                                    moveToNextScreen = true
+                                    return
+                                }
+                                updateTimer()
+                                
+                                switch(breathState){
+                                case 0:
+                                    scalePoint = 1.5
+                                    breathDescription = "Inhale"
+                                    playSound(sound: "inhale", type: "wav")
+                                    Haptics.shared.play(.heavy)
+                                    if breathingSeconds[1] == 0{
+                                        breathState = 2
+                                    }
+                                    else{
+                                        breathState = 1
+                                    }
+                                case 1:
+                                    Haptics.shared.play(.medium)
+                                    scalePoint = 1.5
+                                    breathState = 2
+                                    playSound(sound: "hold", type: "wav")
+                                    breathDescription = "Hold"
+                                case 2:
+                                    Haptics.shared.play(.heavy)
+                                    scalePoint = 1
+                                    playSound(sound: "exhale", type: "wav")
+                                    breathDescription = "Exhale"
+                                    if breathingSeconds[3] == 0{
+                                        breathState = 0
+                                        breathingRepeat-=1
+                                        finish = breathingRepeat==0 ? true : false
+                                    }else{
+                                        breathState = 3
+                                    }
+                                case 3:
+                                    Haptics.shared.play(.soft)
+                                    scalePoint = 1
+                                    breathState = 0
+                                    breathingRepeat-=1
+                                    playSound(sound: "hold", type: "wav")
+                                    breathDescription = "Hold"
+                                    finish = breathingRepeat==0 ? true : false
+                                default:
+                                    print("fail")
+                                }
+                                Haptics.shared.play(.light)
+                            }
+                        }
+                    
                 }
-            }
-            .scaleEffect(scalePoint)
-            .animation(.linear(duration: animationDuration), value: scalePoint)
-            .padding()
-            
-            NavigationLink(destination: Mindful_Breathing_Congrats(activityModel: activityModel), isActive: $moveToNextScreen) {
+                .padding(.bottom,40)
+                .onAppear{
+                    withAnimation(Animation.spring().speed(0.06)) {
+                        opacityAppear.toggle()
+                    }
+                }
+                .opacity(opacityAppear ? 1:0)
                 
-                EmptyView()
                 
-            }
-            
-            Text(bernafas)
-                .bold()
-                .font(.title2)
-                .foregroundColor(
-                    Color(red: 170/255, green: 184/255, blue: 243/255))
-                .padding(.top, 20)
-            
-        }.onAppear {
-            
-            
+                Text(breathDescription)
+                    .bold()
+                    .opacity(opacityAppear ? 1:0.1)
+                    .font(.system(size: 36))
+                    .foregroundColor(Color(red: 180/255, green: 194/255, blue: 253/255))
+                    .padding(.bottom, 50)
+                
+                //)
+            }.navigationTitle("Time")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .navigationBarTitle("", displayMode: .inline)
-        
     }
     
-    func resetTimer() {
+    func updateTimer(){
         switch(breathState){
         case 0:
-            countDownTimer = 4
-            bernafas = "Tarik Nafas"
+            countdownTimer = breathingSeconds[0]
         case 1:
-            countDownTimer = 7
+            countdownTimer = breathingSeconds[1]
         case 2:
-            countDownTimer = 8
+            countdownTimer = breathingSeconds[2]
+        case 3:
+            countdownTimer = breathingSeconds[3]
         default:
             print("fail")
         }
-        
-        animationDuration = Double(countDownTimer)
+        animationDuration = Double(countdownTimer)
     }
+}
+
+struct ProgressBar: View {
+    @Binding var progress: Float
     
-    func simpleSuccess() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+    var body: some View {
+        GeometryReader{ geo in
+            ZStack {
+                Circle()
+                    .stroke(lineWidth: 25.0)
+                    .foregroundColor(Color(red: 214/255, green: 231/255, blue: 255/255))
+                    .blur(radius: 3)
+                
+                Circle()
+                        .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
+                        .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
+                        .blur(radius: 3)
+                        .foregroundColor(Color(red: 172/255, green: 207/255, blue: 255/255))
+                        .rotationEffect(Angle(degrees: 270.0))
+                        .animation(.linear(duration: 1.0))
+                
+            }.animation(.linear(duration: 1.0))
+        }
+    }
+}
+
+class Haptics {
+    static let shared = Haptics()
+    
+    private init() { }
+    
+    func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle) {
+        UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred()
+    }
+}
+
+func playSound(sound: String, type: String) {
+    if let path = Bundle.main.path(forResource: sound, ofType: type) {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            audioPlayer?.play()
+        } catch {
+            print("ERROR")
+        }
     }
 }
 
@@ -130,4 +217,3 @@ struct Mindful_Breathing_Timer_Previews: PreviewProvider {
         Mindful_Breathing_Timer(activityModel: ActivityViewModel())
     }
 }
-
