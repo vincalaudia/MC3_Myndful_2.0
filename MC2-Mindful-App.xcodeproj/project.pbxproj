@@ -14,6 +14,9 @@
 		0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F0286F07DA005D7DF6 /* MindfulView.swift */; };
 		0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */; };
 		0640C6F6286F082E005D7DF6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F5286F082E005D7DF6 /* JournalingView.swift */; };
+		067392DB28A3B7CD003E8404 /* exhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 067392D828A3B7CD003E8404 /* exhale.wav */; };
+		067392DC28A3B7CD003E8404 /* hold.wav in Resources */ = {isa = PBXBuildFile; fileRef = 067392D928A3B7CD003E8404 /* hold.wav */; };
+		067392DD28A3B7CD003E8404 /* inhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 067392DA28A3B7CD003E8404 /* inhale.wav */; };
 		06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB0D712871D273002954C7 /* ComingSoonView.swift */; };
 		D1E7D4852872DD6200B1CEF4 /* Breathing_Intro_Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */; };
 		D1E7D4872872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */; };
@@ -54,6 +57,9 @@
 		0640C6F0286F07DA005D7DF6 /* MindfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulView.swift; sourceTree = "<group>"; };
 		0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatView.swift; sourceTree = "<group>"; };
 		0640C6F5286F082E005D7DF6 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
+		067392D828A3B7CD003E8404 /* exhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = exhale.wav; path = ../../../../Downloads/exhale.wav; sourceTree = "<group>"; };
+		067392D928A3B7CD003E8404 /* hold.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hold.wav; path = ../../../../Downloads/hold.wav; sourceTree = "<group>"; };
+		067392DA28A3B7CD003E8404 /* inhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = inhale.wav; path = ../../../../Downloads/inhale.wav; sourceTree = "<group>"; };
 		06CB0D712871D273002954C7 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
 		D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Screen.swift; sourceTree = "<group>"; };
 		D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Timer.swift; sourceTree = "<group>"; };
@@ -118,6 +124,16 @@
 				DC0D9C63289993AB006A53A1 /* CongratsView.swift */,
 			);
 			path = "Mindful-Activities-Views";
+			sourceTree = "<group>";
+		};
+		067392D128A3B786003E8404 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				067392D828A3B7CD003E8404 /* exhale.wav */,
+				067392D928A3B7CD003E8404 /* hold.wav */,
+				067392DA28A3B7CD003E8404 /* inhale.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		D1E7D4832872D69700B1CEF4 /* Breathing-Intro */ = {
@@ -239,6 +255,7 @@
 		EE585DE7285C6CB80092C195 /* MC2-Mindful-App */ = {
 			isa = PBXGroup;
 			children = (
+				067392D128A3B786003E8404 /* Sounds */,
 				DCD3BCEA2896745100344DC0 /* Model */,
 				DC1B62022896D89100F0386E /* activities.csv */,
 				DCD3BCED2896751700344DC0 /* Helper */,
@@ -337,10 +354,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC1B62032896D89100F0386E /* activities.csv in Resources */,
+				067392DC28A3B7CD003E8404 /* hold.wav in Resources */,
+				067392DB28A3B7CD003E8404 /* exhale.wav in Resources */,
 				DC9DB0E62893E04200FCF403 /* OnboardingStepView.swift~Updated upstream in Resources */,
 				DC9DB0D82893DE5100FCF403 /* Preview Assets.xcassets in Resources */,
 				DC9DB0E42893E04200FCF403 /* OnboardingStepView.swift~Stashed changes in Resources */,
 				DC9DB0D62893DE4500FCF403 /* Assets.xcassets in Resources */,
+				067392DD28A3B7CD003E8404 /* inhale.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = JR8723F8QY;
+				DEVELOPMENT_TEAM = M763V89YXY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -540,7 +560,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = JR8723F8QY;
+				DEVELOPMENT_TEAM = M763V89YXY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
