@@ -29,7 +29,7 @@ struct ScavengerHunt: View {
             
             ZStack{
                 
-                                NavigationLink(destination: CongratsView(image: "IMAGENYA DISINI APA YA", congratsBody: "Yay kamu telah berhasil menemukan \(found) dari total \(found+miss)"), isActive: $moveToNextScreen) {
+                                NavigationLink(destination: CongratsView(image: "IMAGENYA DISINI APA YA", congratsBody: "Yay kamu telah berhasil menemukan \(found) objek dari total \(found+miss)"), isActive: $moveToNextScreen) {
                                     EmptyView()
                 
                                 }

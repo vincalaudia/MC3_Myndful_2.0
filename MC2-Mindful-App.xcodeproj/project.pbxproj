@@ -14,9 +14,10 @@
 		0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F0286F07DA005D7DF6 /* MindfulView.swift */; };
 		0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */; };
 		0640C6F6286F082E005D7DF6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6F5286F082E005D7DF6 /* JournalingView.swift */; };
-		067392DB28A3B7CD003E8404 /* exhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 067392D828A3B7CD003E8404 /* exhale.wav */; };
-		067392DC28A3B7CD003E8404 /* hold.wav in Resources */ = {isa = PBXBuildFile; fileRef = 067392D928A3B7CD003E8404 /* hold.wav */; };
-		067392DD28A3B7CD003E8404 /* inhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 067392DA28A3B7CD003E8404 /* inhale.wav */; };
+		06777BAF28AA498300021C0F /* ScavengerHunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06777BAE28AA498300021C0F /* ScavengerHunt.swift */; };
+		06777BB128AB241A00021C0F /* inhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06777BB028AB241A00021C0F /* inhale.wav */; };
+		06777BB428AB244500021C0F /* hold.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06777BB228AB244500021C0F /* hold.wav */; };
+		06777BB528AB244500021C0F /* exhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06777BB328AB244500021C0F /* exhale.wav */; };
 		06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB0D712871D273002954C7 /* ComingSoonView.swift */; };
 		D1E7D4852872DD6200B1CEF4 /* Breathing_Intro_Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */; };
 		D1E7D4872872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */; };
@@ -57,9 +58,10 @@
 		0640C6F0286F07DA005D7DF6 /* MindfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulView.swift; sourceTree = "<group>"; };
 		0640C6F2286F07E9005D7DF6 /* RiwayatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatView.swift; sourceTree = "<group>"; };
 		0640C6F5286F082E005D7DF6 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
-		067392D828A3B7CD003E8404 /* exhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = exhale.wav; path = ../../../../Downloads/exhale.wav; sourceTree = "<group>"; };
-		067392D928A3B7CD003E8404 /* hold.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hold.wav; path = ../../../../Downloads/hold.wav; sourceTree = "<group>"; };
-		067392DA28A3B7CD003E8404 /* inhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = inhale.wav; path = ../../../../Downloads/inhale.wav; sourceTree = "<group>"; };
+		06777BAE28AA498300021C0F /* ScavengerHunt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerHunt.swift; sourceTree = "<group>"; };
+		06777BB028AB241A00021C0F /* inhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = inhale.wav; sourceTree = "<group>"; };
+		06777BB228AB244500021C0F /* hold.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hold.wav; sourceTree = "<group>"; };
+		06777BB328AB244500021C0F /* exhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = exhale.wav; sourceTree = "<group>"; };
 		06CB0D712871D273002954C7 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
 		D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Screen.swift; sourceTree = "<group>"; };
 		D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Timer.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				DC0D9C6128999107006A53A1 /* Mindful-Journaling */,
 				06CB0D712871D273002954C7 /* ComingSoonView.swift */,
 				DC0D9C63289993AB006A53A1 /* CongratsView.swift */,
+				06777BB828AB34F500021C0F /* Scavenger-Hunt */,
 			);
 			path = "Mindful-Activities-Views";
 			sourceTree = "<group>";
@@ -129,11 +132,19 @@
 		067392D128A3B786003E8404 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				067392D828A3B7CD003E8404 /* exhale.wav */,
-				067392D928A3B7CD003E8404 /* hold.wav */,
-				067392DA28A3B7CD003E8404 /* inhale.wav */,
+				06777BB328AB244500021C0F /* exhale.wav */,
+				06777BB228AB244500021C0F /* hold.wav */,
+				06777BB028AB241A00021C0F /* inhale.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		06777BB828AB34F500021C0F /* Scavenger-Hunt */ = {
+			isa = PBXGroup;
+			children = (
+				06777BAE28AA498300021C0F /* ScavengerHunt.swift */,
+			);
+			path = "Scavenger-Hunt";
 			sourceTree = "<group>";
 		};
 		D1E7D4832872D69700B1CEF4 /* Breathing-Intro */ = {
@@ -354,13 +365,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC1B62032896D89100F0386E /* activities.csv in Resources */,
-				067392DC28A3B7CD003E8404 /* hold.wav in Resources */,
-				067392DB28A3B7CD003E8404 /* exhale.wav in Resources */,
+				06777BB428AB244500021C0F /* hold.wav in Resources */,
+				06777BB128AB241A00021C0F /* inhale.wav in Resources */,
 				DC9DB0E62893E04200FCF403 /* OnboardingStepView.swift~Updated upstream in Resources */,
 				DC9DB0D82893DE5100FCF403 /* Preview Assets.xcassets in Resources */,
+				06777BB528AB244500021C0F /* exhale.wav in Resources */,
 				DC9DB0E42893E04200FCF403 /* OnboardingStepView.swift~Stashed changes in Resources */,
 				DC9DB0D62893DE4500FCF403 /* Assets.xcassets in Resources */,
-				067392DD28A3B7CD003E8404 /* inhale.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +408,7 @@
 				0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */,
 				EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */,
 				D1E7D4892872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift in Sources */,
+				06777BAF28AA498300021C0F /* ScavengerHunt.swift in Sources */,
 				0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */,
 				DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */,
 				EEDD201B2870126A003AB92E /* EmotionView.swift in Sources */,
