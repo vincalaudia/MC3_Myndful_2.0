@@ -41,6 +41,7 @@
 		DC9DB0E72893E04200FCF403 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E02893E04200FCF403 /* OnboardingStepView.swift */; };
 		DC9DB0E82893E04200FCF403 /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E12893E04200FCF403 /* OnboardingViewPure.swift */; };
 		DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E92893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld */; };
+		DCCD99CD28AD7D6200A41005 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD99CC28AD7D6200A41005 /* PlaySound.swift */; };
 		EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */; };
 		EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DEA285C6CB80092C195 /* ContentView.swift */; };
 		EE585DF2285C6CBA0092C195 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DF1285C6CBA0092C195 /* Persistence.swift */; };
@@ -85,6 +86,7 @@
 		DC9DB0E02893E04200FCF403 /* OnboardingStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		DC9DB0E12893E04200FCF403 /* OnboardingViewPure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewPure.swift; sourceTree = "<group>"; };
 		DC9DB0EA2893E25A00FCF403 /* OnboardingDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnboardingDataModel.xcdatamodel; sourceTree = "<group>"; };
+		DCCD99CC28AD7D6200A41005 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-Mindful-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_Mindful_AppApp.swift; sourceTree = "<group>"; };
 		EE585DEA285C6CB80092C195 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				EE585DF1285C6CBA0092C195 /* Persistence.swift */,
+				DCCD99CC28AD7D6200A41005 /* PlaySound.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */,
 				0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */,
 				DC9DB0D22893DE3200FCF403 /* finishMindfulWriting.swift in Sources */,
+				DCCD99CD28AD7D6200A41005 /* PlaySound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

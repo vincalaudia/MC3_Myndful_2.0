@@ -7,18 +7,28 @@
 
 import SwiftUI
 import UIKit
-import AVFoundation
 
-var audioPlayer: AVAudioPlayer?
+
 
 struct Mindful_Breathing_Timer: View {
-    @State var breathingSeconds : [Int] = [4, 7, 8, 0]
-    //breath. hold. release. hold
-    @State var breathingRepeat : Int = 3
-    @State var totalSeconds : Float = 57
     
     @ObservedObject var activityModel: ActivityViewModel
     @Environment(\.self) var env
+    
+    
+    @State var splitedBreathData: [String] = []
+    
+//    @State var breathingSeconds : [Int] = [4, 7, 8, 0]
+//    //breath. hold. release. hold
+//    @State var breathingRepeat : Int = 3
+//    @State var totalSeconds : Float = 57
+    
+    @State var breathingSeconds : [Int] = []
+    //breath. hold. release. hold
+    @State var breathingRepeat : Int = 0
+    @State var totalSeconds : Float = 0
+    
+
     
     //setted
     @State var progressValue: Float = 0.0
@@ -38,7 +48,6 @@ struct Mindful_Breathing_Timer: View {
     var body: some View {
         GeometryReader { geo in
             VStack{
-                
                 ZStack{
                     
                     ProgressBar(progress: self.$progressValue)
@@ -145,9 +154,28 @@ struct Mindful_Breathing_Timer: View {
                     .padding(.bottom, 50)
                 
                 //)
-            }.navigationTitle("Time")
+            }.navigationTitle(activityModel.selectedActivity.title ?? "Breathing")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
+        }.onAppear(perform: {
+            
+            var splitted = activityModel.selectedActivity.breathingData?.components(separatedBy: "-")
+            var totalSecondsSplitted = 0
+            
+            print(splitted)
+            
+            for (index, split) in splitted!.enumerated() {
+                if index != 4{
+                    totalSecondsSplitted = totalSecondsSplitted + Int(split)!
+                    breathingSeconds.append(Int(split)!)
+                } else {
+                    totalSecondsSplitted = totalSecondsSplitted * Int(split)!
+                    breathingRepeat = Int(split)!
+                }
+            }
+
+            totalSeconds = Float(totalSecondsSplitted)
+            
+        })
     }
     
     func updateTimer(){
@@ -165,6 +193,18 @@ struct Mindful_Breathing_Timer: View {
         }
         animationDuration = Double(countdownTimer)
     }
+    
+    class Haptics {
+        static let shared = Haptics()
+        
+        private init() { }
+        
+        func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle) {
+            UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred()
+        }
+    }
+
+
 }
 
 struct ProgressBar: View {
@@ -189,28 +229,11 @@ struct ProgressBar: View {
             }.animation(.linear(duration: 1.0))
         }
     }
+    
+    
 }
 
-class Haptics {
-    static let shared = Haptics()
-    
-    private init() { }
-    
-    func play(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle) {
-        UIImpactFeedbackGenerator(style: feedbackStyle).impactOccurred()
-    }
-}
 
-func playSound(sound: String, type: String) {
-    if let path = Bundle.main.path(forResource: sound, ofType: type) {
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            audioPlayer?.play()
-        } catch {
-            print("ERROR")
-        }
-    }
-}
 
 struct Mindful_Breathing_Timer_Previews: PreviewProvider {
     static var previews: some View {

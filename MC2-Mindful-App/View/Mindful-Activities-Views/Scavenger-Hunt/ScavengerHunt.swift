@@ -13,8 +13,8 @@ struct ScavengerHunt: View {
     
     @State var progressValue: Float = 0.0
     @State var alphabet = randomString()
-    @State var miss : Int = 0
-    @State var found : Int = 0
+//    @State var miss : Int = 0
+//    @State var found : Int = 0
     @State var currentTime = 0
     @State var moveToNextScreen = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -29,7 +29,8 @@ struct ScavengerHunt: View {
             
             ZStack{
                 
-                                NavigationLink(destination: CongratsView(image: "IMAGENYA DISINI APA YA", congratsBody: "Yay kamu telah berhasil menemukan \(found) objek dari total \(found+miss)"), isActive: $moveToNextScreen) {
+                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Yay kamu telah berhasil menemukan  \n\(activityModel.found) objek dari total \(activityModel.found+activityModel.miss)"), isActive: $moveToNextScreen) {
+                                    
                                     EmptyView()
                 
                                 }
@@ -48,17 +49,19 @@ struct ScavengerHunt: View {
                             }
                             else{
                                 moveToNextScreen = true
+                                
+                               
                             }
                             
                             if(progressValue>1){
                                 progressValue = 0.0
                                 alphabet = randomString()
-                                miss+=1
+                                activityModel.miss+=1
                             }
                         }
                     
                     
-                    Text("\(found) - \(miss)")
+                    Text("\(activityModel.found) - \(activityModel.miss)")
                         .font(.caption)
                         .bold()
                         .frame(width: UIScreen.main.bounds.width/8, height: 20, alignment: .center)
@@ -70,18 +73,23 @@ struct ScavengerHunt: View {
                     
                 }
                 
-            }.padding(30)
+            }.navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Scavenger Hunt")
+      
+            .padding(30)
             
             
             HStack{
                 Button("Ketemu"){
                     alphabet = randomString()
                     progressValue = 0.0
-                    found+=1
+                    activityModel.found+=1
                 }
                 
             }
-        }.multilineTextAlignment(.center)
+        }
+
+        .multilineTextAlignment(.center)
         
     }
     

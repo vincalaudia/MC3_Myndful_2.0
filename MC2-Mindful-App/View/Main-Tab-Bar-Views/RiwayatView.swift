@@ -35,6 +35,7 @@ struct RiwayatView: View {
             ForEach (activityModel.userActivityHistoryArray) {item in
                 HStack(){
                     
+                    // Untuk Daily Affirmations
                     if item.activity?.id == 1 {
                         
                         Text(item.emoji ?? "😐")
@@ -43,7 +44,10 @@ struct RiwayatView: View {
                             .padding(.leading, 26)
                             
              
-                    } else {
+                    }
+                    // Untuk selain itu
+
+                    else {
                         
                         Image(systemName: item.activity?.image ?? "wind")
                             .resizable()
@@ -69,7 +73,20 @@ struct RiwayatView: View {
 
 
 
-                                } else {
+                                }
+                        
+                                    // Untuk Scavenger Hunt
+                                    else if item.activity?.id == 14{
+                                        
+                                        Text("Found : \(item.scavengerHuntFound) - Miss : \(item.scavengerHuntMiss)" ?? "")
+                                            .lineLimit(1)
+                                            .font(.footnote)
+                                        
+                                    }
+                                    
+                                    // Untuk Breathings
+                                    
+                        else {
 
                                     Text(item.activity?.type ?? "")
                                         .font(.caption)
@@ -87,11 +104,12 @@ struct RiwayatView: View {
                     .background(Image("BGRecents")
                         .resizable()
                     )
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)                
+                     
             }
             
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)    
         .padding(.bottom, 25)
         .background(Image("BGDashboard"))
             .onAppear(perform: {

@@ -41,7 +41,15 @@ struct MindfulView: View {
                 } else if (item.viewDestination == "JournalingView" ){
                     ActivityCard(item: item, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
 
-                } else if (item.viewDestination == "ComingSoonView" ){
+                }
+                
+                else if (item.viewDestination == "ScavengerHunt" ){
+        
+                    ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+                            
+                }
+                
+                else if (item.viewDestination == "ComingSoonView" ){
         
                     ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
                             
@@ -51,7 +59,8 @@ struct MindfulView: View {
         }
         .padding(.bottom, 25)
         .background(Image("BGDashboard"))
-            .navigationBarTitle("Back")
+//            .navigationBarTitle("Back")
+        .navigationBarTitle("")
             .navigationBarHidden(true)
             .onAppear(perform: {
                 activityModel.loadActivities()

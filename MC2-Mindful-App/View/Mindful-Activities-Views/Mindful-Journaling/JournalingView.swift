@@ -295,7 +295,7 @@ struct JournalingView: View {
                     
                 } else {
                     
-                    NavigationLink(destination: CongratsView(image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")) {
+                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")) {
                     
                     VStack{
                         Text("Selesai")

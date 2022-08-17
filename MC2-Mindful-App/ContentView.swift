@@ -16,17 +16,21 @@ struct ContentView: View {
     @Environment(\.self) var env
     
     @AppStorage("isStart") private var isStart: Bool = false
+    @AppStorage("isBreathingIntroStarted") private var isBreathingIntroStarted: Bool = false
     @AppStorage("preload") private var preload: Bool = false
     
 
     static let sample = OnboardingDataModel.data
     var body: some View {
    
-        if isStart {
+        if isStart
+            
+//            && isBreathingIntroStarted
+        {
             
             MainView()
             
-        } else {
+        } else if !isStart  {
 
             OnboardingViewPure(data: ContentView.sample, doneFunction: {
                 
@@ -40,6 +44,10 @@ struct ContentView: View {
                 
             })
         }
+        
+//        else if !isBreathingIntroStarted  {
+//                Breathing_Intro_Screen()
+//        }
 
         
     }

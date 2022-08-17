@@ -97,7 +97,15 @@ struct BerandaView: View {
                             ActivityCard(item: item.activity!, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
                             
                             
-                        } else if item.activity?.viewDestination == "ComingSoonView" {
+                        }
+                        
+                        else if item.activity!.viewDestination == "ScavengerHunt" {
+                            
+                            ActivityCard(item: item.activity!, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+                            
+                        }
+                        
+                        else if item.activity?.viewDestination == "ComingSoonView" {
                             
                             ActivityCard(item: item.activity ?? Activity(), viewDestination: AnyView(ComingSoonView(item: item.activity ?? Activity())))
                             
@@ -125,8 +133,9 @@ struct BerandaView: View {
             }
             .padding(.bottom, 25)
             .background(Image("BGDashboard"))
-            .navigationBarTitle("Back")
-            .navigationBarHidden(true)
+//            .navigationBarTitle("Back")
+            .navigationBarTitle("")
+            .navigationBarHidden(true)    
             .onAppear(perform: {
                 
                 activityModel.countStreak()

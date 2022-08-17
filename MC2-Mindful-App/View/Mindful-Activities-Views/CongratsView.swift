@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CongratsView: View {
 
+    @ObservedObject var activityModel: ActivityViewModel
 //    let image: String = "Meditating"
 //    let congratsBody: String = "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."
     let image: String
@@ -33,7 +34,7 @@ struct CongratsView: View {
                 .multilineTextAlignment(.center)
             
             NavigationLink(destination: MainView()){
-                Text("Kembali")
+                Text("Menuju Beranda")
                     .frame(width: 200, height: 50, alignment: .center)
                     .foregroundColor(Color.accentColor)
                     .background(Color.white)
@@ -41,6 +42,15 @@ struct CongratsView: View {
             }
             
         }
+        .onAppear(perform: {
+            
+            if activityModel.selectedActivity.id == 14 {
+                activityModel.scavengerHunt(activity: activityModel.selectedActivity)
+                
+            }
+            
+
+        })
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
         .frame(maxHeight: .infinity)
@@ -58,6 +68,6 @@ struct CongratsView: View {
 
 struct CongratsView_Previews: PreviewProvider {
     static var previews: some View {
-        CongratsView(image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")
+        CongratsView(activityModel: ActivityViewModel(),image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")
     }
 }

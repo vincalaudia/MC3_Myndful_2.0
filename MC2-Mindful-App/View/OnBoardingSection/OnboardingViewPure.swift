@@ -116,6 +116,9 @@ struct OnboardingViewPure: View {
                         .fontWeight(.medium)
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .center)
+                        .onTapGesture {
+                            doneFunction()
+                        }
                 HStack {
                     Text("Next")
                         .fontWeight(.bold)

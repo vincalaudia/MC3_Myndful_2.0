@@ -62,6 +62,12 @@ class ActivityViewModel: ObservableObject {
     @Published var journalBody: String = "Write your story !"
     
     
+    // For Scavenger Hunt
+    
+    @Published var found: Int = 0
+    @Published var miss: Int = 0
+    
+    
     func resetAllAttirbute(){
             feeling = ""
             emoji = ""
@@ -71,6 +77,40 @@ class ActivityViewModel: ObservableObject {
                 
 //        selectedActivity = Activity()
     }
+    
+    
+    // Scavenger Hunt Functions
+    
+    func scavengerHunt(activity: Activity){
+        
+        
+        let context = persistenceController.container.viewContext
+        let userActivity = UserActivity(context: context)
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.activityType = activity.type
+        userActivity.activity = selectedActivity
+        userActivity.scavengerHuntFound = Int16(found)
+        userActivity.scavengerHuntMiss = Int16(miss)
+        
+        do {
+            try context.save()
+
+            print("User Activity (Scavenger Hunt) has been added!")
+            
+            
+//            selectedActivity = Activity()
+//            resetAllAttirbute()
+         
+        }catch{
+            // If it doesn't work
+            print("Error getting data. \(error.localizedDescription)")
+        }
+    }
+    
+    
+    // Breathing Functions
     
     func journaling(activity: Activity){
         print("Hihihihihih !")
@@ -83,6 +123,7 @@ class ActivityViewModel: ObservableObject {
         userActivity.emoji = emoji
         userActivity.feeling = selectedFeeling
         userActivity.journalBody = journalBody
+        userActivity.activityType = activity.type
         userActivity.activity = selectedActivity
         
         do {
@@ -105,7 +146,7 @@ class ActivityViewModel: ObservableObject {
     
     
     
-    // For Breathing
+    // Breathing Functions
     
     func breathing(activity: Activity){
         print("Hihihihihih !")
@@ -118,6 +159,7 @@ class ActivityViewModel: ObservableObject {
         userActivity.timestamp = Date()
         userActivity.activityId = activity.id
         userActivity.activity = activity
+        userActivity.activityType = activity.type
 
         do {
             try context.save()
@@ -293,7 +335,7 @@ class ActivityViewModel: ObservableObject {
     func loadFromLocalFile() {
         let filePath = Bundle.main.path(forResource: "activities", ofType: "csv")
         let str = try? String.init(contentsOfFile: filePath!, encoding: .utf8)
-        let items: [(id: String, title: String, activityDescription: String, type: String, timeInt: String, timeString: String, image: String, viewDestination: String)] = parseCsvString(csvString: str!)
+        let items: [(id: String, title: String, activityDescription: String, type: String, timeInt: String, timeString: String, image: String, viewDestination: String, breathingData: String, howTo: String)] = parseCsvString(csvString: str!)
         
         let context = persistenceController.container.viewContext
         
@@ -309,6 +351,9 @@ class ActivityViewModel: ObservableObject {
             activity.timeString = item.timeString
             activity.image = item.image
             activity.viewDestination = item.viewDestination
+            activity.breathingData = item.breathingData
+            activity.howTo = item.howTo
+            
 
             do {
                 try context.save()
@@ -322,8 +367,8 @@ class ActivityViewModel: ObservableObject {
     
     
     
-    func parseCsvString(csvString: String) -> [(String, String, String, String, String, String, String, String)] {
-        var items: [(String, String, String, String, String, String, String, String)] = []
+    func parseCsvString(csvString: String) -> [(String, String, String, String, String, String, String, String, String, String)] {
+        var items: [(String, String, String, String, String, String, String, String, String, String)] = []
         let lines: [String] = csvString.components(separatedBy: NSCharacterSet.newlines) as [String]
         
         for line in lines {
@@ -362,7 +407,7 @@ class ActivityViewModel: ObservableObject {
                 }
                 
                 // Put the values into the tuple and add it to the items array
-                let item = (values[0], values[1] ,values[2], values[3],values[4], values[5],values[6], values[7])
+                let item = (values[0], values[1] ,values[2], values[3],values[4], values[5],values[6], values[7], values[8], values[9])
                 items.append(item)
             }
         }

@@ -252,7 +252,20 @@ struct RecommendationResultView: View {
                                             .frame(maxWidth: .infinity, alignment: .center)
                                     }
 
-                    } else if (data.viewDestination == "ComingSoonView" ){
+                    }
+                    
+                    else if (data.viewDestination == "ScavengerHunt" ){
+                        NavigationLink(destination: ScavengerHunt(activityModel: activityModel)){
+                            Text("Mulai")
+                                            .fontWeight(.bold)
+                                            .foregroundColor(Color("AccentColor"))
+                                            .frame(maxWidth: .infinity, alignment: .center)
+//                                            .disabled(true)
+                                    }
+                                
+                    }
+                    
+                    else if (data.viewDestination == "ComingSoonView" ){
                         NavigationLink(destination: ComingSoonView(item: data)){
                             Text("Segera Hadir")
                                             .fontWeight(.bold)
