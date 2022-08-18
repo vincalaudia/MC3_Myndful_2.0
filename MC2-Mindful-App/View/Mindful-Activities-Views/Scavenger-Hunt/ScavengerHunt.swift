@@ -23,6 +23,7 @@ struct ScavengerHunt: View {
         VStack{
             Text("Jadi lebih mindful dengan\nlingkungan sekitar anda")
                 .font(.title2)
+                .bold()
                 .padding(.bottom, 20)
             Text("Cari Objek yang berawalan dengan huruf...")
                 .font(.caption)

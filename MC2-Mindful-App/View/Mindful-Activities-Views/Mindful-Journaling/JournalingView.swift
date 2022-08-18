@@ -29,7 +29,6 @@ struct JournalingView: View {
         
         VStack(){
             VStack(spacing : 10){
-              
                 Text("Daily Affirmation")
                     .font(.title)
                     .bold()
