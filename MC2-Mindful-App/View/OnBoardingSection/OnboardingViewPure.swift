@@ -117,7 +117,10 @@ struct OnboardingViewPure: View {
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .onTapGesture {
-                            doneFunction()
+                            
+                            withAnimation{
+                            UserDefaults.standard.set(true, forKey: "isStart")
+                            }
                         }
                 HStack {
                     Text("Next")

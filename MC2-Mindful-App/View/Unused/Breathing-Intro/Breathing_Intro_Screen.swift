@@ -12,7 +12,7 @@ struct Breathing_Intro_Screen: View {
     
     var body: some View {
         
-        NavigationView {
+
             ZStack{
                 Image ("breathingImage1")
                     .resizable()
@@ -45,7 +45,7 @@ struct Breathing_Intro_Screen: View {
                 }.padding(.bottom, 200)
                 
             }
-        }
+        
         
         
     }

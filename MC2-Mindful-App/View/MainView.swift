@@ -14,7 +14,7 @@ struct MainView: View {
     @State var selection: Int = 0
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             // Your native TabView here
             TabView(selection: $selection) {
                 BerandaView()
@@ -91,11 +91,15 @@ struct MainView: View {
                             
                         }
                                 )
-                    ,alignment: .bottom) // Align the overlay to bottom to ensure tab bar stays pinned.
-        }
-        .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
+                    ,alignment: .bottom)
+                .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+            // Align the overlay to bottom to ensure tab bar stays pinned.
+//        }
+//        .navigationBarTitle("")
+//            .navigationBarHidden(true)
+//            .navigationBarBackButtonHidden(true)
     }
 }
 

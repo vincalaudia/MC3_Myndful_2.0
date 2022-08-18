@@ -22,11 +22,10 @@ struct ContentView: View {
 
     static let sample = OnboardingDataModel.data
     var body: some View {
+        
+        NavigationView{
    
-        if isStart
-            
-//            && isBreathingIntroStarted
-        {
+        if isStart && isBreathingIntroStarted {
             
             MainView()
             
@@ -45,10 +44,13 @@ struct ContentView: View {
             })
         }
         
-//        else if !isBreathingIntroStarted  {
-//                Breathing_Intro_Screen()
-//        }
+        else if !isBreathingIntroStarted  {
+                Breathing_Intro_Screen()
+        }
 
+        } .navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         
     }
 

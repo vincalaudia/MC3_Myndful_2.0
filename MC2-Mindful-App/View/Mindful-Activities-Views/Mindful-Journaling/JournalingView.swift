@@ -26,6 +26,7 @@ struct JournalingView: View {
 
 //        let moods: [String] = ["Sedih", "Senang", "Marah", "Normal"]
         
+        
         VStack(){
             VStack(spacing : 10){
               
@@ -371,7 +372,19 @@ struct JournalingView: View {
             .navigationBarTitle("", displayMode: .inline)
                 .padding(.top,30)
             
-        }.background(Image("BGDashboard"))
+        }
+//        .ignoresSafeArea(.keyboard)
+        .onTapGesture {
+                    let keyWindow = UIApplication.shared.connectedScenes
+                                       .filter({$0.activationState == .foregroundActive})
+                                       .map({$0 as? UIWindowScene})
+                                       .compactMap({$0})
+                                       .first?.windows
+                                       .filter({$0.isKeyWindow}).first
+                    keyWindow!.endEditing(true)
+
+                }
+        .background(Image("BGDashboard"))
     }
     
     func getDate() -> String {
