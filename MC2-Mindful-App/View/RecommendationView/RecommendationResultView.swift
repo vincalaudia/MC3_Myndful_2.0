@@ -240,7 +240,11 @@ struct RecommendationResultView: View {
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .frame(maxWidth: .infinity, alignment: .center)
-                                    }
+                                    }.simultaneousGesture(TapGesture().onEnded{
+                                        
+                                        activityModel.selectedActivity = data
+                                        print(activityModel.selectedActivity)
+                                    })
                             
                         
           
@@ -250,7 +254,12 @@ struct RecommendationResultView: View {
                                             .fontWeight(.bold)
                                             .foregroundColor(Color("AccentColor"))
                                             .frame(maxWidth: .infinity, alignment: .center)
-                                    }
+                                    }.simultaneousGesture(TapGesture().onEnded{
+                                        
+                                        activityModel.selectedActivity = data
+                                        print(activityModel.selectedActivity)
+                                    })
+                            
 
                     }
                     
@@ -261,7 +270,12 @@ struct RecommendationResultView: View {
                                             .foregroundColor(Color("AccentColor"))
                                             .frame(maxWidth: .infinity, alignment: .center)
 //                                            .disabled(true)
-                                    }
+                                    }.simultaneousGesture(TapGesture().onEnded{
+                                        
+                                        activityModel.selectedActivity = data
+                                        print(activityModel.selectedActivity)
+                                    })
+                            
                                 
                     }
                     
@@ -272,7 +286,12 @@ struct RecommendationResultView: View {
                                             .foregroundColor(Color("AccentColor"))
                                             .frame(maxWidth: .infinity, alignment: .center)
 //                                            .disabled(true)
-                                    }
+                                    }.simultaneousGesture(TapGesture().onEnded{
+                                        
+                                        activityModel.selectedActivity = data
+                                        print(activityModel.selectedActivity)
+                                    })
+                            
                                 
                     }
     
