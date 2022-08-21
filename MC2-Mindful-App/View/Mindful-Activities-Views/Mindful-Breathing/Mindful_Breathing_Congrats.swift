@@ -37,8 +37,9 @@ struct Mindful_Breathing_Congrats: View {
             }
             
         }
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
+        
+//        .navigationBarHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .frame(maxHeight: .infinity)
         .background(LinearGradient(
             colors: [Color(red: 179/255, green: 213/255, blue: 255/255), Color(red: 122/255, green: 181/255, blue: 252/255)],
@@ -50,6 +51,9 @@ struct Mindful_Breathing_Congrats: View {
             activityModel.breathing(activity: activityModel.selectedActivity)
         })
         
+        .navigationBarTitle("")
+           .navigationBarHidden(true)
+           .navigationBarBackButtonHidden(true)
         
     }
 }

@@ -23,13 +23,20 @@ struct ContentView: View {
     static let sample = OnboardingDataModel.data
     var body: some View {
         
-        NavigationView{
+//        NavigationView{
    
-        if isStart && isBreathingIntroStarted {
+        if isStart
+            
+//            && isBreathingIntroStarted
+//
+        {
             
             MainView()
             
-        } else if !isStart  {
+        } else
+//        if !isStart
+        
+        {
 
             OnboardingViewPure(data: ContentView.sample, doneFunction: {
                 
@@ -44,13 +51,13 @@ struct ContentView: View {
             })
         }
         
-        else if !isBreathingIntroStarted  {
-                Breathing_Intro_Screen()
-        }
+//        else if !isBreathingIntroStarted  {
+//                Breathing_Intro_Screen()
+//        }
 
-        } .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
+//        } .navigationBarTitle("")
+//            .navigationBarHidden(true)
+//            .navigationBarBackButtonHidden(true)
         
     }
 

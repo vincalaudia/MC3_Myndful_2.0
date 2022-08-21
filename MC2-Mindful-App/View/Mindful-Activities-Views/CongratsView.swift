@@ -39,7 +39,12 @@ struct CongratsView: View {
                     .foregroundColor(Color.accentColor)
                     .background(Color.white)
                     .cornerRadius(10)
-            }
+//                    .navigationBarTitle("")
+//                    .navigationBarHidden(true)
+//                    .navigationBarBackButtonHidden(true)
+            }        .navigationBarTitle("")
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true)
             
         }
         .onAppear(perform: {
@@ -51,8 +56,6 @@ struct CongratsView: View {
             
 
         })
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
         .frame(maxHeight: .infinity)
         .background(LinearGradient(
             colors: [Color(red: 179/255, green: 213/255, blue: 255/255), Color(red: 122/255, green: 181/255, blue: 252/255)],
@@ -60,7 +63,10 @@ struct CongratsView: View {
             endPoint: .bottom
             
         ))
-        
+//        .navigationBarTitle("")
+//        .navigationBarHidden(true)
+//        .navigationBarBackButtonHidden(true)
+//        
         
         
     }

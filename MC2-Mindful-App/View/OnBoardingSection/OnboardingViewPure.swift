@@ -71,7 +71,8 @@ struct OnboardingViewPure: View {
                     }
                 }
                 .padding(20)
-            }
+            } .navigationBarTitle("")
+                .navigationBarHidden(true)
     }
         
   

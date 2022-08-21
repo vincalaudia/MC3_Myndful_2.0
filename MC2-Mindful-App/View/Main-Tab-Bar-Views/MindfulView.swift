@@ -7,32 +7,84 @@
 
 import SwiftUI
 
+import WrappingHStack
+import SwiftUIBottomSheet
+
+
 struct MindfulView: View {
 
     // MArk : Environment Values
     @Environment(\.self) var env
     
     @StateObject var activityModel: ActivityViewModel = .init()
-    
+    @State private var showFilterSheetActivity: Bool = false
     
 
     
     var body: some View {
-        ScrollView{
+        
+        VStack{
             
-            Text("Aktivitas Mindfulness")
+            
+            HStack(){
+                
+                
+            Text("Aktivitas Kesadaran")
                 .font(.title2)
                 .bold()
                 .foregroundColor(Color(UIColor(named:"darkBrown")!))
                 .frame(maxWidth:.infinity, alignment : .leading)
-                .padding([.top,.leading] ,30)
+                
+    //                .padding([.top,.leading] ,30)
+            
+                
+                Button {
+                    showFilterSheetActivity = true
+                }
+            label: {
+                Image(systemName:"slider.horizontal.3")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 22)
+                    .foregroundColor(Color(UIColor(named:"darkBrown")!))
+                
+            }
+                
+                //            Text("____")
+                //                .foregroundColor(.accentColor)
+                //                .frame(maxWidth:.infinity, alignment: .leading)
+                //                .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
+                
+            }
+            
+            .padding(.horizontal,20)
+            .padding(.top,20)
+            .padding(.bottom,5)
             
             
-            Text("____")
-                .foregroundColor(.accentColor)
-                .frame(maxWidth:.infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
+                        Text("____")
+                            .foregroundColor(.accentColor)
+                            .frame(maxWidth:.infinity, alignment: .leading)
+                            .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
+       
             
+            
+            
+        ScrollView{
+            
+//            Text("Aktivitas Mindfulness")
+//                .font(.title2)
+//                .bold()
+//                .foregroundColor(Color(UIColor(named:"darkBrown")!))
+//                .frame(maxWidth:.infinity, alignment : .leading)
+//                .padding([.top,.leading] ,30)
+//
+//
+//            Text("____")
+//                .foregroundColor(.accentColor)
+//                .frame(maxWidth:.infinity, alignment: .leading)
+//                .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
+//
             
             ForEach (activityModel.activityArray) {item in
                 
@@ -58,14 +110,94 @@ struct MindfulView: View {
             
         }
         .padding(.bottom, 25)
-        .background(Image("BGDashboard"))
+    
 //            .navigationBarTitle("Back")
-        .navigationBarTitle("")
-            .navigationBarHidden(true)
+//        .navigationBarTitle("")
+//            .navigationBarHidden(true)
+//            .navigationBarBackButtonHidden(true)
             .onAppear(perform: {
                 activityModel.loadActivities()
             })
+          
+        
+    }  .bottomSheet(
+        isPresented: $showFilterSheetActivity){
+        VStack(alignment: .leading) {
+            HStack(alignment: .top){
+                Text("Filter").font(.headline).bold()
+
+                Spacer()
+
+                Text("Atur Ulang")
+                    .foregroundColor(Color("AccentColor"))
+                    .font(.headline).bold()
+                    .onTapGesture {
+                        withAnimation {
+                        activityModel.currentEffectEnum = .all
+                        activityModel.currentSituationEnum  = .all
+                            showFilterSheetActivity = false
+                            activityModel.loadActivities()
+                        }
+                    }
+            }
+            .padding(.bottom,15)
+
+
+            HStack(alignment: .top){
+                Text("Tujuan").font(.subheadline).bold()
+
+            }
+
+
+            effectFiltering()    .padding(.bottom,5)
+
+            
+            HStack(alignment: .top){
+                Text("Situasi").font(.subheadline).bold()
+
+            }
+
+
+            situationFiltering()      .padding(.bottom,15)
+
+
+
+
+            Spacer()
+
+            
+            Button(action: {
+                withAnimation {
+                    showFilterSheetActivity = false
+                activityModel.loadActivities()
+                }
+            }) {
+                Text("Terapkan Filter")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .font(.callout)
+//                        .border(Color.blue)
+                    .foregroundColor(.white)
+                    .background(Color("AccentColor"))
+                    .cornerRadius(10)
+//                        .padding()
+            }
+            
+            }.padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+
+
+
+        }
+        
+        .background(Image("BGDashboard"))
+        
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
+    
     
     
     @ViewBuilder
@@ -108,6 +240,108 @@ struct MindfulView: View {
             print(activityModel.selectedActivity)
         })
             
+    }
+    
+    
+    @ViewBuilder
+    func situationFiltering()->some View{
+        // Incase if we missed the task
+        
+        let tabs: [situationEnum] = [.all,.cemas,.emosional,.gugup,.kecewa,.linglung,.lowSelfesteem,.marah,.negatif,.panik,.putusAsa,.sedih,.senang,.stress]
+//        HStack(spacing: 10){
+//            ForEach(tabs,id: \.self){ tab in
+        
+        WrappingHStack(tabs, id:\.self) { tab in
+            
+                Text(tab.rawValue)
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .scaleEffect(0.9)
+                    .foregroundColor(activityModel.currentSituationEnum == tab ? .white : .gray)
+                    .padding(10)
+//                    .frame(maxWidth: .infinity)
+                    .background{
+                        if activityModel.currentSituationEnum == tab{
+                            Rectangle()
+                                .fill(Color("AccentColor"))
+//                                .matchedGeometryEffect(id: "timestamp", in: animation)
+
+                        }
+                        if activityModel.currentSituationEnum != tab{
+
+                            Rectangle()
+                                .fill(Color("lightGrey"))
+
+
+                        }
+                    }
+                    .cornerRadius(6)
+                    .padding(.bottom, 10)
+
+                    .onTapGesture {
+                        withAnimation{
+                            activityModel.currentSituationEnum = tab
+                            
+                            print("tab enum : \(activityModel.currentSituationEnum)" )
+//                            taskModel.loadTasks(currentTab: tab)
+                        }
+                    }
+            
+            
+        }
+
+    }
+    
+    @ViewBuilder
+    func effectFiltering()->some View{
+        // Incase if we missed the task
+        
+        let tabs: [effectEnum] = [.all,.fokus,.kreatif,.optimis,.tenang,.tidur]
+//        HStack(spacing: 10){
+//            ForEach(tabs,id: \.self){ tab in
+        
+            WrappingHStack(tabs, id:\.self) { tab in
+            
+            
+                Text(tab.rawValue)
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .scaleEffect(0.9)
+                    .foregroundColor(activityModel.currentEffectEnum == tab ? .white : .gray)
+            
+                    .padding(10)
+                    
+//                    .frame(maxWidth: .infinity)
+                    .background{
+                        if activityModel.currentEffectEnum == tab{
+                            Rectangle()
+                                .fill(Color("AccentColor"))
+//                                .matchedGeometryEffect(id: "type", in: animation)
+
+                        }
+                        if activityModel.currentEffectEnum != tab{
+
+                            Rectangle()
+                                .fill(Color("lightGrey"))
+
+
+                        }
+                    }
+                    .cornerRadius(6)
+                    .padding(.bottom, 10)
+
+                    .onTapGesture {
+                        withAnimation{
+                            activityModel.currentEffectEnum = tab
+                            
+                            print("tab enum : \(activityModel.currentEffectEnum)" )
+//                            taskModel.loadTasks(currentTab: tab)
+                        }
+                    }
+            
+            
+        }
+
     }
     
 }

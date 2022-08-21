@@ -9,6 +9,26 @@ import SwiftUI
 import CoreData
 
 
+
+enum timestampEnum: String{
+    case terbaru = "Terbaru"
+    case terlama = "Terlama"
+}
+
+enum typeEnum: String{
+    case all = "All"
+    
+    case breathingTechique = "Breathing Technique"
+    
+    case journalling = "Journalling"
+    
+    case observation = "Observation"
+    
+    case outdoorObservation = "Outdoor Observation"
+}
+
+
+
 struct TypeDummy : Identifiable{
     var id: Int
     var name : String
@@ -19,7 +39,73 @@ struct TypeDummy : Identifiable{
     }
 }
 
+
+enum situationEnum: String {
+    case all = "Semua"
+    
+    case stress = "Stress"
+    
+    case cemas = "Cemas"
+    
+    case marah = "Marah"
+    
+    case panik = "Panik"
+    
+    case kecewa = "Kecewa"
+    
+    case gugup = "Gugup"
+    
+    case senang = "Senang"
+    
+    case lowSelfesteem = "Low self-esteem"
+    
+    case negatif = "Negatif"
+    
+    case sedih = "Sedih"
+    
+    case putusAsa = "Putus asa"
+    
+    case emosional = "Emosional"
+    
+    case linglung = "Linglung"
+    
+}
+ 
+enum effectEnum: String {
+    case all = "Semua"
+    
+    case tenang = "Tenang"
+    
+    case fokus = "Fokus"
+    
+    case tidur = "Tidur"
+    
+    case optimis = "Optimis"
+    
+    case kreatif = "Kreatif"
+}
+
 class ActivityViewModel: ObservableObject {
+    
+    // Riwayat Filter and sorting
+    
+    @Published var currentTimestampEnum: timestampEnum = .terbaru
+    
+    @Published var currentTypeEnum: typeEnum = .all
+
+    @Published var selectedMonth: String = Date().month
+    @Published var selectedYear: Int = Calendar.current.component(.year, from: Date())
+    
+    
+//    @Published var selectedActivityType: typeEnum = .all
+    
+    // Activities Filter
+    
+    @Published var currentEffectEnum: effectEnum = .all
+    
+    @Published var currentSituationEnum: situationEnum = .all
+    
+    
     
     let types : [TypeDummy] = [TypeDummy(id: 0, name: "Pernafasan"),
                                TypeDummy(id: 1, name: "Kesadaran Menjurnal"),
@@ -204,9 +290,46 @@ class ActivityViewModel: ObservableObject {
 
     func loadActivities(){
         
+        
         let request = NSFetchRequest<Activity>(entityName: "Activity")
         let sort = NSSortDescriptor(key: "title", ascending: true)
+    
+        
+        
+        
         request.sortDescriptors = [sort]
+        
+        
+        var predicate: NSPredicate!
+    
+
+        if currentEffectEnum == .all && currentSituationEnum == .all {
+            // No condition
+        } else if currentEffectEnum != .all && currentSituationEnum != .all{
+            
+            predicate = NSPredicate(format: "(effect CONTAINS %@ OR situation CONTAINS %@)", argumentArray:[currentEffectEnum.rawValue,currentSituationEnum.rawValue])
+            
+            
+            request.predicate = predicate
+            
+            
+        } else if currentEffectEnum != .all && currentSituationEnum == .all{
+            
+            predicate = NSPredicate(format: "effect CONTAINS %@", argumentArray:[currentEffectEnum.rawValue])
+            
+            
+            request.predicate = predicate
+            
+            
+        } else if currentEffectEnum == .all && currentSituationEnum != .all{
+            
+            predicate = NSPredicate(format: "situation CONTAINS %@", argumentArray:[currentSituationEnum.rawValue])
+            
+            
+            request.predicate = predicate
+            
+            
+        }
         
         // this will fetch task between today and tommowrow which is 24 hours
         // 0-flase, 1-true
@@ -224,12 +347,135 @@ class ActivityViewModel: ObservableObject {
     
     func loadUserActivities(){
         
+        var selectedSort:Bool = true
+        
+        switch currentTimestampEnum {
+        case .terbaru:
+            selectedSort = false
+        case .terlama:
+            selectedSort = true
+        }
+        
+        var StringToConvert: String = ""
+        
+        StringToConvert = selectedMonth + " 20, " + String(selectedYear)
+        
+        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "id")
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        var date = dateFormatter.date(from: StringToConvert)
+//            print("Before converted : \(StringToConvert)")
+//            print("After converted : \(date.addingTimeInterval(7 * 3600))")
+//            var datea = date.addingTimeInterval(7 * 3600)
+//            print("Start of the month : \(datea.startOfMonth())")
+//            print("End of the month : \(datea.endOfMonth())")
+        
+        var theDate = date!.addingTimeInterval(7 * 3600)
+        var startOfTheMonth = theDate.startOfMonth()
+        var endOfTheMonth = theDate.endOfMonth()
+        endOfTheMonth = endOfTheMonth.addingTimeInterval(25199)
+//
+//        print("Start : \(startOfTheMonth ?? Date())")
+//        print("End : \(endOfTheMonth ?? Date())")
+
+        
+        
+//        if selectedMonth == "Jan" {
+//
+//            StringToConvert = selectedMonth
+//
+//        }else if selectedMonth == "Feb" {
+//
+//        }else if selectedMonth == "Mar" {
+//
+//        }else if selectedMonth == "Apr" {
+//
+//        }else if selectedMonth == "May" {
+//
+//        }else if selectedMonth == "Jun" {
+//
+//        }else if selectedMonth == "Jul" {
+//
+//        }else if selectedMonth == "Aug" {
+//
+//        }else if selectedMonth == "Sep" {
+//
+//        }else if selectedMonth == "Oct" {
+//
+//        }else if selectedMonth == "Nov" {
+//
+//        }else if selectedMonth == "Dec" {
+//
+//        }
+//
+        
         let request = NSFetchRequest<UserActivity>(entityName: "UserActivity")
-        let sort = NSSortDescriptor(key: "timestamp", ascending: false)
+        let sort = NSSortDescriptor(key: "timestamp", ascending: selectedSort)
         request.sortDescriptors = [sort]
+        
+        
+      
+        var predicate: NSPredicate!
+    
+
+//
+//        var query:String = "timestamp >= %@ AND timestamp < %@"
+//        switch currentTypeEnum {
+//            
+//        case .all:
+//            query = ""
+//        default:
+//            query = "activityType == \(currentTypeEnum)"
+//            
+//        }
+        
+//        switch currentTypeEnum {
+//        case .all:
+//           print("Nothing")
+//        case .breathingTechique:
+//            query += "AND activityType == %@"
+//        case .journalling:
+//            query += "AND activityType == %@"
+//        case .observation:
+//            query += "AND activityType == %@"
+//        case .outdoorObservation:
+//            query += "AND activityType == %@"
+//        }
+//
+        
+//        let predicateString = String(format:query, argumentArray: [startOfTheMonth,endOfTheMonth,currentTypeEnum.rawValue])
+
+        if currentTypeEnum == .all {
+        predicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@", argumentArray:[startOfTheMonth,endOfTheMonth])
+        } else {
+            predicate = NSPredicate(format: "timestamp >= %@ AND timestamp < %@ AND activityType == %@", argumentArray:[startOfTheMonth,endOfTheMonth,currentTypeEnum.rawValue])
+            
+        }
+        
+        request.predicate = predicate
+        
+//        if query != "" {
+//
+//        predicate = NSPredicate(format: "activityType == %@",argumentArray: [currentTypeEnum.rawValue])
+//
+//
+//        request.predicate = predicate
+//
+//        }
+        
+//        if query == "" {
+//
+//        predicate = NSPredicate(format: "activityType == ''")
+//
+//
+//        request.predicate = predicate
+//
+//        }
+        
         
         // this will fetch task between today and tommowrow which is 24 hours
         // 0-flase, 1-true
+        
  
         
         do {
@@ -335,7 +581,7 @@ class ActivityViewModel: ObservableObject {
     func loadFromLocalFile() {
         let filePath = Bundle.main.path(forResource: "activities", ofType: "csv")
         let str = try? String.init(contentsOfFile: filePath!, encoding: .utf8)
-        let items: [(id: String, title: String, activityDescription: String, type: String, timeInt: String, timeString: String, image: String, viewDestination: String, breathingData: String, howTo: String)] = parseCsvString(csvString: str!)
+        let items: [(id: String, title: String, activityDescription: String, type: String, timeInt: String, timeString: String, image: String, viewDestination: String, breathingData: String, howTo: String,situation: String, effect: String)] = parseCsvString(csvString: str!)
         
         let context = persistenceController.container.viewContext
         
@@ -353,8 +599,9 @@ class ActivityViewModel: ObservableObject {
             activity.viewDestination = item.viewDestination
             activity.breathingData = item.breathingData
             activity.howTo = item.howTo
+            activity.situation = item.situation
+            activity.effect = item.effect
             
-
             do {
                 try context.save()
                 print("Saved data with id \(activity.id)")
@@ -367,8 +614,8 @@ class ActivityViewModel: ObservableObject {
     
     
     
-    func parseCsvString(csvString: String) -> [(String, String, String, String, String, String, String, String, String, String)] {
-        var items: [(String, String, String, String, String, String, String, String, String, String)] = []
+    func parseCsvString(csvString: String) -> [(String, String, String, String, String, String, String, String, String, String,String, String)] {
+        var items: [(String, String, String, String, String, String, String, String, String, String, String, String)] = []
         let lines: [String] = csvString.components(separatedBy: NSCharacterSet.newlines) as [String]
         
         for line in lines {
@@ -407,7 +654,7 @@ class ActivityViewModel: ObservableObject {
                 }
                 
                 // Put the values into the tuple and add it to the items array
-                let item = (values[0], values[1] ,values[2], values[3],values[4], values[5],values[6], values[7], values[8], values[9])
+                let item = (values[0], values[1] ,values[2], values[3],values[4], values[5],values[6], values[7], values[8], values[9], values[10], values[11])
                 items.append(item)
             }
         }

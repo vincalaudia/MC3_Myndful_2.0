@@ -41,6 +41,9 @@
 		DC9DB0E72893E04200FCF403 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E02893E04200FCF403 /* OnboardingStepView.swift */; };
 		DC9DB0E82893E04200FCF403 /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E12893E04200FCF403 /* OnboardingViewPure.swift */; };
 		DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E92893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld */; };
+		DCB5ABAA28AF911B0009B78B /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = DCB5ABA928AF911B0009B78B /* WrappingHStack */; };
+		DCB5ABAD28AF9AA10009B78B /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = DCB5ABAC28AF9AA10009B78B /* HalfASheet */; };
+		DCB5ABB628AFAA970009B78B /* SwiftUIBottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = DCB5ABB528AFAA970009B78B /* SwiftUIBottomSheet */; };
 		DCCD99CD28AD7D6200A41005 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD99CC28AD7D6200A41005 /* PlaySound.swift */; };
 		EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */; };
 		EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DEA285C6CB80092C195 /* ContentView.swift */; };
@@ -102,6 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB5ABAA28AF911B0009B78B /* WrappingHStack in Frameworks */,
+				DCB5ABAD28AF9AA10009B78B /* HalfASheet in Frameworks */,
+				DCB5ABB628AFAA970009B78B /* SwiftUIBottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +331,11 @@
 			dependencies = (
 			);
 			name = "MC2-Mindful-App";
+			packageProductDependencies = (
+				DCB5ABA928AF911B0009B78B /* WrappingHStack */,
+				DCB5ABAC28AF9AA10009B78B /* HalfASheet */,
+				DCB5ABB528AFAA970009B78B /* SwiftUIBottomSheet */,
+			);
 			productName = "MC2-Mindful-App";
 			productReference = EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */;
 			productType = "com.apple.product-type.application";
@@ -353,6 +364,11 @@
 				Base,
 			);
 			mainGroup = EE585DDC285C6CB80092C195;
+			packageReferences = (
+				DCB5ABA828AF911B0009B78B /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				DCB5ABAB28AF9AA10009B78B /* XCRemoteSwiftPackageReference "HalfASheet" */,
+				DCB5ABB428AFAA970009B78B /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */,
+			);
 			productRefGroup = EE585DE6285C6CB80092C195 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -619,6 +635,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DCB5ABA828AF911B0009B78B /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		DCB5ABAB28AF9AA10009B78B /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/franklynw/HalfASheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		DCB5ABB428AFAA970009B78B /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SyrupMG/SwiftUIBottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DCB5ABA928AF911B0009B78B /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCB5ABA828AF911B0009B78B /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+		DCB5ABAC28AF9AA10009B78B /* HalfASheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCB5ABAB28AF9AA10009B78B /* XCRemoteSwiftPackageReference "HalfASheet" */;
+			productName = HalfASheet;
+		};
+		DCB5ABB528AFAA970009B78B /* SwiftUIBottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCB5ABB428AFAA970009B78B /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */;
+			productName = SwiftUIBottomSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DC9DB0E92893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld */ = {

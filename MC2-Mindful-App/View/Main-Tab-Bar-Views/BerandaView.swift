@@ -134,8 +134,7 @@ struct BerandaView: View {
             .padding(.bottom, 25)
             .background(Image("BGDashboard"))
 //            .navigationBarTitle("Back")
-            .navigationBarTitle("")
-            .navigationBarHidden(true)    
+//            .navigationBarTitle("")
             .onAppear(perform: {
                 
                 activityModel.countStreak()
@@ -144,6 +143,9 @@ struct BerandaView: View {
                 //                    print(activityModel.recentActivities)
                 
             })
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
        
     }
     

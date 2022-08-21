@@ -14,8 +14,8 @@ struct MainView: View {
     @State var selection: Int = 0
     
     var body: some View {
-//        NavigationView{
-            // Your native TabView here
+        NavigationView{
+//             Your native TabView here
             TabView(selection: $selection) {
                 BerandaView()
                     .tag(0)
@@ -23,7 +23,7 @@ struct MainView: View {
                 MindfulView()
                     .tag(1)
                 
-                RiwayatView()
+                RiwayatView(dateRange: .init(uncheckedBounds: (lower: Calendar.current.date(byAdding: .month, value: 2, to: Date())!.startOfMonth(), upper: Calendar.current.date(byAdding: .month, value: 2, to: Date())!.endOfMonth())))
                     .tag(2)
                 
             }
@@ -92,14 +92,13 @@ struct MainView: View {
                         }
                                 )
                     ,alignment: .bottom)
-                .navigationBarTitle("")
-                    .navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(true)
+//                    .navigationBarHidden(true)
+//                    .navigationBarBackButtonHidden(true)
             // Align the overlay to bottom to ensure tab bar stays pinned.
-//        }
-//        .navigationBarTitle("")
-//            .navigationBarHidden(true)
-//            .navigationBarBackButtonHidden(true)
+        }
+        .navigationBarTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
     }
 }
 
