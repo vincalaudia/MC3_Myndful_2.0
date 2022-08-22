@@ -233,6 +233,13 @@ struct RiwayatView: View {
                                         
                                     }
                                     
+                        else if item.activity?.viewDestination == "WatchTheCloudView"{
+                            
+                            Text("You spent \(item.timeCloud ?? "") watching the clouds")
+                                .lineLimit(1)
+                                .font(.footnote)
+                            
+                        }
                                     // Untuk Breathings
                                     
                         else {

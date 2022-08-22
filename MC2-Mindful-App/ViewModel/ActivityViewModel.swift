@@ -162,6 +162,36 @@ class ActivityViewModel: ObservableObject {
     @Published var miss: Int = 0
     
     
+    // For Watch The Clouds
+    
+    @Published var timeCloud: String = ""
+    func watchTheClouds(){
+        let context = persistenceController.container.viewContext
+        let userActivity = UserActivity(context: context)
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.activityType = selectedActivity.type
+        userActivity.activity = selectedActivity
+        
+        userActivity.timeCloud = timeCloud
+        
+        do {
+            try context.save()
+
+            print("User Activity (Watch The Clouds) has been added!")
+            
+            
+//            selectedActivity = Activity()
+//            resetAllAttirbute()
+         
+        }catch{
+            // If it doesn't work
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+    }
+    
     func resetAllAttirbute(){
             feeling = ""
             emoji = ""
