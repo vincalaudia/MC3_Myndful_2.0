@@ -37,11 +37,11 @@ struct IntroActivityView: View {
                 .padding()
             
             //di sini nanti var nya diganti tergantung berapa detikannya sih
-//            NavigationLink(destination: Mindful_Breathing_Timer(activityModel: activityModel)) {
-//                Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
-//                    .background(Color.white)
-//                    .cornerRadius(30)
-//            }  .padding(.bottom,50)
+            //            NavigationLink(destination: Mindful_Breathing_Timer(activityModel: activityModel)) {
+            //                Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+            //                    .background(Color.white)
+            //                    .cornerRadius(30)
+            //            }  .padding(.bottom,50)
             
             
             if (activityModel.selectedActivity.viewDestination == "Mindful_Breathing_Timer" ){
@@ -52,33 +52,33 @@ struct IntroActivityView: View {
                         .cornerRadius(30)
                 }  .padding(.bottom,50)
                 
-//                ActivityCard(item: item, viewDestination: AnyView(Mindful_Breathing_Intro(activityModel: activityModel)))
+                //                ActivityCard(item: item, viewDestination: AnyView(Mindful_Breathing_Intro(activityModel: activityModel)))
                 
             } else if (activityModel.selectedActivity.viewDestination == "JournalingView" ){
-//                ActivityCard(item: item, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
+                //                ActivityCard(item: item, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
                 NavigationLink(destination: JournalingView(activityModel: activityModel)) {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
                 }  .padding(.bottom,50)
-                .simultaneousGesture(TapGesture().onEnded{
+                    .simultaneousGesture(TapGesture().onEnded{
                         
                         
                         activityModel.selectedActivity = activityModel.selectedActivity
                         print(activityModel.selectedActivity)
                     })
-
                 
-//                                        NavigationLink(destination: JournalingView(activityModel: activityModel)){
-//                                            Text("Mulai")
-//                                                            .fontWeight(.bold)
-//                                                            .foregroundColor(Color("AccentColor"))
-//                                                            .frame(maxWidth: .infinity, alignment: .center)
-//                                                    }
+                
+                //                                        NavigationLink(destination: JournalingView(activityModel: activityModel)){
+                //                                            Text("Mulai")
+                //                                                            .fontWeight(.bold)
+                //                                                            .foregroundColor(Color("AccentColor"))
+                //                                                            .frame(maxWidth: .infinity, alignment: .center)
+                //                                                    }
             }
             
             else if (activityModel.selectedActivity.viewDestination == "ScavengerHunt" ){
-    
+                
                 NavigationLink(destination: ScavengerHunt(activityModel: activityModel)) {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
@@ -86,15 +86,28 @@ struct IntroActivityView: View {
                 }  .padding(.bottom,50)
                 
                 
-//                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
-                        
+                //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+                
             }
             
-//            else if (activityModel.selectedActivity.viewDestination == "ComingSoonView" ){
-//
-//                ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
-//
-//            }
+            else if (activityModel.selectedActivity.viewDestination == "WatchTheCloudView" ){
+                
+                NavigationLink(destination: Watch_The_Clouds(activityModel: activityModel)) {
+                    Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }  .padding(.bottom,50)
+                
+                
+                //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+                
+            }
+            
+            //            else if (activityModel.selectedActivity.viewDestination == "ComingSoonView" ){
+            //
+            //                ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
+            //
+            //            }
             
             
             
@@ -110,7 +123,7 @@ struct IntroActivityView: View {
                 print(activityModel.selectedActivity.title)
             })
         
-          
+        
         
         
         

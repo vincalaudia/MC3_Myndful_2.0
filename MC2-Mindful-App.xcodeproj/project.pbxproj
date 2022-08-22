@@ -19,6 +19,8 @@
 		06777BB428AB244500021C0F /* hold.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06777BB228AB244500021C0F /* hold.wav */; };
 		06777BB528AB244500021C0F /* exhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06777BB328AB244500021C0F /* exhale.wav */; };
 		06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB0D712871D273002954C7 /* ComingSoonView.swift */; };
+		06F4328328B3DEC3003FA7AA /* Watch_The_Clouds_Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F4328128B3DEC3003FA7AA /* Watch_The_Clouds_Stopwatch.swift */; };
+		06F4328428B3DEC3003FA7AA /* Watch_The_Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F4328228B3DEC3003FA7AA /* Watch_The_Clouds.swift */; };
 		D1E7D4852872DD6200B1CEF4 /* Breathing_Intro_Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */; };
 		D1E7D4872872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */; };
 		D1E7D4892872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E7D4882872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift */; };
@@ -71,6 +73,8 @@
 		06777BB228AB244500021C0F /* hold.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hold.wav; sourceTree = "<group>"; };
 		06777BB328AB244500021C0F /* exhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = exhale.wav; sourceTree = "<group>"; };
 		06CB0D712871D273002954C7 /* ComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonView.swift; sourceTree = "<group>"; };
+		06F4328128B3DEC3003FA7AA /* Watch_The_Clouds_Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watch_The_Clouds_Stopwatch.swift; sourceTree = "<group>"; };
+		06F4328228B3DEC3003FA7AA /* Watch_The_Clouds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watch_The_Clouds.swift; sourceTree = "<group>"; };
 		D1E7D4842872DD6200B1CEF4 /* Breathing_Intro_Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Screen.swift; sourceTree = "<group>"; };
 		D1E7D4862872DD8D00B1CEF4 /* Breathing_Intro_Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Timer.swift; sourceTree = "<group>"; };
 		D1E7D4882872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathing_Intro_Congrats.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				DCB5ABBA28B396670009B78B /* Morning-Pages */,
 				DCB5ABB728B38C080009B78B /* Gratitude-List */,
 				D1E7D48A2872E13800B1CEF4 /* Mindful-Breathing */,
+				06F4328028B3DEC3003FA7AA /* Watch-The-Clouds */,
 				DC0D9C6128999107006A53A1 /* Mindful-Journaling */,
 				06CB0D712871D273002954C7 /* ComingSoonView.swift */,
 				D1E7D48B2872E15D00B1CEF4 /* IntroActivityView.swift */,
@@ -166,6 +171,15 @@
 				06777BAE28AA498300021C0F /* ScavengerHunt.swift */,
 			);
 			path = "Scavenger-Hunt";
+			sourceTree = "<group>";
+		};
+		06F4328028B3DEC3003FA7AA /* Watch-The-Clouds */ = {
+			isa = PBXGroup;
+			children = (
+				06F4328128B3DEC3003FA7AA /* Watch_The_Clouds_Stopwatch.swift */,
+				06F4328228B3DEC3003FA7AA /* Watch_The_Clouds.swift */,
+			);
+			path = "Watch-The-Clouds";
 			sourceTree = "<group>";
 		};
 		D1E7D4832872D69700B1CEF4 /* Breathing-Intro */ = {
@@ -466,8 +480,10 @@
 				D1E7D48E2872E17800B1CEF4 /* Mindful_Breathing_Timer.swift in Sources */,
 				DCB5ABBC28B3968B0009B78B /* MorningPagesView.swift in Sources */,
 				0640C6F3286F07E9005D7DF6 /* RiwayatView.swift in Sources */,
+				06F4328428B3DEC3003FA7AA /* Watch_The_Clouds.swift in Sources */,
 				0640C6F6286F082E005D7DF6 /* JournalingView.swift in Sources */,
 				EE585DF2285C6CBA0092C195 /* Persistence.swift in Sources */,
+				06F4328328B3DEC3003FA7AA /* Watch_The_Clouds_Stopwatch.swift in Sources */,
 				EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */,
 				0640C6EF286F07CA005D7DF6 /* BerandaView.swift in Sources */,
 				0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */,
@@ -611,7 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = JR8723F8QY;
+				DEVELOPMENT_TEAM = M763V89YXY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -640,7 +656,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = JR8723F8QY;
+				DEVELOPMENT_TEAM = M763V89YXY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

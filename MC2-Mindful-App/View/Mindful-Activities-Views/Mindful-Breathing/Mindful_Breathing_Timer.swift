@@ -52,6 +52,7 @@ struct Mindful_Breathing_Timer: View {
                     
                     ProgressBar(progress: self.$progressValue)
                                         .frame(width: geo.size.width/2+80, height: geo.size.width/2+80)
+                                        .blur(radius: 3)
                                       
                     
                     LinearGradient(
@@ -216,12 +217,10 @@ struct ProgressBar: View {
                 Circle()
                     .stroke(lineWidth: 25.0)
                     .foregroundColor(Color(red: 214/255, green: 231/255, blue: 255/255))
-                    .blur(radius: 3)
-                
+                    .opacity(0.5)
                 Circle()
                         .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
                         .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
-                        .blur(radius: 3)
                         .foregroundColor(Color(red: 172/255, green: 207/255, blue: 255/255))
                         .rotationEffect(Angle(degrees: 270.0))
                         .animation(.linear(duration: 1.0))
@@ -229,9 +228,8 @@ struct ProgressBar: View {
             }.animation(.linear(duration: 1.0))
         }
     }
-    
-    
 }
+
 
 
 
