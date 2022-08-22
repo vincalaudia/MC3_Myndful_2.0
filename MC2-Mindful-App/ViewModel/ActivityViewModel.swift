@@ -15,8 +15,13 @@ enum timestampEnum: String{
     case terlama = "Terlama"
 }
 
+enum timeIntEnum: String{
+    case terlama = "Terlama"
+    case tercepat = "Tercepat"
+}
+
 enum typeEnum: String{
-    case all = "All"
+    case all = "Semua"
     
     case breathingTechique = "Breathing Technique"
     
@@ -100,10 +105,13 @@ class ActivityViewModel: ObservableObject {
 //    @Published var selectedActivityType: typeEnum = .all
     
     // Activities Filter
+    @Published var currentTimeIntEnum: timeIntEnum = .tercepat
     
     @Published var currentEffectEnum: effectEnum = .all
     
-    @Published var currentSituationEnum: situationEnum = .all
+    @Published var currentTypeEnumActivities: typeEnum = .all
+    
+//    @Published var currentSituationEnum: situationEnum = .all
     
     
     
@@ -290,12 +298,19 @@ class ActivityViewModel: ObservableObject {
 
     func loadActivities(){
         
+        var selectedSort:Bool = true
+        
+        switch currentTimeIntEnum {
+        case .terlama:
+            selectedSort = false
+        case .tercepat:
+            selectedSort = true
+        }
         
         let request = NSFetchRequest<Activity>(entityName: "Activity")
-        let sort = NSSortDescriptor(key: "title", ascending: true)
+        let sort = NSSortDescriptor(key: "timeInt", ascending: selectedSort)
     
-        
-        
+    
         
         request.sortDescriptors = [sort]
         
@@ -303,17 +318,17 @@ class ActivityViewModel: ObservableObject {
         var predicate: NSPredicate!
     
 
-        if currentEffectEnum == .all && currentSituationEnum == .all {
+        if currentEffectEnum == .all && currentTypeEnumActivities == .all {
             // No condition
-        } else if currentEffectEnum != .all && currentSituationEnum != .all{
+        } else if currentEffectEnum != .all && currentTypeEnumActivities != .all{
             
-            predicate = NSPredicate(format: "(effect CONTAINS %@ OR situation CONTAINS %@)", argumentArray:[currentEffectEnum.rawValue,currentSituationEnum.rawValue])
+            predicate = NSPredicate(format: "(effect CONTAINS %@ OR type CONTAINS %@)", argumentArray:[currentEffectEnum.rawValue,currentTypeEnumActivities.rawValue])
             
             
             request.predicate = predicate
             
             
-        } else if currentEffectEnum != .all && currentSituationEnum == .all{
+        } else if currentEffectEnum != .all && currentTypeEnumActivities == .all{
             
             predicate = NSPredicate(format: "effect CONTAINS %@", argumentArray:[currentEffectEnum.rawValue])
             
@@ -321,9 +336,9 @@ class ActivityViewModel: ObservableObject {
             request.predicate = predicate
             
             
-        } else if currentEffectEnum == .all && currentSituationEnum != .all{
+        } else if currentEffectEnum == .all && currentTypeEnumActivities != .all{
             
-            predicate = NSPredicate(format: "situation CONTAINS %@", argumentArray:[currentSituationEnum.rawValue])
+            predicate = NSPredicate(format: "type CONTAINS %@", argumentArray:[currentTypeEnumActivities.rawValue])
             
             
             request.predicate = predicate

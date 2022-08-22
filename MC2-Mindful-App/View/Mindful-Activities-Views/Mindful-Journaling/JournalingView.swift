@@ -10,7 +10,7 @@ import Foundation
 
 
 struct JournalingView: View {
-    @ObservedObject var activityModel: ActivityViewModel = ActivityViewModel()
+    @ObservedObject var activityModel: ActivityViewModel
     
     @State private var journalBody: String = "Here is your story !"
 

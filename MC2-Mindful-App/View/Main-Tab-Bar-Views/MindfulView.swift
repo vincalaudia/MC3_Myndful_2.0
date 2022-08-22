@@ -86,27 +86,115 @@ struct MindfulView: View {
 //                .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
 //
             
+            
             ForEach (activityModel.activityArray) {item in
                 
-                if (item.viewDestination == "Mindful_Breathing_Intro" ){
-                    ActivityCard(item: item, viewDestination: AnyView(Mindful_Breathing_Intro(activityModel: activityModel)))
-                } else if (item.viewDestination == "JournalingView" ){
-                    ActivityCard(item: item, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
+                
+//                NavigationLink(destination: IntroActivityView(activityModel: activityModel)) {
+//                HStack(){
+//                    Image(systemName: item.image ?? "wind")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(maxWidth: 25, maxHeight: 25)
+//                        .padding(.leading, UIScreen.main.bounds.width*1/14)
+//
+//
+//                    VStack(alignment : .leading){
+//                        Text(item.title ?? "")
+//                            .font(.headline)
+//
+//                        Text(item.type ?? "")
+//                            .font(.caption)
+//
+//                        Text(item.timeString ?? "")
+//                            .font(.caption)
+//                    }.padding([.leading, .trailing], UIScreen.main.bounds.width*1/17)
+//                        .multilineTextAlignment(.leading)
+//
+//                }.frame(width : UIScreen.main.bounds.width*11/12, height: 86, alignment: .leading)
+//                    .foregroundColor(Color.white)
+//                    .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
+//                    .background(Image("BGRecents")
+//                        .resizable()
+//                    )
+//
+//            }.simultaneousGesture(TapGesture().onEnded{
+//                activityModel.selectedActivity = item
+//                print(activityModel.selectedActivity)
+//            })
+//
+//                if (item.viewDestination == "ComingSoonView" ){
+//
+//                    ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
+//
+//                }
+//
+//                if (item.id != 15 &&  item.id != 16) {
 
+//                    ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
+
+                    NavigationLink(destination: IntroActivityView(activityModel: activityModel)) {
+                    HStack(){
+                        Image(systemName: item.image ?? "wind")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 25, maxHeight: 25)
+                            .padding(.leading, UIScreen.main.bounds.width*1/14)
+
+
+                        VStack(alignment : .leading){
+                            Text(item.title ?? "")
+                                .font(.headline)
+
+                            Text(item.type ?? "")
+                                .font(.caption)
+
+                            Text(item.timeString ?? "")
+                                .font(.caption)
+                        }.padding([.leading, .trailing], UIScreen.main.bounds.width*1/17)
+                            .multilineTextAlignment(.leading)
+
+                    }.frame(width : UIScreen.main.bounds.width*11/12, height: 86, alignment: .leading)
+                        .foregroundColor(Color.white)
+                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
+                        .background(Image("BGRecents")
+                            .resizable()
+                        )
+
+                }.simultaneousGesture(TapGesture().onEnded{
+                    activityModel.selectedActivity = item
+                    print(activityModel.selectedActivity)
+                })
+                    
                 }
-                
-                else if (item.viewDestination == "ScavengerHunt" ){
-        
-                    ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
-                            
-                }
-                
-                else if (item.viewDestination == "ComingSoonView" ){
-        
-                    ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
-                            
-                }
-        }
+            
+            
+//        }
+            
+//            ForEach (activityModel.activityArray) {item in
+//
+//                if (item.viewDestination == "Mindful_Breathing_Intro" ){
+//                    ActivityCard(item: item, viewDestination: AnyView(Mindful_Breathing_Intro(activityModel: activityModel)))
+            
+            
+            
+//                } else if (item.viewDestination == "JournalingView" ){
+//                    ActivityCard(item: item, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
+//
+//                }
+//
+//                else if (item.viewDestination == "ScavengerHunt" ){
+//
+//                    ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+//
+//                }
+//
+//                else if (item.viewDestination == "ComingSoonView" ){
+//
+//                    ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
+//
+//                }
+//        }
             
         }
         .padding(.bottom, 25)
@@ -133,14 +221,24 @@ struct MindfulView: View {
                     .font(.headline).bold()
                     .onTapGesture {
                         withAnimation {
-                        activityModel.currentEffectEnum = .all
-                        activityModel.currentSituationEnum  = .all
+                            activityModel.currentTimeIntEnum = .tercepat
+                            activityModel.currentEffectEnum = .all
+                        activityModel.currentTypeEnumActivities  = .all
                             showFilterSheetActivity = false
                             activityModel.loadActivities()
                         }
                     }
             }
             .padding(.bottom,15)
+            
+            
+            HStack(alignment: .top){
+                Text("Urutkan").font(.subheadline).bold()
+
+            }
+
+
+            activityTimeIntSorting().padding(.bottom,15)
 
 
             HStack(alignment: .top){
@@ -153,12 +251,12 @@ struct MindfulView: View {
 
             
             HStack(alignment: .top){
-                Text("Situasi").font(.subheadline).bold()
+                Text("Kategori").font(.subheadline).bold()
 
             }
 
 
-            situationFiltering()      .padding(.bottom,15)
+            typeFiltering()      .padding(.bottom,15)
 
 
 
@@ -204,8 +302,6 @@ struct MindfulView: View {
     func ActivityCard(item: Activity,viewDestination: AnyView )->some View{
         // Incase if we missed the task
         
-        
-        
             NavigationLink(destination: viewDestination) {
             HStack(){
                 Image(systemName: item.image ?? "wind")
@@ -235,7 +331,6 @@ struct MindfulView: View {
                 )
 
         }.simultaneousGesture(TapGesture().onEnded{
-            
             activityModel.selectedActivity = item
             print(activityModel.selectedActivity)
         })
@@ -244,10 +339,10 @@ struct MindfulView: View {
     
     
     @ViewBuilder
-    func situationFiltering()->some View{
+    func activityTimeIntSorting()->some View{
         // Incase if we missed the task
         
-        let tabs: [situationEnum] = [.all,.cemas,.emosional,.gugup,.kecewa,.linglung,.lowSelfesteem,.marah,.negatif,.panik,.putusAsa,.sedih,.senang,.stress]
+        let tabs: [timeIntEnum] = [.tercepat, .terlama]
 //        HStack(spacing: 10){
 //            ForEach(tabs,id: \.self){ tab in
         
@@ -257,17 +352,67 @@ struct MindfulView: View {
                     .font(.callout)
                     .fontWeight(.semibold)
                     .scaleEffect(0.9)
-                    .foregroundColor(activityModel.currentSituationEnum == tab ? .white : .gray)
+                    .foregroundColor(activityModel.currentTimeIntEnum == tab ? .white : .gray)
                     .padding(10)
 //                    .frame(maxWidth: .infinity)
                     .background{
-                        if activityModel.currentSituationEnum == tab{
+                        if activityModel.currentTimeIntEnum == tab{
                             Rectangle()
                                 .fill(Color("AccentColor"))
 //                                .matchedGeometryEffect(id: "timestamp", in: animation)
 
                         }
-                        if activityModel.currentSituationEnum != tab{
+                        if activityModel.currentTimeIntEnum != tab{
+
+                            Rectangle()
+                                .fill(Color("lightGrey"))
+
+
+                        }
+                    }
+                    .cornerRadius(6)
+
+                    .onTapGesture {
+                        withAnimation{
+                            activityModel.currentTimeIntEnum = tab
+                            
+                            print("tab enum : \(activityModel.currentTimeIntEnum)" )
+//                            taskModel.loadTasks(currentTab: tab)
+                        }
+                    }
+            
+            
+        }
+
+    }
+    
+    
+    
+    @ViewBuilder
+    func typeFiltering()->some View{
+        // Incase if we missed the task
+        
+        let tabs: [typeEnum] = [.all, .observation, .breathingTechique , .journalling, .outdoorObservation]
+//        HStack(spacing: 10){
+//            ForEach(tabs,id: \.self){ tab in
+        
+        WrappingHStack(tabs, id:\.self) { tab in
+            
+            
+                Text(tab.rawValue)
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .scaleEffect(0.9)
+                    .foregroundColor(activityModel.currentTypeEnumActivities == tab ? .white : .gray)
+                    .padding(10)
+                    .background{
+                        if activityModel.currentTypeEnumActivities == tab{
+                            Rectangle()
+                                .fill(Color("AccentColor"))
+//                                .matchedGeometryEffect(id: "type", in: animation)
+
+                        }
+                        if activityModel.currentTypeEnumActivities != tab{
 
                             Rectangle()
                                 .fill(Color("lightGrey"))
@@ -280,9 +425,9 @@ struct MindfulView: View {
 
                     .onTapGesture {
                         withAnimation{
-                            activityModel.currentSituationEnum = tab
+                            activityModel.currentTypeEnumActivities = tab
                             
-                            print("tab enum : \(activityModel.currentSituationEnum)" )
+                            print("tab enum : \(activityModel.currentTypeEnumActivities)" )
 //                            taskModel.loadTasks(currentTab: tab)
                         }
                     }
@@ -291,6 +436,56 @@ struct MindfulView: View {
         }
 
     }
+    
+//
+//    @ViewBuilder
+//    func situationFiltering()->some View{
+//        // Incase if we missed the task
+//
+//        let tabs: [situationEnum] = [.all,.cemas,.emosional,.gugup,.kecewa,.linglung,.lowSelfesteem,.marah,.negatif,.panik,.putusAsa,.sedih,.senang,.stress]
+////        HStack(spacing: 10){
+////            ForEach(tabs,id: \.self){ tab in
+//
+//        WrappingHStack(tabs, id:\.self) { tab in
+//
+//                Text(tab.rawValue)
+//                    .font(.callout)
+//                    .fontWeight(.semibold)
+//                    .scaleEffect(0.9)
+//                    .foregroundColor(activityModel.currentSituationEnum == tab ? .white : .gray)
+//                    .padding(10)
+////                    .frame(maxWidth: .infinity)
+//                    .background{
+//                        if activityModel.currentSituationEnum == tab{
+//                            Rectangle()
+//                                .fill(Color("AccentColor"))
+////                                .matchedGeometryEffect(id: "timestamp", in: animation)
+//
+//                        }
+//                        if activityModel.currentSituationEnum != tab{
+//
+//                            Rectangle()
+//                                .fill(Color("lightGrey"))
+//
+//
+//                        }
+//                    }
+//                    .cornerRadius(6)
+//                    .padding(.bottom, 10)
+//
+//                    .onTapGesture {
+//                        withAnimation{
+//                            activityModel.currentSituationEnum = tab
+//
+//                            print("tab enum : \(activityModel.currentSituationEnum)" )
+////                            taskModel.loadTasks(currentTab: tab)
+//                        }
+//                    }
+//
+//
+//        }
+//
+//    }
     
     @ViewBuilder
     func effectFiltering()->some View{

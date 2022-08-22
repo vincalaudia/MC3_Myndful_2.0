@@ -233,67 +233,101 @@ struct RecommendationResultView: View {
 //                                    .frame(maxWidth: .infinity, alignment: .center)
                     
                     
-                    
-                    if (data.viewDestination == "Mindful_Breathing_Intro" ){
-                        NavigationLink(destination: Mindful_Breathing_Intro(activityModel: activityModel)){
-                            Text("Mulai")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color("AccentColor"))
-                                            .frame(maxWidth: .infinity, alignment: .center)
-                                    }.simultaneousGesture(TapGesture().onEnded{
-                                        
-                                        activityModel.selectedActivity = data
-                                        print(activityModel.selectedActivity)
-                                    })
-                            
+                    if (data.viewDestination != "ComingSoonView" ){
+//                        ActivityCard(item: item, viewDestination: AnyView(IntroActivityView(activityModel: activityModel)))
                         
-          
-                    } else if (data.viewDestination == "JournalingView" ){
-                        NavigationLink(destination: JournalingView(activityModel: activityModel)){
-                            Text("Mulai")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color("AccentColor"))
-                                            .frame(maxWidth: .infinity, alignment: .center)
-                                    }.simultaneousGesture(TapGesture().onEnded{
-                                        
-                                        activityModel.selectedActivity = data
-                                        print(activityModel.selectedActivity)
-                                    })
-                            
-
-                    }
-                    
-                    else if (data.viewDestination == "ScavengerHunt" ){
-                        NavigationLink(destination: ScavengerHunt(activityModel: activityModel)){
-                            Text("Mulai")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color("AccentColor"))
-                                            .frame(maxWidth: .infinity, alignment: .center)
-//                                            .disabled(true)
-                                    }.simultaneousGesture(TapGesture().onEnded{
-                                        
-                                        activityModel.selectedActivity = data
-                                        print(activityModel.selectedActivity)
-                                    })
-                            
-                                
-                    }
-                    
-                    else if (data.viewDestination == "ComingSoonView" ){
-                        NavigationLink(destination: ComingSoonView(item: data)){
+                                                NavigationLink(destination: IntroActivityView(activityModel: activityModel)){
+                                                    Text("Mulai")
+                                                                    .fontWeight(.bold)
+                                                                    .foregroundColor(Color("AccentColor"))
+                                                                    .frame(maxWidth: .infinity, alignment: .center)
+                                                            }.simultaneousGesture(TapGesture().onEnded{
+                        
+                                                                activityModel.selectedActivity = data
+                                                                print(activityModel.selectedActivity)
+                                                            })
+                        
+                        
+                    } else if (data.viewDestination == "ComingSoonView" ){
+                        
+                        NavigationLink(destination: IntroActivityView(activityModel: activityModel)){
                             Text("Segera Hadir")
                                             .fontWeight(.bold)
-                                            .foregroundColor(Color("AccentColor"))
+                                            .foregroundColor(.gray)
                                             .frame(maxWidth: .infinity, alignment: .center)
-//                                            .disabled(true)
                                     }.simultaneousGesture(TapGesture().onEnded{
-                                        
+
                                         activityModel.selectedActivity = data
                                         print(activityModel.selectedActivity)
                                     })
-                            
+                        
+            
+//                        ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
                                 
                     }
+                    
+                    
+                    
+//                    if (data.viewDestination == "Mindful_Breathing_Intro" ){
+//                        NavigationLink(destination: Mindful_Breathing_Intro(activityModel: activityModel)){
+//                            Text("Mulai")
+//                                            .fontWeight(.bold)
+//                                            .foregroundColor(Color("AccentColor"))
+//                                            .frame(maxWidth: .infinity, alignment: .center)
+//                                    }.simultaneousGesture(TapGesture().onEnded{
+//
+//                                        activityModel.selectedActivity = data
+//                                        print(activityModel.selectedActivity)
+//                                    })
+//
+//
+//
+//                    } else if (data.viewDestination == "JournalingView" ){
+//                        NavigationLink(destination: JournalingView(activityModel: activityModel)){
+//                            Text("Mulai")
+//                                            .fontWeight(.bold)
+//                                            .foregroundColor(Color("AccentColor"))
+//                                            .frame(maxWidth: .infinity, alignment: .center)
+//                                    }.simultaneousGesture(TapGesture().onEnded{
+//
+//                                        activityModel.selectedActivity = data
+//                                        print(activityModel.selectedActivity)
+//                                    })
+//
+//
+//                    }
+//
+//                    else if (data.viewDestination == "ScavengerHunt" ){
+//                        NavigationLink(destination: ScavengerHunt(activityModel: activityModel)){
+//                            Text("Mulai")
+//                                            .fontWeight(.bold)
+//                                            .foregroundColor(Color("AccentColor"))
+//                                            .frame(maxWidth: .infinity, alignment: .center)
+////                                            .disabled(true)
+//                                    }.simultaneousGesture(TapGesture().onEnded{
+//
+//                                        activityModel.selectedActivity = data
+//                                        print(activityModel.selectedActivity)
+//                                    })
+//
+//
+//                    }
+//
+//                    else if (data.viewDestination == "ComingSoonView" ){
+//                        NavigationLink(destination: ComingSoonView(item: data)){
+//                            Text("Segera Hadir")
+//                                            .fontWeight(.bold)
+//                                            .foregroundColor(Color("AccentColor"))
+//                                            .frame(maxWidth: .infinity, alignment: .center)
+////                                            .disabled(true)
+//                                    }.simultaneousGesture(TapGesture().onEnded{
+//
+//                                        activityModel.selectedActivity = data
+//                                        print(activityModel.selectedActivity)
+//                                    })
+//
+//
+//                    }
     
                             }
  

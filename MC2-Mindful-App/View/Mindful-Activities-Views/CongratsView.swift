@@ -33,7 +33,7 @@ struct CongratsView: View {
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
             
-            NavigationLink(destination: MainView()){
+            NavigationLink(destination: MainView(selection: 1)){
                 Text("Menuju Beranda")
                     .frame(width: 200, height: 50, alignment: .center)
                     .foregroundColor(Color.accentColor)

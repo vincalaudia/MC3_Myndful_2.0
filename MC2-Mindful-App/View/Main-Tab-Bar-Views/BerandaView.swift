@@ -88,28 +88,67 @@ struct BerandaView: View {
                         
                         
                         
-                        if item.activity!.viewDestination == "Mindful_Breathing_Intro" {
-                            
-                            ActivityCard(item: item.activity!, viewDestination: AnyView(Mindful_Breathing_Intro(activityModel: activityModel)))
-                            
-                        } else if item.activity!.viewDestination == "JournalingView" {
-                            
-                            ActivityCard(item: item.activity!, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
-                            
-                            
-                        }
+//                        if (item.activity!.viewDestination != "ComingSoonView" ){
+                            NavigationLink(destination: IntroActivityView(activityModel: activityModel)) {
+                                HStack(){
+                                    Image(systemName: item.activity!.image ?? "wind")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 25, maxHeight: 25)
+                                        .padding(.leading, UIScreen.main.bounds.width*1/14)
+
+
+                                    VStack(alignment : .leading){
+                                        Text(item.activity!.title ?? "")
+                                            .font(.headline)
+
+                                        Text(item.activity!.type ?? "")
+                                            .font(.caption)
+
+                                        Text(item.activity!.timeString ?? "")
+                                            .font(.caption)
+                                    }.padding([.leading, .trailing], UIScreen.main.bounds.width*1/17)
+                                        .multilineTextAlignment(.leading)
+
+                                }.frame(width : UIScreen.main.bounds.width*11/12, height: 86, alignment: .leading)
+                                    .foregroundColor(Color.white)
+                                    .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
+                                    .background(Image("BGRecents")
+                                        .resizable()
+                                    )
+                            }.simultaneousGesture(TapGesture().onEnded{
+
+                                activityModel.selectedActivity = item.activity!
+                                print(activityModel.selectedActivity)
+                            })
+//                        } else if (item.activity!.viewDestination == "ComingSoonView" ){
+//
+//                        ActivityCard(item: item.activity!, viewDestination: AnyView(ComingSoonView(item: item.activity ?? Activity())))
+//
+//                        }
                         
-                        else if item.activity!.viewDestination == "ScavengerHunt" {
-                            
-                            ActivityCard(item: item.activity!, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
-                            
-                        }
                         
-                        else if item.activity?.viewDestination == "ComingSoonView" {
-                            
-                            ActivityCard(item: item.activity ?? Activity(), viewDestination: AnyView(ComingSoonView(item: item.activity ?? Activity())))
-                            
-                        }
+//                        if item.activity!.viewDestination == "Mindful_Breathing_Timer" {
+//
+//                            ActivityCard(item: item.activity!, viewDestination: AnyView(Mindful_Breathing_Timer(activityModel: activityModel)))
+//
+//                        } else if item.activity!.viewDestination == "JournalingView" {
+//
+//                            ActivityCard(item: item.activity!, viewDestination: AnyView(JournalingView(activityModel: activityModel)))
+//
+//                        }
+//
+//                        else if item.activity!.viewDestination == "ScavengerHunt" {
+//
+//                            ActivityCard(item: item.activity!, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+//
+//                        }
+//
+//                        else if item.activity?.viewDestination == "ComingSoonView" {
+//
+//                            ActivityCard(item: item.activity ?? Activity(), viewDestination: AnyView(ComingSoonView(item: item.activity ?? Activity())))
+//
+//                        }
                         
                         
                         //                        if (item.viewDestination == "Mindful_Breathing_Intro" ){
@@ -123,8 +162,6 @@ struct BerandaView: View {
                         //
                         //                        }
                     }
-                    
-                    
                     
                     
                 }.padding(.top, 30)
@@ -150,13 +187,10 @@ struct BerandaView: View {
     }
     
     
-    
+// Ada bug karena ga bisa masuk ke aktivity pas dari IntroActivityView
     @ViewBuilder
     func ActivityCard(item: Activity,viewDestination: AnyView )->some View{
         // Incase if we missed the task
-        
-        
-        
         NavigationLink(destination: viewDestination) {
             HStack(){
                 Image(systemName: item.image ?? "wind")
@@ -164,20 +198,20 @@ struct BerandaView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: 25, maxHeight: 25)
                     .padding(.leading, UIScreen.main.bounds.width*1/14)
-                
-                
+
+
                 VStack(alignment : .leading){
                     Text(item.title ?? "")
                         .font(.headline)
-                    
+
                     Text(item.type ?? "")
                         .font(.caption)
-                    
+
                     Text(item.timeString ?? "")
                         .font(.caption)
                 }.padding([.leading, .trailing], UIScreen.main.bounds.width*1/17)
                     .multilineTextAlignment(.leading)
-                
+
             }.frame(width : UIScreen.main.bounds.width*11/12, height: 86, alignment: .leading)
                 .foregroundColor(Color.white)
                 .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
@@ -185,12 +219,12 @@ struct BerandaView: View {
                     .resizable()
                 )
         }.simultaneousGesture(TapGesture().onEnded{
-            
+
             activityModel.selectedActivity = item
             print(activityModel.selectedActivity)
         })
-        
-        
+
+
     }
     
     

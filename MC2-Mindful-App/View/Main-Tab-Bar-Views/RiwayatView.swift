@@ -307,7 +307,7 @@ struct RiwayatView: View {
                 }
 
 
-                timestampSorting()      .padding(.bottom,5)
+                timestampSorting()      .padding(.bottom,15)
 
                 
                 HStack(alignment: .top){
