@@ -24,7 +24,7 @@ struct RecommendationTimeMoreThan2Minutes {
 struct RecommendationView: View {
     
     
-    @StateObject var activityModel = ActivityViewModel()
+    @StateObject var activityModel: ActivityViewModel = .init()
     
     let effectData: [RecommendationEffectModel] = [
         RecommendationEffectModel(image: "Tenang", effect: "Tenang", title: "Tenang"),

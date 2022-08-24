@@ -269,7 +269,7 @@ struct RecommendationResultView: View {
 
                                         activityModel.selectedActivity = data
                                         print(activityModel.selectedActivity)
-                                    })
+                                    }).disabled(true)
                         
             
 //                        ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))

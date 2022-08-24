@@ -157,7 +157,8 @@ struct MindfulView: View {
                     }.frame(width : UIScreen.main.bounds.width*11/12, height: 86, alignment: .leading)
                         .foregroundColor(Color.white)
                         .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
-                        .background(Image("BGRecents")
+                        .background(item.viewDestination == "ComingSoonView" ? Image("BGRecentsDisabled")
+                            .resizable() : Image("BGRecents")
                             .resizable()
                         )
 
@@ -165,6 +166,7 @@ struct MindfulView: View {
                     activityModel.selectedActivity = item
                     print(activityModel.selectedActivity)
                 })
+                .disabled(item.viewDestination == "ComingSoonView")
                     
                 }
             

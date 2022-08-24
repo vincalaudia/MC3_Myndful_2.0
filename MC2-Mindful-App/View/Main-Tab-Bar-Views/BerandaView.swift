@@ -87,13 +87,11 @@ struct BerandaView: View {
                 
                 
                 ForEach (activityModel.recentUserActivities) {item in
-                    
-                    
-                    
+                
                     //                        if (item.activity!.viewDestination != "ComingSoonView" ){
                     NavigationLink(destination: IntroActivityView(activityModel: activityModel)) {
                         HStack(){
-                            Image(systemName: item.activity!.image ?? "wind")
+                            Image(systemName: item.activity?.image ?? "wind")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxWidth: 25, maxHeight: 25)
@@ -101,13 +99,13 @@ struct BerandaView: View {
                             
                             
                             VStack(alignment : .leading){
-                                Text(item.activity!.title ?? "")
+                                Text(item.activity?.title ?? "")
                                     .font(.headline)
                                 
-                                Text(item.activity!.type ?? "")
+                                Text(item.activity?.type ?? "")
                                     .font(.caption)
                                 
-                                Text(item.activity!.timeString ?? "")
+                                Text(item.activity?.timeString ?? "")
                                     .font(.caption)
                             }.padding([.leading, .trailing], UIScreen.main.bounds.width*1/17)
                                 .multilineTextAlignment(.leading)
@@ -118,10 +116,12 @@ struct BerandaView: View {
                             .background(Image("BGRecents")
                                 .resizable()
                             )
-                    }.simultaneousGesture(TapGesture().onEnded{
+                    }
+                    .isDetailLink(false)
+                    .simultaneousGesture(TapGesture().onEnded{
                         
-                        activityModel.selectedActivity = item.activity!
-                        print(activityModel.selectedActivity)
+                        activityModel.selectedActivity = item.activity ?? Activity()
+//                        print(activityModel.selectedActivity)
                     })
                     //                        } else if (item.activity!.viewDestination == "ComingSoonView" ){
                     //
@@ -190,6 +190,16 @@ struct BerandaView: View {
         
     }
     
+    @ViewBuilder
+    func Test()-> some View{
+        NavigationLink(destination: RecommendationView()) {
+            Image("LihatRekomendasiMFmu")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth:UIScreen.main.bounds.width*11/12, alignment: .leading)
+                .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
+        }
+    }
     
     // Ada bug karena ga bisa masuk ke aktivity pas dari IntroActivityView
     @ViewBuilder
