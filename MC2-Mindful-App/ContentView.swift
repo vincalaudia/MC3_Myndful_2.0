@@ -16,7 +16,7 @@ struct ContentView: View {
     @Environment(\.self) var env
     
     @AppStorage("isStart") private var isStart: Bool = false
-    @AppStorage("isBreathingIntroStarted") private var isBreathingIntroStarted: Bool = false
+//    @AppStorage("isBreathingIntroStarted") private var isBreathingIntroStarted: Bool = false
     @AppStorage("preload") private var preload: Bool = false
     
 
@@ -33,7 +33,8 @@ struct ContentView: View {
             
             MainView()
             
-        } else
+        }
+        else
 //        if !isStart
         
         {

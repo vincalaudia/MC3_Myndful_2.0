@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063F4E6528B6281B002D7FE5 /* HearthBeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F4E6428B6281B002D7FE5 /* HearthBeatView.swift */; };
+		063F4E6828B6285A002D7FE5 /* Take-A-Walk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F4E6728B6285A002D7FE5 /* Take-A-Walk.swift */; };
+		063F4E6A28B628E1002D7FE5 /* knockSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 063F4E6928B628E1002D7FE5 /* knockSound.wav */; };
+		063F4E6D28B63408002D7FE5 /* FiveSenseExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063F4E6C28B63408002D7FE5 /* FiveSenseExerciseView.swift */; };
 		0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6E7286F077C005D7DF6 /* MainView.swift */; };
 		0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */; };
 		0640C6ED286F07B8005D7DF6 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0640C6EC286F07B8005D7DF6 /* SheetView.swift */; };
@@ -61,6 +65,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063F4E6428B6281B002D7FE5 /* HearthBeatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HearthBeatView.swift; sourceTree = "<group>"; };
+		063F4E6728B6285A002D7FE5 /* Take-A-Walk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Take-A-Walk.swift"; sourceTree = "<group>"; };
+		063F4E6928B628E1002D7FE5 /* knockSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = knockSound.wav; sourceTree = "<group>"; };
+		063F4E6C28B63408002D7FE5 /* FiveSenseExerciseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveSenseExerciseView.swift; sourceTree = "<group>"; };
 		0640C6E7286F077C005D7DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0640C6E9286F079B005D7DF6 /* MindfulnessActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulnessActivities.swift; sourceTree = "<group>"; };
 		0640C6EC286F07B8005D7DF6 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
@@ -126,6 +134,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		063F4E6328B6281B002D7FE5 /* Heart-Beat-View */ = {
+			isa = PBXGroup;
+			children = (
+				063F4E6428B6281B002D7FE5 /* HearthBeatView.swift */,
+			);
+			path = "Heart-Beat-View";
+			sourceTree = "<group>";
+		};
+		063F4E6628B6284C002D7FE5 /* Take-A-Walk-View */ = {
+			isa = PBXGroup;
+			children = (
+				063F4E6728B6285A002D7FE5 /* Take-A-Walk.swift */,
+			);
+			path = "Take-A-Walk-View";
+			sourceTree = "<group>";
+		};
+		063F4E6B28B633B0002D7FE5 /* Five-Senses-Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				063F4E6C28B63408002D7FE5 /* FiveSenseExerciseView.swift */,
+			);
+			path = "Five-Senses-Exercise";
+			sourceTree = "<group>";
+		};
 		0640C6EB286F07AC005D7DF6 /* Main-Tab-Bar-Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,17 +172,20 @@
 		0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */ = {
 			isa = PBXGroup;
 			children = (
+				063F4E6B28B633B0002D7FE5 /* Five-Senses-Exercise */,
+				063F4E6628B6284C002D7FE5 /* Take-A-Walk-View */,
+				063F4E6328B6281B002D7FE5 /* Heart-Beat-View */,
 				DCB987C428B52E9C0005DE6D /* Detail-Journaling-Activities */,
 				DCB5ABBD28B396990009B78B /* Intention-Setting */,
 				DCB5ABBA28B396670009B78B /* Morning-Pages */,
 				DCB5ABB728B38C080009B78B /* Gratitude-List */,
 				D1E7D48A2872E13800B1CEF4 /* Mindful-Breathing */,
 				06F4328028B3DEC3003FA7AA /* Watch-The-Clouds */,
+				06777BB828AB34F500021C0F /* Scavenger-Hunt */,
 				DC0D9C6128999107006A53A1 /* Mindful-Journaling */,
 				06CB0D712871D273002954C7 /* ComingSoonView.swift */,
 				D1E7D48B2872E15D00B1CEF4 /* IntroActivityView.swift */,
 				DC0D9C63289993AB006A53A1 /* CongratsView.swift */,
-				06777BB828AB34F500021C0F /* Scavenger-Hunt */,
 			);
 			path = "Mindful-Activities-Views";
 			sourceTree = "<group>";
@@ -159,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				06777BB328AB244500021C0F /* exhale.wav */,
+				063F4E6928B628E1002D7FE5 /* knockSound.wav */,
 				06777BB228AB244500021C0F /* hold.wav */,
 				06777BB028AB241A00021C0F /* inhale.wav */,
 			);
@@ -448,6 +484,7 @@
 				DC9DB0D82893DE5100FCF403 /* Preview Assets.xcassets in Resources */,
 				06777BB528AB244500021C0F /* exhale.wav in Resources */,
 				DC9DB0E42893E04200FCF403 /* OnboardingStepView.swift~Stashed changes in Resources */,
+				063F4E6A28B628E1002D7FE5 /* knockSound.wav in Resources */,
 				DC9DB0D62893DE4500FCF403 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,13 +525,16 @@
 				0640C6E8286F077C005D7DF6 /* MainView.swift in Sources */,
 				EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */,
 				D1E7D4892872DDBD00B1CEF4 /* Breathing_Intro_Congrats.swift in Sources */,
+				063F4E6828B6285A002D7FE5 /* Take-A-Walk.swift in Sources */,
 				DCB5ABBF28B398590009B78B /* IntentionSettingView.swift in Sources */,
 				06777BAF28AA498300021C0F /* ScavengerHunt.swift in Sources */,
 				0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */,
 				DCB987C628B5310E0005DE6D /* DetailJournalingActivitiesView.swift in Sources */,
 				DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */,
+				063F4E6528B6281B002D7FE5 /* HearthBeatView.swift in Sources */,
 				EEDD201B2870126A003AB92E /* EmotionView.swift in Sources */,
 				06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */,
+				063F4E6D28B63408002D7FE5 /* FiveSenseExerciseView.swift in Sources */,
 				0640C6EA286F079B005D7DF6 /* MindfulnessActivities.swift in Sources */,
 				DCB5ABB928B38C8A0009B78B /* GratitudeListView.swift in Sources */,
 				DC9DB0D22893DE3200FCF403 /* finishMindfulWriting.swift in Sources */,
@@ -635,6 +675,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,6 +705,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

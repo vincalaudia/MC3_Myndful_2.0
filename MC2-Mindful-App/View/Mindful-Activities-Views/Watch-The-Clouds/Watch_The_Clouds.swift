@@ -86,7 +86,7 @@ struct Watch_The_Clouds: View {
                                 isPaused: self.stopWatch.isPaused())
                 .onAppear(){self.startAnimation.toggle()}
                 
-                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Jadi lebih mindful dengan memerhatikan lngkungan sekitarmu!"), isActive: $moveToNextScreen) {
+                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "congrats", congratsBody: "Jadi lebih mindful dengan memerhatikan lngkungan sekitarmu!"), isActive: $moveToNextScreen) {
                     HStack{
                         Text("Selesai")
                         Image(systemName: "chevron.right")

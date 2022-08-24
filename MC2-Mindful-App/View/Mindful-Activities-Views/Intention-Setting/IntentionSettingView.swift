@@ -177,7 +177,7 @@ struct IntentionSettingView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."), isActive: $moveToNextScreen) {
+                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "congrats", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."), isActive: $moveToNextScreen) {
                     EmptyView()
                     
                 }
@@ -263,7 +263,9 @@ struct IntentionSettingView: View {
                     keyWindow!.endEditing(true)
 
                 }
-        .background(Image("BGDashboard"))
+        .background(Image("BGDashboard")
+            .resizable()
+            .scaledToFill())
     }
     
     struct JournalingListRow: View {

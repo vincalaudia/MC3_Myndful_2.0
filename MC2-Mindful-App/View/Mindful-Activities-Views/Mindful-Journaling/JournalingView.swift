@@ -340,7 +340,7 @@ struct JournalingView: View {
 //
 //                        }
                     
-                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."), isActive: $moveToNextScreen) {
+                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "congrats", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."), isActive: $moveToNextScreen) {
                         EmptyView()
 
                     }
@@ -410,7 +410,9 @@ struct JournalingView: View {
                     keyWindow!.endEditing(true)
 
                 }
-        .background(Image("BGDashboard"))
+        .background(Image("BGDashboard")
+            .resizable()
+            .scaledToFill())
     }
     
     func getDate() -> String {

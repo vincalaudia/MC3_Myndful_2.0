@@ -30,7 +30,7 @@ struct ScavengerHunt: View {
             
             ZStack{
                 
-                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Yay kamu telah berhasil menemukan  \n\(activityModel.found) objek dari total \(activityModel.found+activityModel.miss)"), isActive: $moveToNextScreen) {
+                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "congrats", congratsBody: "Yay kamu telah berhasil menemukan  \n\(activityModel.found) objek dari total \(activityModel.found+activityModel.miss)"), isActive: $moveToNextScreen) {
                     
                     EmptyView()
                     
@@ -89,7 +89,7 @@ struct ScavengerHunt: View {
                 .frame(width: UIScreen.main.bounds.width/5, height: UIScreen.main.bounds.width/5, alignment: .center)
                 .background(Color(red: 172/255, green: 207/255, blue: 255/255))
                 .cornerRadius(6)
-                    
+                
                 VStack(spacing : 10){
                     Text("Miss")
                         .bold()
@@ -108,17 +108,17 @@ struct ScavengerHunt: View {
                 
             }.padding(.bottom, 10)
             
-            HStack{
-                Button("Ketemu"){
-                    alphabet = randomString()
-                    progressValue = 0.0
-                    activityModel.found+=1
-                }.frame(width: UIScreen.main.bounds.width/3, height: 50, alignment: .center)
-                    .background(Color(red: 123/255, green: 180/255, blue: 252/255))
-                    .foregroundColor(.white)
-                    .cornerRadius(7)
-                
-            }
+            
+            Button("Ketemu"){
+                alphabet = randomString()
+                progressValue = 0.0
+                activityModel.found+=1
+            }.frame(width: UIScreen.main.bounds.width/3, height: 50, alignment: .center)
+                .background(Color(red: 123/255, green: 180/255, blue: 252/255))
+                .foregroundColor(.white)
+                .cornerRadius(7)
+            
+            
         }
         .multilineTextAlignment(.center)
         

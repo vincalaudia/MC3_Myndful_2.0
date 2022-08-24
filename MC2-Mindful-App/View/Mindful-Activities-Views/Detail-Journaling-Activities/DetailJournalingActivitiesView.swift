@@ -178,7 +178,9 @@ struct DetailJournalingActivitiesView: View {
                     keyWindow!.endEditing(true)
 
                 }
-        .background(Image("BGDashboard"))
+        .background(Image("BGDashboard")
+            .resizable()
+            .scaledToFill())
     }
     
     struct JournalingListRow: View {
