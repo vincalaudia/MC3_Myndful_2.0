@@ -16,7 +16,7 @@ struct JournalingView: View {
 
     // MArk : Environment Values
 
-    
+    @State var moveToNextScreen = false
     
     let selectedForegroundColor = Color.white
     let selectedbackgroundColor = "AccentColor"
@@ -28,7 +28,7 @@ struct JournalingView: View {
         
         
         VStack(){
-            VStack(spacing : 10){
+            VStack(spacing : 5){
                 Text("Daily Affirmation")
                     .font(.title)
                     .bold()
@@ -249,7 +249,7 @@ struct JournalingView: View {
                         
                     }
                 
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .frame(maxWidth: .infinity, maxHeight: geo.size.height * 0.5, alignment: .center)
                         .background(Color.white)
                         .cornerRadius(25)
                         .padding(.horizontal, 30)
@@ -293,63 +293,72 @@ struct JournalingView: View {
                             }
                         }
                     
-                } else {
-                    
-                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")) {
-                    
-                    VStack{
-                        Text("Selesai")
-                            .foregroundColor(Color.white)
-                            .bold()
-                    }
+                }
                 
-                    .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
-                        .background(Color.accentColor)
-                        .cornerRadius(25)
-                        .padding(.horizontal)
-                        .padding(.vertical,2)
-                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
-                
-                    }.simultaneousGesture(TapGesture().onEnded{
-                        
-                       print("Isinya si selected activity")
-                        print(activityModel.selectedActivity)
-                        
-                        print("Isinya si selected feeling")
-                         print(activityModel.selectedFeeling)
-                        
-                        print("Isinya si selected emoji")
-                         print(activityModel.emoji)
+                else {
 
-                        
-                        print("Isinya si selected journal body")
-                         print(activityModel.journalBody)
+//                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")) {
+//
+//                    VStack{
+//                        Text("Selesai")
+//                            .foregroundColor(Color.white)
+//                            .bold()
+//                    }
+//
+//                    .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
+//                        .background(Color.accentColor)
+//                        .cornerRadius(25)
+//                        .padding(.horizontal)
+//                        .padding(.vertical,2)
+//                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
+//
+//                    }.simultaneousGesture(TapGesture().onEnded{
+//
+//                       print("Isinya si selected activity")
+//                        print(activityModel.selectedActivity)
+//
+//                        print("Isinya si selected feeling")
+//                         print(activityModel.selectedFeeling)
+//
+//                        print("Isinya si selected emoji")
+//                         print(activityModel.emoji)
+//
+//
+//                        print("Isinya si selected journal body")
+//                         print(activityModel.journalBody)
+//
+//
+//                        activityModel.journaling(activity: activityModel.selectedActivity)
+//
+//                    })
 
-                        
-                        activityModel.journaling(activity: activityModel.selectedActivity)
-                        
-                    })
-                    
 //                        .opacity(activityModel.isFeelingSelected ? 1 : 0.5)
 //                        .onTapGesture {
-//                           
-//                            
-//                            
-//                            
+//
+//
+//
+//
 //                        }
-//                    
+                    
+                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."), isActive: $moveToNextScreen) {
+                        EmptyView()
+
+                    }
+                    
+//
                     VStack{
                         Text("Kembali")
                             .bold()
                     }
-                
+
+
                     .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
                         .background(Color.white)
                         .cornerRadius(25)
                         .padding(.horizontal)
 //                        .opacity(activityModel.isFeelingSelected ? 1 : 0.5)
                         .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
-                
+
                         .onTapGesture {
 //                            if activityModel.feeling != ""{
 //                                activityModel.selectedFeeling = activityModel.feeling
@@ -358,7 +367,7 @@ struct JournalingView: View {
                             activityModel.selectedFeeling = ""
                             }
                         }
-                    
+
                 }
                 
                 
@@ -372,6 +381,24 @@ struct JournalingView: View {
                 .padding(.top,30)
             
         }
+        .navigationBarItems(trailing: Button {
+            // Mark : IF success closing the View
+//            if  activityModel.addTask(context: env.managedObjectContext) {
+//                taskModel.subtaskArrayToAdd = []
+//                taskModel.loadTasks(currentTab: taskModel.currentTabEnum)
+//                env.dismiss()
+//            }
+            
+            activityModel.journaling(activity: activityModel.selectedActivity)
+            moveToNextScreen = true
+            
+            
+        } label: {
+            Text("Save")
+       
+        }
+            .disabled(activityModel.selectedFeeling ==  "")
+                 )
 //        .ignoresSafeArea(.keyboard)
         .onTapGesture {
                     let keyWindow = UIApplication.shared.connectedScenes

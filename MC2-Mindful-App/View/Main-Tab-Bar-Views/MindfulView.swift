@@ -491,7 +491,7 @@ struct MindfulView: View {
     func effectFiltering()->some View{
         // Incase if we missed the task
         
-        let tabs: [effectEnum] = [.all,.fokus,.kreatif,.optimis,.tenang,.tidur]
+        let tabs: [effectEnum] = [.all,.fokus,.kreatif,.optimis,.tenang,.tidur,.sadar]
 //        HStack(spacing: 10){
 //            ForEach(tabs,id: \.self){ tab in
         

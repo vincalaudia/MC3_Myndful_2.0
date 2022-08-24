@@ -209,12 +209,47 @@ struct RiwayatView: View {
 
                     
                     VStack(alignment : .leading){
+                        
+                        HStack{
                         Text(item.activity?.title ?? "")
                             .font(.headline)
                             .bold()
-                        
+                            
+                            Spacer()
+                            
+                            if item.activity?.type == "Jurnal" {
+                              
+                                NavigationLink(destination: DetailJournalingActivitiesView(activityModel: activityModel)) {
+                    
+                                    Text("Lihat Detail")
+                                        .font(.caption2)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                    //                    .frame(maxWidth: .infinity)
+                                        .padding(4)
+                                        .background{
+                                           
+                                                Rectangle()
+                                                    .fill(Color("AccentColor"))
+                                                        
+                                        }
+                                        .cornerRadius(6)
                                 
-                                if item.activity?.id == 1 {
+                            
+                                    
+                            
+                                }.simultaneousGesture(TapGesture().onEnded{
+                                    
+                                    activityModel.selectedUserActivityForDetail = item
+                                    
+                                })
+                                
+                                
+                            }
+                        
+                        }
+                                
+                        if item.activity?.viewDestination == "JournalingView" || item.activity?.viewDestination == "MorningPagesView"  {
 
                                     Text(item.journalBody ?? "")
                                         .lineLimit(1)
@@ -240,6 +275,24 @@ struct RiwayatView: View {
                                 .font(.footnote)
                             
                         }
+                        
+                        else if item.activity?.viewDestination == "GratitudeListView"{
+                            
+                            Text("You made \(item.journalingList?.count ?? 0) gratitudes")
+                                .lineLimit(1)
+                                .font(.footnote)
+                            
+                        }
+                        
+                        else if item.activity?.viewDestination == "IntentionSettingView"{
+                            
+                            Text("You made \(item.journalingList?.count ?? 0) intention")
+                                .lineLimit(1)
+                                .font(.footnote)
+                            
+                        }
+                        
+                        
                                     // Untuk Breathings
                                     
                         else {
@@ -252,14 +305,50 @@ struct RiwayatView: View {
              
                         Text("\((item.timestamp ?? Date()).formatted(date: .complete, time: .omitted)) ")
                             .font(.caption)
+                        
+                        
+//                        if item.activity?.type == "Journalling" {
+//
+//                            NavigationLink(destination: DetailJournalingActivitiesView(activityModel: activityModel)) {
+//
+//                                Spacer()
+//                                HStack{
+//                                Text("Lihat Detail")
+//                                    .font(.caption2)
+//                                    .fontWeight(.semibold)
+//                                    .foregroundColor(.white)
+//                //                    .frame(maxWidth: .infinity)
+//                                    .padding(4)
+//                                    .background{
+//
+//                                            Rectangle()
+//                                                .fill(Color("AccentColor"))
+//
+//                                    }
+//                                    .cornerRadius(6)
+//
+//
+//                                }
+//
+//                            }.simultaneousGesture(TapGesture().onEnded{
+//
+//                                activityModel.selectedUserActivityForDetail = item
+//
+//                            })
+//
+//
+//                        }
+                        
                     }.padding([.leading, .trailing], UIScreen.main.bounds.width*1/17)
                     
-                }.frame(width : UIScreen.main.bounds.width*11/12, height: 86, alignment: .leading)
+                }.frame(width : UIScreen.main.bounds.width*11/12, height: 100, alignment: .leading)
                     .foregroundColor(Color.white)
                     .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.2), radius: 5, x: 0, y: 4)
                     .background(Image("BGRecents")
                         .resizable()
                     )
+                
+            
                      
             }
             }

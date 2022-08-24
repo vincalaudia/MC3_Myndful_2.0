@@ -23,13 +23,13 @@ enum timeIntEnum: String{
 enum typeEnum: String{
     case all = "Semua"
     
-    case breathingTechique = "Breathing Technique"
+    case breathingTechique = "Pernafasan"
     
-    case journalling = "Journalling"
+    case journalling = "Jurnal"
     
-    case observation = "Observation"
+    case observation = "Observasi"
     
-    case outdoorObservation = "Outdoor Observation"
+    case outdoorObservation = "Observasi Outdoor"
 }
 
 
@@ -88,6 +88,8 @@ enum effectEnum: String {
     case optimis = "Optimis"
     
     case kreatif = "Kreatif"
+    
+    case sadar = "Sadar"
 }
 
 class ActivityViewModel: ObservableObject {
@@ -130,6 +132,7 @@ class ActivityViewModel: ObservableObject {
     
     @Published var activityArray: [Activity] = []
     @Published var selectedActivity = Activity()
+    @Published var selectedUserActivityForDetail = UserActivity()
     
     @Published var userActivityHistoryArray: [UserActivity] = []
     
@@ -144,7 +147,7 @@ class ActivityViewModel: ObservableObject {
     
     // For Recommendation View
     
-    @Published var moodForRecommendation: String = ""
+    @Published var effectForRecommendation: String = ""
     @Published var timeHave: Int = 0
     
     // For Jounaling
@@ -160,6 +163,108 @@ class ActivityViewModel: ObservableObject {
     
     @Published var found: Int = 0
     @Published var miss: Int = 0
+    
+    
+    // For Gratitude List and Intention setting
+    
+    @Published var journalingListArrayToAdd: [JournalingList] = []
+    @Published var journalingListName: String = ""
+    
+    
+    func gratitudeList(){
+        let context = persistenceController.container.viewContext
+        let userActivity = UserActivity(context: context)
+        
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.activityType = selectedActivity.type
+        userActivity.activity = selectedActivity
+        
+        
+        if journalingListArrayToAdd.count != 0 {
+            for journalList in journalingListArrayToAdd{
+                journalList.userActivity = userActivity
+            }
+            
+        }
+        
+        do {
+            try context.save()
+
+            print("User Activity (Gratitude list) has been added!")
+            
+        }catch{
+
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+    }
+    
+    
+    func intentionSetting(){
+        let context = persistenceController.container.viewContext
+        let userActivity = UserActivity(context: context)
+        
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.activityType = selectedActivity.type
+        userActivity.activity = selectedActivity
+        
+        
+        if journalingListArrayToAdd.count != 0 {
+            for journalList in journalingListArrayToAdd{
+                journalList.userActivity = userActivity
+            }
+            
+        }
+        
+        do {
+            try context.save()
+
+            print("User Activity (Intention Setting) has been added!")
+            
+        }catch{
+
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+    }
+    
+    
+    // Bisa digunakan untuk semua macam aktivitas jurnaling yang memang membutuhkan array list
+    func newJournalingList(){
+        
+    
+    var newJournalingList: JournalingList!
+    let context = persistenceController.container.viewContext
+        
+            journalingListArrayToAdd = journalingListArrayToAdd.sorted(by: { $0.order < $1.order })
+        
+            newJournalingList = JournalingList(context: context)
+            newJournalingList.id = UUID()
+            newJournalingList.name = journalingListName
+    //            newSubtask.isComplete = false
+            newJournalingList.order = (journalingListArrayToAdd.last?.order ?? 0) + 1
+            
+            journalingListArrayToAdd.append(newJournalingList)
+//        print("Nilai last order : \(subtasks?.last?.order)")
+//        newSubtask.task = task
+        
+        
+        
+//        if let _ = try? context.save(){
+//
+//            print("Berhasil Menambah Data Subtask!")
+//            return true
+//
+//        }
+//
+//        return false
+        
+        
+    }
     
     
     // For Watch The Clouds
@@ -234,7 +339,7 @@ class ActivityViewModel: ObservableObject {
     }
     
     
-    // Breathing Functions
+    // Journaling Functions
     
     func journaling(activity: Activity){
         print("Hihihihihih !")
@@ -266,7 +371,36 @@ class ActivityViewModel: ObservableObject {
         
     }
     
+    // Exactly looks like morning pages without image hehehe
     
+    
+    func morningPages(){
+        print("Hihihihihih !")
+        let context = persistenceController.container.viewContext
+
+        let userActivity = UserActivity(context: context)
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.journalBody = journalBody
+        userActivity.activityType = selectedActivity.type
+        userActivity.activity = selectedActivity
+        
+        do {
+            try context.save()
+
+            print("User Activity (Morning Pages) has been added!")
+            
+            
+//            selectedActivity = Activity()
+//            resetAllAttirbute()
+         
+        }catch{
+            // If it doesn't work
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+    }
     
     
     
@@ -580,26 +714,25 @@ class ActivityViewModel: ObservableObject {
     
     
     
-    func loadRecommendedActivities(mood: String, timeHave: Int){
+    func loadRecommendedActivities(effect: String, timeHave: Int){
         
         let request = NSFetchRequest<Activity>(entityName: "Activity")
         let sort = NSSortDescriptor(key: "id", ascending: true)
         request.sortDescriptors = [sort]
         
         var predicate: NSPredicate!
-        
      
         // filter Key
         
         // this will fetch task between today and tommowrow which is 24 hours
         // 0-flase, 1-true
         if (timeHave > 2) {
-        predicate = NSPredicate(format: "timeInt > %@",
-                                argumentArray: [2])
+        predicate = NSPredicate(format: "timeInt > %@ AND effect CONTAINS %@",
+                                argumentArray: [2,effect])
         } else {
             
-            predicate = NSPredicate(format: "timeInt <= %@",
-                                    argumentArray: [2])
+            predicate = NSPredicate(format: "timeInt <= %@ AND effect CONTAINS %@",
+                                    argumentArray: [2,effect])
             
         }
         request.predicate = predicate
@@ -607,6 +740,7 @@ class ActivityViewModel: ObservableObject {
        
         do {
             try recommendedActivities = persistenceController.container.viewContext.fetch(request)
+        
             
             recommendedActivities = recommendedActivities.shuffled()
             print("Berhasil.")

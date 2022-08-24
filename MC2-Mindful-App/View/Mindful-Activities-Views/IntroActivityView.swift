@@ -29,7 +29,7 @@ struct IntroActivityView: View {
                 .multilineTextAlignment(.center)
                 .padding()
             
-            Text("\(activityModel.selectedActivity.activityDescription ?? "")")
+            Text("\(activityModel.selectedActivity.howTo ?? "")")
                 .fontWeight(.bold)
                 .font(.subheadline)
                 .foregroundColor(.white)
@@ -102,6 +102,43 @@ struct IntroActivityView: View {
                 //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
                 
             }
+            else if (activityModel.selectedActivity.viewDestination == "GratitudeListView" ){
+                
+                NavigationLink(destination: GratitudeListView(activityModel: activityModel)) {
+                    Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }  .padding(.bottom,50)
+                
+                
+                //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+                
+            }
+            else if (activityModel.selectedActivity.viewDestination == "IntentionSettingView" ){
+                
+                NavigationLink(destination: IntentionSettingView(activityModel: activityModel)) {
+                    Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }  .padding(.bottom,50)
+                
+                
+                //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+                
+            }
+            else if (activityModel.selectedActivity.viewDestination == "MorningPagesView" ){
+                
+                NavigationLink(destination: MorningPagesView(activityModel: activityModel)) {
+                    Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }  .padding(.bottom,50)
+                
+                
+                //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
+                
+            }
+            
             
             //            else if (activityModel.selectedActivity.viewDestination == "ComingSoonView" ){
             //
@@ -113,9 +150,12 @@ struct IntroActivityView: View {
             
             
         }.navigationBarTitle(activityModel.selectedActivity.type ?? "", displayMode: .inline)
-            .frame(maxHeight: .infinity)
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+   
+       
             .background(Image("BreathingSectionBG")
-                .resizable())
+                .resizable()
+                           .scaledToFill())
             .ignoresSafeArea()
             .onAppear(perform: {
                 

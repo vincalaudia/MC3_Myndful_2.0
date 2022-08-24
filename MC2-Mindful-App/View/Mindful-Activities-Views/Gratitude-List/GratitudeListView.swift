@@ -9,19 +9,32 @@ import SwiftUI
 
 struct GratitudeListView: View {
     
+    @State var moveToNextScreen = false
+    
     @ObservedObject var activityModel: ActivityViewModel = ActivityViewModel()
     
+    @State var editMode: EditMode = .active
+    @State var isEditing = true
     
+    @State var isEmpty = Color(.gray)
+    
+    
+//
+//    UITableView.appearance().backgroundColor = .clear
+//    UITableViewCell.appearance().backgroundColor = .clear
+//    UITableView.appearance().tableFooterView = UIView()
+    
+    @State var gratitudeText: String = ""
     var body: some View {
 
         VStack(){
-            VStack(spacing : 10){
-                Text("Daily Affirmation")
+            VStack(spacing : 5){
+                Text("Gratitude List")
                     .font(.title)
                     .bold()
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.leading, 30)
-                
+
                 Text(getDate())
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.leading, 30)
@@ -47,61 +60,151 @@ struct GratitudeListView: View {
         
                         
                     VStack{
-                        ZStack{
-                            TextEditor(text: $activityModel.journalBody).foregroundColor(.gray)
-//                            TextEditor(text:$activityModel.journalBody)
-//                            TextField("dwadwad", text:$activityModel.journalBody, Axis: .vertical)
+                        
+                        HStack {
+                            TextField(
+                                  "Masukan yang anda pikirkan",
+                                  text: $activityModel.journalingListName
+                            ).onChange(of: activityModel.journalingListName, perform: { _ in
+                                if activityModel.journalingListName == "" {
+                                    
+                                    isEmpty = Color(.gray)
+                                } else {
+                                    
+                                    isEmpty = Color("AccentColor")
+                                }
+                                
+                                
+                            })
                             
-                            Text(activityModel.journalBody).opacity(0).padding(.all, 0)
-                        }.padding(.horizontal,15)
-                            .padding(.vertical, 20)
+                            .padding()
+                            
+                            
+                             Button(action: {
+                                 // Closure will be called once user taps your button
+                                 print(self.$activityModel.journalingListName)
+                                 
+                                 
+                        
+                                         
+                                activityModel.newJournalingList()
+                                 
+                                 
+                                 activityModel.journalingListName = ""
+                                         
+                                
+                             })
+                    {
+                        Text("Add +").foregroundColor(.white).font(.callout)
+                             }
+                    .disabled(activityModel.journalingListName == "")
+                    .padding(.top, 20)
+                                .padding(.bottom, 20)
+                                .padding(.horizontal, 8)
+                            
+//                            if activityModel.journalingListName != ""{
+                                .background(LinearGradient(
+                                    colors: [Color(red: 180/255, green: 194/255, blue: 253/255), isEmpty],
+                                    startPoint: .topTrailing,
+                                    endPoint: .bottomTrailing
+                                    
+                                ))
+//                            } else {
+//                                .background(Color(.gray))
+//
+//
+//                            }
+                        }
+                        
+//                        ZStack{
+//                            TextEditor(text: $activityModel.journalBody).foregroundColor(.gray)
+////                            TextEditor(text:$activityModel.journalBody)
+////                            TextField("dwadwad", text:$activityModel.journalBody, Axis: .vertical)
+//
+//                            Text(activityModel.journalBody).opacity(0).padding(.all, 0)
+//                        }.padding(.horizontal,15)
+//                            .padding(.vertical, 20)
+                        
+                        
+        
                         
                     }
                 
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .frame(maxWidth: .infinity, alignment: .center)
                         .background(Color.white)
-                        .cornerRadius(25)
+                        .cornerRadius(15)
                         .padding(.horizontal, 30)
                         .padding(.vertical,3)
                         .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
                 
-                        .onTapGesture {
-                           
-                        }
+                        
+                        
+//                        VStack{
+                        
+                        List{
                             
-                            
-                            
+                            ForEach(activityModel.journalingListArrayToAdd, id: \.id) { item in
+
+                                JournalingListRow(item: item)
+                                
+                            }
+                            .onDelete(perform: deleteJournalingList)
+//                            .onDelete { (indexSet) in
+//                                                    deleteJournalingList(at: indexSet)
+//                                                }
+                            .onMove(perform: moveJournalingList)
+                        
                 
+
+                        }.padding(.horizontal,5)
+//                        .listStyle(.inset)
+//                            .environment(\.editMode, $editMode)
+//
+//                        } .frame(maxWidth: .infinity,maxHeight: geo.size.height * 0.5, alignment: .center)
+//                                .background(Color.white)
+//                                .cornerRadius(15)
+//                                .padding(.horizontal, 30)
+//                                .padding(.top,3)
+//                                .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
+
+
+//                Spacer()
+                    
                         
 
                 }.frame(maxWidth: geo.size.width * 1, alignment: .center)
                 }
                 
                 Spacer()
+                
+                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."), isActive: $moveToNextScreen) {
+                    EmptyView()
+                    
+                }
    
 //                NavigationLink(destination:MindfulView()){
            
                     
-                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")) {
-                    
-                    VStack{
-                        Text("Selesai")
-                            .foregroundColor(Color.white)
-                            .bold()
-                    }
-                
-                    .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
-                        .background(Color.accentColor)
-                        .cornerRadius(25)
-                        .padding(.horizontal)
-                        .padding(.vertical,2)
-                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
-                
-                    }.simultaneousGesture(TapGesture().onEnded{
-                    
-                        activityModel.journaling(activity: activityModel.selectedActivity)
-                        
-                    })
+//                    NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !.")) {
+//                    
+//                    VStack{
+//                        Text("Selesai")
+//                            .foregroundColor(Color.white)
+//                            .bold()
+//                    }
+//                
+//                    .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
+//                        .background(Color.accentColor)
+//                        .cornerRadius(25)
+//                        .padding(.horizontal)
+//                        .padding(.vertical,2)
+//                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
+//                
+//                    }.simultaneousGesture(TapGesture().onEnded{
+//                    
+//                        activityModel.journaling(activity: activityModel.selectedActivity)
+//                        
+//                    })
                     
 //                        .opacity(activityModel.isFeelingSelected ? 1 : 0.5)
 //                        .onTapGesture {
@@ -124,6 +227,31 @@ struct GratitudeListView: View {
                 .padding(.top,30)
             
         }
+        .onAppear(){
+            
+                UITableView.appearance().backgroundColor = .clear
+                UITableViewCell.appearance().backgroundColor = .clear
+                UITableView.appearance().tableFooterView = UIView()
+        }
+        .navigationBarItems(trailing: Button {
+            // Mark : IF success closing the View
+//            if  activityModel.addTask(context: env.managedObjectContext) {
+//                taskModel.subtaskArrayToAdd = []
+//                taskModel.loadTasks(currentTab: taskModel.currentTabEnum)
+//                env.dismiss()
+//            }
+            
+            activityModel.gratitudeList()
+            moveToNextScreen = true
+            
+            
+        } label: {
+            Text("Save")
+       
+        }
+            .disabled(activityModel.journalingListArrayToAdd.count ==  0)
+                            )
+//            .opacity(taskModel.taskTitle == "" ? 0.6 : 1))
 //        .ignoresSafeArea(.keyboard)
         .onTapGesture {
                     let keyWindow = UIApplication.shared.connectedScenes
@@ -136,6 +264,81 @@ struct GratitudeListView: View {
 
                 }
         .background(Image("BGDashboard"))
+    }
+    
+    struct JournalingListRow: View {
+        @ObservedObject var item: JournalingList   // !! @ObserveObject is the key!!!
+
+
+        @EnvironmentObject var activityModel: ActivityViewModel
+//        // MARK : All Environment Values in one variable !
+//        @Environment(\.self) var env
+
+//        @EnvironmentObject var taskModel: TaskViewModel
+//        // MARK : All Environment Values in one variable !
+        @Environment(\.self) var env
+//
+        var body: some View {
+            HStack{
+                //        Text(subtask.name ?? "")
+                TextField("Subtask Name", text: $item.name.toUnwrapped(defaultValue: ""))
+//                Text("Order : \(subtask.order)")
+
+//                    .onChange(of: subtask.name, perform: { _ in
+//                        taskModel.editSubtaskName(context: env.managedObjectContext, subtask: subtask)
+//                        //                        taskModel.loadTasks(currentTab: taskModel.currentTabEnum)
+//                        print("Berhasil edit subtask")
+//                    })
+
+            }
+        }
+    }
+    
+    
+    
+    private func moveJournalingList(at sets:IndexSet,destination:Int){
+        let journalingListToMove = sets.first!
+
+        if journalingListToMove < destination {
+            var startIndex = journalingListToMove + 1
+            let endIndex = destination - 1
+            var startOrder = activityModel.journalingListArrayToAdd[journalingListToMove].order
+            while startIndex <= endIndex{
+                activityModel.journalingListArrayToAdd[startIndex].order = startOrder
+                startOrder = startOrder + 1
+                startIndex = startIndex + 1
+            }
+            activityModel.journalingListArrayToAdd[journalingListToMove].order = startOrder
+        }
+        else if destination < journalingListToMove {
+            var startIndex = destination
+            let endIndex = journalingListToMove - 1
+            var startOrder = activityModel.journalingListArrayToAdd[destination].order + 1
+            let newOrder = activityModel.journalingListArrayToAdd[destination].order
+            while startIndex <= endIndex {
+                activityModel.journalingListArrayToAdd[startIndex].order = startOrder
+                startOrder = startOrder + 1
+                startIndex = startIndex + 1
+            }
+            activityModel.journalingListArrayToAdd[journalingListToMove].order = newOrder
+        }
+        do {
+            activityModel.journalingListArrayToAdd = activityModel.journalingListArrayToAdd.sorted(by: { $0.order < $1.order })
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    private func deleteJournalingList(at offset:IndexSet){
+        withAnimation{
+            activityModel.journalingListArrayToAdd.remove(atOffsets: offset)
+            do {
+//                print("\(activityModel.journalingListArrayToAdd[0].name)")
+            }catch{
+                print(error.localizedDescription)
+            }
+        }
     }
     
     
@@ -151,5 +354,11 @@ struct GratitudeListView: View {
 struct GratitudeListView_Previews: PreviewProvider {
     static var previews: some View {
         GratitudeListView(activityModel: ActivityViewModel())
+    }
+}
+
+extension Binding {
+     func toUnwrapped<T>(defaultValue: T) -> Binding<T> where Value == Optional<T>  {
+        Binding<T>(get: { self.wrappedValue ?? defaultValue }, set: { self.wrappedValue = $0 })
     }
 }

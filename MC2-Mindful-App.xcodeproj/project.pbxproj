@@ -31,7 +31,6 @@
 		DC1B62012896AC8300F0386E /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B62002896AC8300F0386E /* ActivityViewModel.swift */; };
 		DC1B62032896D89100F0386E /* activities.csv in Resources */ = {isa = PBXBuildFile; fileRef = DC1B62022896D89100F0386E /* activities.csv */; };
 		DC1B62052896FB5D00F0386E /* RecommendationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B62042896FB5D00F0386E /* RecommendationResultView.swift */; };
-		DC77628528B3B80C004F163A /* HeartBeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC77628428B3B80C004F163A /* HeartBeatView.swift */; };
 		DC9DB0D22893DE3200FCF403 /* finishMindfulWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0CF2893DE3200FCF403 /* finishMindfulWriting.swift */; };
 		DC9DB0D32893DE3200FCF403 /* mindfulWriting1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0D02893DE3200FCF403 /* mindfulWriting1.swift */; };
 		DC9DB0D42893DE3200FCF403 /* mindfulWriting2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0D12893DE3200FCF403 /* mindfulWriting2.swift */; };
@@ -50,6 +49,7 @@
 		DCB5ABB928B38C8A0009B78B /* GratitudeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5ABB828B38C8A0009B78B /* GratitudeListView.swift */; };
 		DCB5ABBC28B3968B0009B78B /* MorningPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5ABBB28B3968B0009B78B /* MorningPagesView.swift */; };
 		DCB5ABBF28B398590009B78B /* IntentionSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5ABBE28B398590009B78B /* IntentionSettingView.swift */; };
+		DCB987C628B5310E0005DE6D /* DetailJournalingActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB987C528B5310E0005DE6D /* DetailJournalingActivitiesView.swift */; };
 		DCCD99CD28AD7D6200A41005 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD99CC28AD7D6200A41005 /* PlaySound.swift */; };
 		EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */; };
 		EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DEA285C6CB80092C195 /* ContentView.swift */; };
@@ -85,7 +85,6 @@
 		DC1B62002896AC8300F0386E /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		DC1B62022896D89100F0386E /* activities.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = activities.csv; sourceTree = "<group>"; };
 		DC1B62042896FB5D00F0386E /* RecommendationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationResultView.swift; sourceTree = "<group>"; };
-		DC77628428B3B80C004F163A /* HeartBeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartBeatView.swift; sourceTree = "<group>"; };
 		DC9DB0CF2893DE3200FCF403 /* finishMindfulWriting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finishMindfulWriting.swift; sourceTree = "<group>"; };
 		DC9DB0D02893DE3200FCF403 /* mindfulWriting1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mindfulWriting1.swift; sourceTree = "<group>"; };
 		DC9DB0D12893DE3200FCF403 /* mindfulWriting2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mindfulWriting2.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		DCB5ABB828B38C8A0009B78B /* GratitudeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GratitudeListView.swift; sourceTree = "<group>"; };
 		DCB5ABBB28B3968B0009B78B /* MorningPagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningPagesView.swift; sourceTree = "<group>"; };
 		DCB5ABBE28B398590009B78B /* IntentionSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionSettingView.swift; sourceTree = "<group>"; };
+		DCB987C528B5310E0005DE6D /* DetailJournalingActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailJournalingActivitiesView.swift; sourceTree = "<group>"; };
 		DCCD99CC28AD7D6200A41005 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-Mindful-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_Mindful_AppApp.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		0640C6F4286F07F3005D7DF6 /* Mindful-Activities-Views */ = {
 			isa = PBXGroup;
 			children = (
-				DC77628328B3B7F1004F163A /* Heart-Beat */,
+				DCB987C428B52E9C0005DE6D /* Detail-Journaling-Activities */,
 				DCB5ABBD28B396990009B78B /* Intention-Setting */,
 				DCB5ABBA28B396670009B78B /* Morning-Pages */,
 				DCB5ABB728B38C080009B78B /* Gratitude-List */,
@@ -219,14 +219,6 @@
 			path = "Mindful-Journaling";
 			sourceTree = "<group>";
 		};
-		DC77628328B3B7F1004F163A /* Heart-Beat */ = {
-			isa = PBXGroup;
-			children = (
-				DC77628428B3B80C004F163A /* HeartBeatView.swift */,
-			);
-			path = "Heart-Beat";
-			sourceTree = "<group>";
-		};
 		DC9DB0CE2893DE3200FCF403 /* Mindful-Writing */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +265,14 @@
 				DCB5ABBE28B398590009B78B /* IntentionSettingView.swift */,
 			);
 			path = "Intention-Setting";
+			sourceTree = "<group>";
+		};
+		DCB987C428B52E9C0005DE6D /* Detail-Journaling-Activities */ = {
+			isa = PBXGroup;
+			children = (
+				DCB987C528B5310E0005DE6D /* DetailJournalingActivitiesView.swift */,
+			);
+			path = "Detail-Journaling-Activities";
 			sourceTree = "<group>";
 		};
 		DCD3BCEA2896745100344DC0 /* Model */ = {
@@ -470,7 +470,6 @@
 				DC9DB0D42893DE3200FCF403 /* mindfulWriting2.swift in Sources */,
 				DC0D9C64289993AB006A53A1 /* CongratsView.swift in Sources */,
 				EEDD20172870123F003AB92E /* RecommendationView.swift in Sources */,
-				DC77628528B3B80C004F163A /* HeartBeatView.swift in Sources */,
 				0640C6ED286F07B8005D7DF6 /* SheetView.swift in Sources */,
 				DC9DB0E72893E04200FCF403 /* OnboardingStepView.swift in Sources */,
 				DC1B62052896FB5D00F0386E /* RecommendationResultView.swift in Sources */,
@@ -492,6 +491,7 @@
 				DCB5ABBF28B398590009B78B /* IntentionSettingView.swift in Sources */,
 				06777BAF28AA498300021C0F /* ScavengerHunt.swift in Sources */,
 				0640C6F1286F07DA005D7DF6 /* MindfulView.swift in Sources */,
+				DCB987C628B5310E0005DE6D /* DetailJournalingActivitiesView.swift in Sources */,
 				DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */,
 				EEDD201B2870126A003AB92E /* EmotionView.swift in Sources */,
 				06CB0D722871D273002954C7 /* ComingSoonView.swift in Sources */,
@@ -627,7 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = M763V89YXY;
+				DEVELOPMENT_TEAM = JR8723F8QY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -656,7 +656,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
-				DEVELOPMENT_TEAM = M763V89YXY;
+				DEVELOPMENT_TEAM = JR8723F8QY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -20,11 +20,13 @@ struct RecommendationResultView: View {
     var distance: CGFloat = UIScreen.main.bounds.size.width
     
     
-    let mood : String
+    let effect : String
     let timeHave : Int
     var body: some View {
         VStack{
            
+            
+            if activityModel.recommendedActivities.count != 0 {
             
             GeometryReader { geo in
             VStack {
@@ -81,6 +83,8 @@ struct RecommendationResultView: View {
                                 self.progressView()
                                     .padding(.vertical,24.0)
                                     .padding(.bottom,  20)
+                
+                
 //            }
             //                    HStack {
             //
@@ -91,12 +95,18 @@ struct RecommendationResultView: View {
 //                            }
 //                            .padding(20)
   
+            } else {
+                
+                Text("Mohon Maaf, tidak ada rekomendasi yang sesuai. 😅").bold().padding().multilineTextAlignment(.center)
+                
+            }
+            
         }
         .frame(maxHeight: .infinity,alignment: .center)
         .navigationTitle("Rekomendasi")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
-            activityModel.loadRecommendedActivities(mood: mood, timeHave: timeHave)
+            activityModel.loadRecommendedActivities(effect: effect, timeHave: timeHave)
             print(activityModel.recommendedActivities)
             
             data = activityModel.recommendedActivities
@@ -378,6 +388,6 @@ struct RecommendationResultView: View {
 
 struct RecommendationResultView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendationResultView(activityModel: ActivityViewModel(), mood: "normal", timeHave: 3)
+        RecommendationResultView(activityModel: ActivityViewModel(), effect: "", timeHave: 3)
     }
 }

@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct IntentionSettingView: View {
-    
-    @State var moveToNextScreen = false
+struct DetailJournalingActivitiesView: View {
     
     @ObservedObject var activityModel: ActivityViewModel = ActivityViewModel()
     
@@ -29,13 +27,26 @@ struct IntentionSettingView: View {
 
         VStack(){
             VStack(spacing : 5){
-                Text("Intention Setting")
+                
+//                if activityModel.selectedActivityForDetail.viewDestination == "GratitudeListView" {
+                
+                HStack{
+                Text(activityModel.selectedUserActivityForDetail.activity?.title ?? "")
                     .font(.title)
                     .bold()
-                    .frame(maxWidth:.infinity, alignment: .leading)
-                    .padding(.leading, 30)
+            
+                    
+                    if (activityModel.selectedUserActivityForDetail.activity?.viewDestination == "JournalingView") {
+                        Spacer()
+                        Text(activityModel.selectedUserActivityForDetail.emoji ?? "😅").font(.title)
+                    }
+                    
+                }        .frame(maxWidth:.infinity, alignment: .leading)
+                    .padding(.horizontal, 30)
+//                }
+                    
 
-                Text(getDate())
+                Text(getDate(timestamp: activityModel.selectedUserActivityForDetail.timestamp ?? Date()))
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.leading, 30)
                 
@@ -44,14 +55,7 @@ struct IntentionSettingView: View {
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
                 
-                
-        
-                
-                Text("Hari ini, berniat melakukan :")
-                    .font(.title2)
-                    .bold()
-                    .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
-                    .frame(maxWidth:.infinity, alignment: .leading)
+    
                 
          
                 
@@ -59,113 +63,47 @@ struct IntentionSettingView: View {
                     VStack(alignment: .center ,spacing : 20){
         
                         
-                    VStack{
-                        
-                        HStack {
-                            TextField(
-                                  "Masukan yang anda pikirkan",
-                                  text: $activityModel.journalingListName
-                            ).onChange(of: activityModel.journalingListName, perform: { _ in
-                                if activityModel.journalingListName == "" {
-                                    
-                                    isEmpty = Color(.gray)
-                                } else {
-                                    
-                                    isEmpty = Color("AccentColor")
-                                }
-                                
-                                
-                            })
-                            
-                            .padding()
-                            
-                            
-                             Button(action: {
-                                 // Closure will be called once user taps your button
-                                 print(self.$activityModel.journalingListName)
-                                 
-                                 
-                        
-                                         
-                                activityModel.newJournalingList()
-                                 
-                                 
-                                activityModel.journalingListName = ""
-                                         
-                                
-                             })
-                    {
-                        Text("Add +").foregroundColor(.white).font(.callout)
-                             }
-                    .disabled(activityModel.journalingListName == "")
-                    .padding(.top, 20)
-                                .padding(.bottom, 20)
-                                .padding(.horizontal, 8)
-                            
-//                            if activityModel.journalingListName != ""{
-                                .background(LinearGradient(
-                                    colors: [Color(red: 180/255, green: 194/255, blue: 253/255), isEmpty],
-                                    startPoint: .topTrailing,
-                                    endPoint: .bottomTrailing
-                                    
-                                ))
-//                            } else {
-//                                .background(Color(.gray))
-//
-//
-//                            }
-                        }
-                        
-//                        ZStack{
-//                            TextEditor(text: $activityModel.journalBody).foregroundColor(.gray)
-////                            TextEditor(text:$activityModel.journalBody)
-////                            TextField("dwadwad", text:$activityModel.journalBody, Axis: .vertical)
-//
-//                            Text(activityModel.journalBody).opacity(0).padding(.all, 0)
-//                        }.padding(.horizontal,15)
-//                            .padding(.vertical, 20)
-                        
-                        
         
-                        
-                    }
-                
-                    .frame(maxWidth: .infinity, alignment: .center)
-                        .background(Color.white)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 30)
-                        .padding(.vertical,3)
-                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
-                
-                        
-                        
-//                        VStack{
-                        
+                         
+                            if (activityModel.selectedUserActivityForDetail.activity?.viewDestination == "GratitudeListView" || activityModel.selectedUserActivityForDetail.activity?.viewDestination == "IntentionSettingView"){
+                            
                         List{
                             
-                            ForEach(activityModel.journalingListArrayToAdd, id: \.id) { item in
+                            ForEach(
+                                Array(activityModel.selectedUserActivityForDetail.journalingList! as Set), id: \.self) { item in
 
-                                JournalingListRow(item: item)
+                                    JournalingListRow(item: item as! JournalingList)
                                 
                             }
-                            .onDelete(perform: deleteJournalingList)
-//                            .onDelete { (indexSet) in
-//                                                    deleteJournalingList(at: indexSet)
-//                                                }
-                            .onMove(perform: moveJournalingList)
-                        
                 
 
-                        }.padding(.horizontal,5)
+                        }
 //                        .listStyle(.inset)
-////                            .environment(\.editMode, $editMode)
-////
-//                        } .frame(maxWidth: .infinity,maxHeight: geo.size.height * 0.5, alignment: .center)
-//                                .background(Color.white)
-//                                .cornerRadius(15)
-//                                .padding(.horizontal, 30)
-//                                .padding(.top,3)
-//                                .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
+                                
+                            } else if (activityModel.selectedUserActivityForDetail.activity?.viewDestination == "JournalingView" || activityModel.selectedUserActivityForDetail.activity?.viewDestination == "MorningPagesView"){
+                                
+                                VStack{
+                                
+                                ZStack{
+                                    TextEditor(text: .constant(activityModel.selectedUserActivityForDetail.journalBody ?? "")).foregroundColor(.gray)
+        
+                                    Text(activityModel.selectedUserActivityForDetail.journalBody ?? "").opacity(0).padding(.all, 0)
+                                }.padding(.horizontal,15)
+                                    .padding(.vertical, 20)
+                                    
+                                } .frame(maxWidth: .infinity,maxHeight: geo.size.height * 0.5, alignment: .center)
+                                        .background(Color.white)
+                                        .cornerRadius(15)
+                                        .padding(.horizontal, 30)
+                                        .padding(.top,3)
+                                        .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
+                            }
+                            
+                            
+                            
+//                            .environment(\.editMode, $editMode)
+//
+                        
 
 
 //                Spacer()
@@ -177,10 +115,7 @@ struct IntentionSettingView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: CongratsView(activityModel: activityModel, image: "Meditating", congratsBody: "Anda telah berhasil \nmenyelesaikan aktivitas mindful \nini, mari kita lebih sadar akan minfulness !."), isActive: $moveToNextScreen) {
-                    EmptyView()
-                    
-                }
+
    
 //                NavigationLink(destination:MindfulView()){
            
@@ -226,33 +161,13 @@ struct IntentionSettingView: View {
             .navigationBarTitle("", displayMode: .inline)
                 .padding(.top,30)
             
-        }
-        .onAppear(){
+        }        .onAppear(){
             
-                UITableView.appearance().backgroundColor = .clear
-                UITableViewCell.appearance().backgroundColor = .clear
-                UITableView.appearance().tableFooterView = UIView()
-        }
-        .navigationBarItems(trailing: Button {
-            // Mark : IF success closing the View
-//            if  activityModel.addTask(context: env.managedObjectContext) {
-//                taskModel.subtaskArrayToAdd = []
-//                taskModel.loadTasks(currentTab: taskModel.currentTabEnum)
-//                env.dismiss()
-//            }
-            
-            activityModel.gratitudeList()
-            moveToNextScreen = true
-            
-            
-        } label: {
-            Text("Save")
-       
-        }
-            .disabled(activityModel.journalingListArrayToAdd.count ==  0)
-                            )
-//            .opacity(taskModel.taskTitle == "" ? 0.6 : 1))
-//        .ignoresSafeArea(.keyboard)
+            UITableView.appearance().backgroundColor = .clear
+            UITableViewCell.appearance().backgroundColor = .clear
+            UITableView.appearance().tableFooterView = UIView()
+    }
+
         .onTapGesture {
                     let keyWindow = UIApplication.shared.connectedScenes
                                        .filter({$0.activationState == .foregroundActive})
@@ -281,7 +196,9 @@ struct IntentionSettingView: View {
         var body: some View {
             HStack{
                 //        Text(subtask.name ?? "")
-                TextField("Subtask Name", text: $item.name.toUnwrapped(defaultValue: ""))
+                
+                Text(item.name ?? "")
+//                TextField("Subtask Name", text: $item.name.toUnwrapped(defaultValue: ""))
 //                Text("Order : \(subtask.order)")
 
 //                    .onChange(of: subtask.name, perform: { _ in
@@ -342,8 +259,8 @@ struct IntentionSettingView: View {
     }
     
     
-    func getDate() -> String {
-        let date = Date.now
+    func getDate(timestamp: Date) -> String {
+        let date = timestamp
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, d MMM y"
         let strDate = dateFormatter.string(from: date)
@@ -351,8 +268,10 @@ struct IntentionSettingView: View {
     }
 }
 
-struct IntentionSettingView_Previews: PreviewProvider {
+struct DetailJournalingActivitiesView_Previews: PreviewProvider {
     static var previews: some View {
-        IntentionSettingView(activityModel: ActivityViewModel())
+        DetailJournalingActivitiesView(activityModel: ActivityViewModel())
     }
 }
+
+
