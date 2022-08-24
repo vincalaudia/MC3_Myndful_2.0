@@ -13,8 +13,10 @@ struct OnboardingStepView: View {
     var body: some View {
         VStack {
             Image(data.image)
+                .resizable()
                 .scaledToFit()
                 .padding(.bottom, 36)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
             
             Text(data.heading)
                 .font(.system(size: 25))

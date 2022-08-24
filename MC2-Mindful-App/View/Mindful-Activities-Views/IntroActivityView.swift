@@ -17,8 +17,8 @@ struct IntroActivityView: View {
             Spacer()
             Image ("Meditating")
                 .resizable()
-                .frame(maxWidth: .infinity, alignment: .center)
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
+                .frame(maxWidth: UIScreen.main.bounds.width*3/4, alignment: .center)
                 .padding(.top, 80)
                 .padding(20)
             
@@ -137,6 +137,32 @@ struct IntroActivityView: View {
                 
                 //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
                 
+            }
+            
+            else if (activityModel.selectedActivity.viewDestination == "HearthBeatView"){
+                
+                NavigationLink(destination: HearthBeatView(activityModel: activityModel)) {
+                    Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }  .padding(.bottom,50)
+                
+            }
+            
+            else if (activityModel.selectedActivity.viewDestination == "TakeAWalkView"){
+                NavigationLink(destination: Take_A_Walk(activityModel: activityModel)) {
+                    Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }  .padding(.bottom,50)
+            }
+            
+            else if (activityModel.selectedActivity.viewDestination == "FiveSenseExerciseView"){
+                NavigationLink(destination: FiveSenseExerciseView(activityModel: activityModel)) {
+                    Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
+                        .background(Color.white)
+                        .cornerRadius(30)
+                }  .padding(.bottom,50)
             }
             
             

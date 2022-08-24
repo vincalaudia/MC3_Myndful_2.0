@@ -223,17 +223,17 @@ struct RiwayatView: View {
                     
                                     Text("Lihat Detail")
                                         .font(.caption2)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.black)
                     //                    .frame(maxWidth: .infinity)
                                         .padding(4)
                                         .background{
                                            
                                                 Rectangle()
-                                                    .fill(Color("AccentColor"))
+                                                .fill(.white)
                                                         
                                         }
                                         .cornerRadius(6)
+                                        .opacity(0.7)
                                 
                             
                                     
@@ -292,7 +292,29 @@ struct RiwayatView: View {
                             
                         }
                         
+                        else if item.activity?.viewDestination == "HearthBeatView"{
+                            
+                            Text("Your average heartbeat was \(item.heartbeatAvg ?? 0) bpm")
+                                .lineLimit(1)
+                                .font(.footnote)
+                            
+                        }
                         
+                        else if item.activity?.viewDestination == "TakeAWalkView"{
+                            
+                            Text("Anda berjalan selama \(item.timeWalk ?? "")")
+                                .lineLimit(1)
+                                .font(.footnote)
+                            
+                        }
+                        
+                        else if item.activity?.viewDestination == "FiveSenseExerciseView"{
+                            
+                            Text("Aktivitas ini telah dilakukan!")
+                                .lineLimit(1)
+                                .font(.footnote)
+                            
+                        }
                                     // Untuk Breathings
                                     
                         else {
@@ -445,7 +467,9 @@ struct RiwayatView: View {
 
             }
     .padding(.bottom, 25)
-    .background(Image("BGDashboard"))
+    .background(Image("BGDashboard")
+        .resizable()
+        .scaledToFill())
         .onAppear(perform: {
 //            let calendar = Calendar.current
 //

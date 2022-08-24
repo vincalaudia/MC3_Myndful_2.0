@@ -49,11 +49,15 @@ struct CongratsView: View {
         }
         .onAppear(perform: {
             
-            if activityModel.selectedActivity.id == 14 {
+            if activityModel.selectedActivity.viewDestination == "ScavengerHunt" {
                 activityModel.scavengerHunt(activity: activityModel.selectedActivity)
                 
             }
             
+            else if activityModel.selectedActivity.viewDestination == "HearthBeatView"
+            {
+                activityModel.heartbeat()
+            }
 
         })
         .frame(maxHeight: .infinity)

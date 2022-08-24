@@ -9,24 +9,26 @@ import SwiftUI
 
 struct MainView: View {
     //Main View untuk segala yang punya tab bar : dashboard, list activities, and history
-    
+    @AppStorage("isBreathingIntroStarted") private var isBreathingIntroStarted: Bool = false
     // Hold the state for which tab is active/selected
     @State var selection: Int = 0
     
     var body: some View {
         NavigationView{
-//             Your native TabView here
-            TabView(selection: $selection) {
-                BerandaView()
-                    .tag(0)
+            //             Your native TabView here
+            if isBreathingIntroStarted{
                 
-                MindfulView()
-                    .tag(1)
-                
-                RiwayatView(dateRange: .init(uncheckedBounds: (lower: Calendar.current.date(byAdding: .month, value: 2, to: Date())!.startOfMonth(), upper: Calendar.current.date(byAdding: .month, value: 2, to: Date())!.endOfMonth())))
-                    .tag(2)
-                
-            }
+                TabView(selection: $selection) {
+                    BerandaView()
+                        .tag(0)
+                    
+                    MindfulView()
+                        .tag(1)
+                    
+                    RiwayatView(dateRange: .init(uncheckedBounds: (lower: Calendar.current.date(byAdding: .month, value: 2, to: Date())!.startOfMonth(), upper: Calendar.current.date(byAdding: .month, value: 2, to: Date())!.endOfMonth())))
+                        .tag(2)
+                    
+                }
                 
                 .overlay( // Overlay the custom TabView component here
                     Color.white // Base color for Tab Bar
@@ -92,13 +94,18 @@ struct MainView: View {
                         }
                                 )
                     ,alignment: .bottom)
-//                    .navigationBarHidden(true)
-//                    .navigationBarBackButtonHidden(true)
+            } else if  !isBreathingIntroStarted{
+                Breathing_Intro_Screen()
+            }
+            //                    .navigationBarHidden(true)
+            //                    .navigationBarBackButtonHidden(true)
             // Align the overlay to bottom to ensure tab bar stays pinned.
-        }
-        .navigationBarTitle("")
+            
+        }.navigationBarTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+        
+        
     }
 }
 

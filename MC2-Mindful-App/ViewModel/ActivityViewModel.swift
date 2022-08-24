@@ -297,6 +297,61 @@ class ActivityViewModel: ObservableObject {
         
     }
     
+    // For Take A Walk
+    
+    @Published var timeWalk: String = ""
+    func takeAWalk(){
+        let context = persistenceController.container.viewContext
+        let userActivity = UserActivity(context: context)
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.activityType = selectedActivity.type
+        userActivity.activity = selectedActivity
+        
+        userActivity.timeWalk = timeWalk
+        
+        do {
+            try context.save()
+
+            print("User Activity (Watch The Clouds) has been added!")
+            
+            
+//            selectedActivity = Activity()
+//            resetAllAttirbute()
+         
+        }catch{
+            // If it doesn't work
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func fiveSenseExercise(){
+        let context = persistenceController.container.viewContext
+        let userActivity = UserActivity(context: context)
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.activityType = selectedActivity.type
+        userActivity.activity = selectedActivity
+        
+        do {
+            try context.save()
+
+            print("User Activity (Watch The Clouds) has been added!")
+            
+            
+//            selectedActivity = Activity()
+//            resetAllAttirbute()
+         
+        }catch{
+            // If it doesn't work
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+    }
+    
     func resetAllAttirbute(){
             feeling = ""
             emoji = ""
@@ -336,6 +391,38 @@ class ActivityViewModel: ObservableObject {
             // If it doesn't work
             print("Error getting data. \(error.localizedDescription)")
         }
+    }
+    
+    
+    
+    //For Heartbeat
+    
+    @Published var heartbeatAvg: Double = 0.0
+    func heartbeat(){
+        let context = persistenceController.container.viewContext
+        let userActivity = UserActivity(context: context)
+        userActivity.activityId = selectedActivity.id
+        userActivity.id = UUID()
+        userActivity.timestamp = Date()
+        userActivity.activityType = selectedActivity.type
+        userActivity.activity = selectedActivity
+        
+        userActivity.heartbeatAvg = heartbeatAvg
+        
+        do {
+            try context.save()
+
+            print("User Activity (Watch The Clouds) has been added!")
+            
+            
+//            selectedActivity = Activity()
+//            resetAllAttirbute()
+         
+        }catch{
+            // If it doesn't work
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
     }
     
     

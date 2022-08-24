@@ -16,7 +16,7 @@ struct Mindful_Breathing_Congrats: View {
         VStack( alignment : .center, spacing :30) {
             
             
-            Image ("Meditating")
+            Image ("congrats")
                 .resizable()
                 .frame(maxWidth: .infinity, alignment: .center)
                 .aspectRatio(contentMode: .fit)

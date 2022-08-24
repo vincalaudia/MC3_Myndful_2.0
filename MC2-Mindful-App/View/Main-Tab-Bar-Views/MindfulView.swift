@@ -289,7 +289,9 @@ struct MindfulView: View {
 
         }
         
-        .background(Image("BGDashboard"))
+        .background(Image("BGDashboard")
+            .resizable()
+            .scaledToFill())
         
         .navigationBarTitle("")
         .navigationBarHidden(true)

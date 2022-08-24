@@ -210,6 +210,7 @@ struct Mindful_Breathing_Timer: View {
 
 struct ProgressBar: View {
     @Binding var progress: Float
+    @State var animationDuration = 1.0
     
     var body: some View {
         GeometryReader{ geo in
@@ -223,9 +224,9 @@ struct ProgressBar: View {
                         .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
                         .foregroundColor(Color(red: 172/255, green: 207/255, blue: 255/255))
                         .rotationEffect(Angle(degrees: 270.0))
-                        .animation(.linear(duration: 1.0))
+                        .animation(.linear(duration: animationDuration))
                 
-            }.animation(.linear(duration: 1.0))
+            }.animation(.linear(duration: animationDuration))
         }
     }
 }
