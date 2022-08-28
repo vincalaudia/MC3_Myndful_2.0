@@ -28,7 +28,7 @@ struct Breathing_Intro_Congrats: View {
             NavigationLink(destination: MainView()){
                 Text("Menuju Beranda")
                     .frame(width: 200, height: 50, alignment: .center)
-                    .foregroundColor(Color.accentColor)
+                    .foregroundColor(Color("BlueAccent"))
                     .background(Color.white)
                     .cornerRadius(10)
             }.simultaneousGesture(TapGesture().onEnded{
@@ -66,7 +66,7 @@ struct Breathing_Intro_Congrats: View {
 //                    NavigationLink(destination: MainView()){
 //                        Text("Menuju Beranda")
 //                            .frame(width: 200, height: 50, alignment: .center)
-//                            .foregroundColor(Color.accentColor)
+//                            .foregroundColor(Color("BlueAccent"))
 //                            .background(Color.white)
 //                            .cornerRadius(10)
 //                    }

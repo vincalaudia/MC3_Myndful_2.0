@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftuibottomsheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SyrupMG/SwiftUIBottomSheet",
+      "state" : {
+        "revision" : "c7f8c9cb7c41487d4756c66667d22f6dc7cfcd71",
+        "version" : "1.1.2"
+      }
+    },
+    {
+      "identity" : "wrappinghstack",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dkk/WrappingHStack",
+      "state" : {
+        "revision" : "f568b78357a26f740998306f156d1ef97b6b9680",
+        "version" : "2.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}

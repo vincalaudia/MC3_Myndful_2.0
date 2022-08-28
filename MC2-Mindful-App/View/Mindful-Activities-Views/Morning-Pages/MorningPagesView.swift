@@ -38,7 +38,7 @@ struct MorningPagesView: View {
                     .padding(.leading, 30)
                 
                 Text("____")
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color("BlueAccent"))
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
                 

@@ -50,7 +50,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }    .isDetailLink(false) .padding(.bottom,50)
                 
                 //                ActivityCard(item: item, viewDestination: AnyView(Mindful_Breathing_Intro(activityModel: activityModel)))
                 
@@ -60,7 +60,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }   .isDetailLink(false)  .padding(.bottom,50)
                     .simultaneousGesture(TapGesture().onEnded{
                         
                         
@@ -72,7 +72,7 @@ struct IntroActivityView: View {
                 //                                        NavigationLink(destination: JournalingView(activityModel: activityModel)){
                 //                                            Text("Mulai")
                 //                                                            .fontWeight(.bold)
-                //                                                            .foregroundColor(Color("AccentColor"))
+                //                                                            .foregroundColor(Color("BlueAccent"))
                 //                                                            .frame(maxWidth: .infinity, alignment: .center)
                 //                                                    }
             }
@@ -83,7 +83,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }    .isDetailLink(false) .padding(.bottom,50)
                 
                 
                 //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
@@ -96,7 +96,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }    .isDetailLink(false) .padding(.bottom,50)
                 
                 
                 //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
@@ -108,7 +108,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }    .isDetailLink(false) .padding(.bottom,50)
                 
                 
                 //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
@@ -120,7 +120,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }     .isDetailLink(false).padding(.bottom,50)
                 
                 
                 //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
@@ -132,7 +132,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }    .isDetailLink(false) .padding(.bottom,50)
                 
                 
                 //                ActivityCard(item: item, viewDestination: AnyView(ScavengerHunt(activityModel: activityModel)))
@@ -145,7 +145,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }   .isDetailLink(false)  .padding(.bottom,50)
                 
             }
             
@@ -154,7 +154,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }    .isDetailLink(false) .padding(.bottom,50)
             }
             
             else if (activityModel.selectedActivity.viewDestination == "FiveSenseExerciseView"){
@@ -162,7 +162,7 @@ struct IntroActivityView: View {
                     Text("Ayo Mulai").frame(height: 50).padding([.leading, .trailing], 80)
                         .background(Color.white)
                         .cornerRadius(30)
-                }  .padding(.bottom,50)
+                }    .isDetailLink(false) .padding(.bottom,50)
             }
             
             

@@ -47,14 +47,14 @@
 		DC9DB0E72893E04200FCF403 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E02893E04200FCF403 /* OnboardingStepView.swift */; };
 		DC9DB0E82893E04200FCF403 /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E12893E04200FCF403 /* OnboardingViewPure.swift */; };
 		DC9DB0EB2893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC9DB0E92893E25A00FCF403 /* OnboardingDataModel.xcdatamodeld */; };
-		DCB5ABAA28AF911B0009B78B /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = DCB5ABA928AF911B0009B78B /* WrappingHStack */; };
-		DCB5ABAD28AF9AA10009B78B /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = DCB5ABAC28AF9AA10009B78B /* HalfASheet */; };
-		DCB5ABB628AFAA970009B78B /* SwiftUIBottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = DCB5ABB528AFAA970009B78B /* SwiftUIBottomSheet */; };
 		DCB5ABB928B38C8A0009B78B /* GratitudeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5ABB828B38C8A0009B78B /* GratitudeListView.swift */; };
 		DCB5ABBC28B3968B0009B78B /* MorningPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5ABBB28B3968B0009B78B /* MorningPagesView.swift */; };
 		DCB5ABBF28B398590009B78B /* IntentionSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5ABBE28B398590009B78B /* IntentionSettingView.swift */; };
 		DCB987C628B5310E0005DE6D /* DetailJournalingActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB987C528B5310E0005DE6D /* DetailJournalingActivitiesView.swift */; };
 		DCCD99CD28AD7D6200A41005 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD99CC28AD7D6200A41005 /* PlaySound.swift */; };
+		DCDAE92328BB83F200CD8956 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = DCDAE92228BB83F200CD8956 /* WrappingHStack */; };
+		DCDAE92628BB83FD00CD8956 /* SwiftUIBottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = DCDAE92528BB83FD00CD8956 /* SwiftUIBottomSheet */; };
+		DCDAE92B28BB8ECF00CD8956 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDAE92A28BB8ECF00CD8956 /* CloudKit.framework */; };
 		EE585DE9285C6CB80092C195 /* MC2_Mindful_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */; };
 		EE585DEB285C6CB80092C195 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DEA285C6CB80092C195 /* ContentView.swift */; };
 		EE585DF2285C6CBA0092C195 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE585DF1285C6CBA0092C195 /* Persistence.swift */; };
@@ -110,7 +110,10 @@
 		DCB5ABBE28B398590009B78B /* IntentionSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionSettingView.swift; sourceTree = "<group>"; };
 		DCB987C528B5310E0005DE6D /* DetailJournalingActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailJournalingActivitiesView.swift; sourceTree = "<group>"; };
 		DCCD99CC28AD7D6200A41005 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
-		EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-Mindful-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCDAE92728BB8EC600CD8956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "Mindful-App/Info.plist"; sourceTree = "<group>"; };
+		DCDAE92828BB8ECC00CD8956 /* Mindful-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "Mindful-App.entitlements"; path = "Mindful-App/Mindful-App.entitlements"; sourceTree = "<group>"; };
+		DCDAE92A28BB8ECF00CD8956 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		EE585DE5285C6CB80092C195 /* Sadarly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sadarly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE585DE8285C6CB80092C195 /* MC2_Mindful_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_Mindful_AppApp.swift; sourceTree = "<group>"; };
 		EE585DEA285C6CB80092C195 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE585DF1285C6CBA0092C195 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -125,9 +128,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCB5ABAA28AF911B0009B78B /* WrappingHStack in Frameworks */,
-				DCB5ABAD28AF9AA10009B78B /* HalfASheet in Frameworks */,
-				DCB5ABB628AFAA970009B78B /* SwiftUIBottomSheet in Frameworks */,
+				DCDAE92B28BB8ECF00CD8956 /* CloudKit.framework in Frameworks */,
+				DCDAE92328BB83F200CD8956 /* WrappingHStack in Frameworks */,
+				DCDAE92628BB83FD00CD8956 /* SwiftUIBottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,18 +353,29 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		DCDAE92928BB8ECF00CD8956 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCDAE92A28BB8ECF00CD8956 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EE585DDC285C6CB80092C195 = {
 			isa = PBXGroup;
 			children = (
+				DCDAE92828BB8ECC00CD8956 /* Mindful-App.entitlements */,
+				DCDAE92728BB8EC600CD8956 /* Info.plist */,
 				EE585DE7285C6CB80092C195 /* MC2-Mindful-App */,
 				EE585DE6285C6CB80092C195 /* Products */,
+				DCDAE92928BB8ECF00CD8956 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		EE585DE6285C6CB80092C195 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */,
+				EE585DE5285C6CB80092C195 /* Sadarly.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -426,12 +440,11 @@
 			);
 			name = "MC2-Mindful-App";
 			packageProductDependencies = (
-				DCB5ABA928AF911B0009B78B /* WrappingHStack */,
-				DCB5ABAC28AF9AA10009B78B /* HalfASheet */,
-				DCB5ABB528AFAA970009B78B /* SwiftUIBottomSheet */,
+				DCDAE92228BB83F200CD8956 /* WrappingHStack */,
+				DCDAE92528BB83FD00CD8956 /* SwiftUIBottomSheet */,
 			);
 			productName = "MC2-Mindful-App";
-			productReference = EE585DE5285C6CB80092C195 /* MC2-Mindful-App.app */;
+			productReference = EE585DE5285C6CB80092C195 /* Sadarly.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -459,9 +472,8 @@
 			);
 			mainGroup = EE585DDC285C6CB80092C195;
 			packageReferences = (
-				DCB5ABA828AF911B0009B78B /* XCRemoteSwiftPackageReference "WrappingHStack" */,
-				DCB5ABAB28AF9AA10009B78B /* XCRemoteSwiftPackageReference "HalfASheet" */,
-				DCB5ABB428AFAA970009B78B /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */,
+				DCDAE92128BB83F200CD8956 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				DCDAE92428BB83FD00CD8956 /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */,
 			);
 			productRefGroup = EE585DE6285C6CB80092C195 /* Products */;
 			projectDirPath = "";
@@ -664,28 +676,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mindful-App/Mindful-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
 				DEVELOPMENT_TEAM = JR8723F8QY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mindful-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.MC2-Mindful-App";
-				PRODUCT_NAME = "MC2-Mindful-App";
+				PRODUCT_NAME = Sadarly;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -694,28 +709,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mindful-App/Mindful-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-Mindful-App/Preview Content\"";
 				DEVELOPMENT_TEAM = JR8723F8QY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mindful-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.test.MC2-Mindful-App";
-				PRODUCT_NAME = "MC2-Mindful-App";
+				PRODUCT_NAME = Sadarly;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -743,7 +761,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DCB5ABA828AF911B0009B78B /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+		DCDAE92128BB83F200CD8956 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
 			requirement = {
@@ -751,15 +769,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		DCB5ABAB28AF9AA10009B78B /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/franklynw/HalfASheet";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		DCB5ABB428AFAA970009B78B /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */ = {
+		DCDAE92428BB83FD00CD8956 /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SyrupMG/SwiftUIBottomSheet";
 			requirement = {
@@ -770,19 +780,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DCB5ABA928AF911B0009B78B /* WrappingHStack */ = {
+		DCDAE92228BB83F200CD8956 /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCB5ABA828AF911B0009B78B /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			package = DCDAE92128BB83F200CD8956 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
 			productName = WrappingHStack;
 		};
-		DCB5ABAC28AF9AA10009B78B /* HalfASheet */ = {
+		DCDAE92528BB83FD00CD8956 /* SwiftUIBottomSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCB5ABAB28AF9AA10009B78B /* XCRemoteSwiftPackageReference "HalfASheet" */;
-			productName = HalfASheet;
-		};
-		DCB5ABB528AFAA970009B78B /* SwiftUIBottomSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DCB5ABB428AFAA970009B78B /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */;
+			package = DCDAE92428BB83FD00CD8956 /* XCRemoteSwiftPackageReference "SwiftUIBottomSheet" */;
 			productName = SwiftUIBottomSheet;
 		};
 /* End XCSwiftPackageProductDependency section */

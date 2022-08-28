@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @StateObject var activityModel = ActivityViewModel()
+
     
 
     // MArk : Environment Values
@@ -17,8 +17,7 @@ struct ContentView: View {
     
     @AppStorage("isStart") private var isStart: Bool = false
 //    @AppStorage("isBreathingIntroStarted") private var isBreathingIntroStarted: Bool = false
-    @AppStorage("preload") private var preload: Bool = false
-    
+
 
     static let sample = OnboardingDataModel.data
     var body: some View {
@@ -26,17 +25,17 @@ struct ContentView: View {
 //        NavigationView{
    
         if isStart
-            
-//            && isBreathingIntroStarted
 //
+////            && isBreathingIntroStarted
+////
         {
             
             MainView()
             
         }
         else
-//        if !isStart
-        
+////        if !isStart
+//        
         {
 
             OnboardingViewPure(data: ContentView.sample, doneFunction: {
@@ -45,26 +44,21 @@ struct ContentView: View {
                 UserDefaults.standard.set(true, forKey: "isStart")
                 }
                 
-            }).onAppear(perform: {
-                UserDefaults.standard.set(true, forKey: "preload")
-                activityModel.loadFromLocalFile()
-                
             })
-        }
-        
+//        }
+//
 //        else if !isBreathingIntroStarted  {
 //                Breathing_Intro_Screen()
 //        }
 
-//        } .navigationBarTitle("")
-//            .navigationBarHidden(true)
-//            .navigationBarBackButtonHidden(true)
+        }
         
     }
-
-
-
 }
+
+
+
+
 
 
 

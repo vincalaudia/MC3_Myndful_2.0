@@ -51,7 +51,7 @@ struct DetailJournalingActivitiesView: View {
                     .padding(.leading, 30)
                 
                 Text("____")
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color("BlueAccent"))
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
                 
@@ -129,7 +129,7 @@ struct DetailJournalingActivitiesView: View {
 //                    }
 //
 //                    .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
-//                        .background(Color.accentColor)
+//                        .background(Color("BlueAccent"))
 //                        .cornerRadius(25)
 //                        .padding(.horizontal)
 //                        .padding(.vertical,2)

@@ -545,8 +545,51 @@ class ActivityViewModel: ObservableObject {
 //
 //    }
     
-    
+    func deleteAllActivitiesData(){
+        let context = persistenceController.container.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Activity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        
+        let fetchRequests: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "UserActivity")
+        let deleteRequests = NSBatchDeleteRequest(fetchRequest: fetchRequests)
 
+        
+        let fetchRequests1: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ActivityDataVersion")
+        let deleteRequests1 = NSBatchDeleteRequest(fetchRequest: fetchRequests1)
+
+        do {
+            try context.execute(deleteRequest)
+            
+            
+        } catch let error as NSError {
+            // TODO: handle the error
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+        do {
+            try context.execute(deleteRequests1)
+            
+            
+        } catch let error as NSError {
+            // TODO: handle the error
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+        
+        
+        do {
+            try context.execute(deleteRequests)
+            
+            
+        } catch let error as NSError {
+            // TODO: handle the error
+            print("Error getting data. \(error.localizedDescription)")
+        }
+    }
+    
+    
+    // init the Activities data
     func loadActivities(){
         
         var selectedSort:Bool = true
@@ -573,7 +616,7 @@ class ActivityViewModel: ObservableObject {
             // No condition
         } else if currentEffectEnum != .all && currentTypeEnumActivities != .all{
             
-            predicate = NSPredicate(format: "(effect CONTAINS %@ OR type CONTAINS %@)", argumentArray:[currentEffectEnum.rawValue,currentTypeEnumActivities.rawValue])
+            predicate = NSPredicate(format: "(effect CONTAINS %@ AND type CONTAINS %@)", argumentArray:[currentEffectEnum.rawValue,currentTypeEnumActivities.rawValue])
             
             
             request.predicate = predicate
@@ -839,6 +882,25 @@ class ActivityViewModel: ObservableObject {
         
     }
     
+    
+    func addPreloadDataVersion(desc: String, version: Float){
+        let context = persistenceController.container.viewContext
+        let activityDataVersion = ActivityDataVersion(context: context)
+        activityDataVersion.version = version
+        activityDataVersion.desc = desc
+        
+        
+        do {
+            try context.save()
+
+            print("User Activity (Intention Setting) has been added!")
+            
+        }catch{
+
+            print("Error getting data. \(error.localizedDescription)")
+        }
+        
+    }
     
     
     // PERCOBAAN PRELOAD DATA

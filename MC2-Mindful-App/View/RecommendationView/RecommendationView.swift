@@ -27,17 +27,17 @@ struct RecommendationView: View {
     @StateObject var activityModel: ActivityViewModel = .init()
     
     let effectData: [RecommendationEffectModel] = [
-        RecommendationEffectModel(image: "Tenang", effect: "Tenang", title: "Tenang"),
-        RecommendationEffectModel(image: "Fokus", effect: "Fokus", title: "Fokus"),
-        RecommendationEffectModel(image: "Tidur", effect: "Tidur", title: "Tidur"),
-        RecommendationEffectModel(image: "Optimis", effect: "Optimis", title: "Optimis"),
-        RecommendationEffectModel(image: "Kreatif", effect: "Kreatif", title: "Kreatif"),
-        RecommendationEffectModel(image: "Sadar", effect: "Sadar", title: "Sadar"),
+        RecommendationEffectModel(image: "🤦🏻", effect: "Tenang", title: "Tenang"),
+        RecommendationEffectModel(image: "🧏🏻", effect: "Fokus", title: "Fokus"),
+        RecommendationEffectModel(image: "💆🏻", effect: "Tidur", title: "Tidur"),
+        RecommendationEffectModel(image: "🙆🏻", effect: "Optimis", title: "Optimis"),
+        RecommendationEffectModel(image: "🧑🏻‍🎨", effect: "Kreatif", title: "Kreatif"),
+        RecommendationEffectModel(image: "🙋🏻", effect: "Sadar", title: "Sadar"),
     ]
 
     let timeHaveData: [RecommendationTimeMoreThan2Minutes] = [
-        RecommendationTimeMoreThan2Minutes(image: "Ok", timeHave: 3, title: "> 2"),
-        RecommendationTimeMoreThan2Minutes(image: "NotOk", timeHave: 3, title: "< 2")
+        RecommendationTimeMoreThan2Minutes(image: "👍🏻", timeHave: 3, title: "> 2"),
+        RecommendationTimeMoreThan2Minutes(image: "👎🏻", timeHave: 3, title: "< 2")
         ]
 
     // MArk : Environment Values
@@ -87,7 +87,7 @@ struct RecommendationView: View {
                     ForEach(0..<effectData.count) { i in
                                         VStack(spacing : 5){
                                             VStack{
-                                                Image(effectData[i].image).resizable().scaledToFit().padding(.horizontal,5)
+                                                Text(effectData[i].image).font(.largeTitle)
                                             Text(effectData[i].title)
                                                     .font(.subheadline)
                                                 .bold()
@@ -220,7 +220,7 @@ struct RecommendationView: View {
                                 NavigationLink(destination: RecommendationResultView(activityModel: activityModel, effect: activityModel.effectForRecommendation, timeHave: timeHaveData[j].timeHave )) {
                                                 VStack(spacing : 5){
                                                     VStack{
-                                                        Image(timeHaveData[j].image).resizable().scaledToFit().padding(.horizontal,5)
+                                                        Text(timeHaveData[j].image).font(.largeTitle)
                                                         Text(timeHaveData[j].title).foregroundColor(.black)
                                                             .font(.subheadline)
                                                         .bold()
@@ -230,7 +230,7 @@ struct RecommendationView: View {
                                         .background(.white)
                                                     .cornerRadius(20)
                                                     .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
-                            }
+                            }   .isDetailLink(false)
                                 }
                             
                         }

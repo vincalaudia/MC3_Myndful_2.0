@@ -48,7 +48,7 @@ struct ComingSoonView: View {
             NavigationLink(destination: MainView()){
                 Text("Kembali")
                     .frame(width: 200, height: 50, alignment: .center)
-                    .background(Color.accentColor)
+                    .background(Color("BlueAccent"))
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
             } .padding(.top, 40)

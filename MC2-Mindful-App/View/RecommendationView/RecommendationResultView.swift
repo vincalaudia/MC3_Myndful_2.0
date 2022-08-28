@@ -239,7 +239,7 @@ struct RecommendationResultView: View {
                     
 //                    Text("Let's Start")
 //                                    .fontWeight(.bold)
-//                                    .foregroundColor(Color("AccentColor"))
+//                                    .foregroundColor(Color("BlueAccent"))
 //                                    .frame(maxWidth: .infinity, alignment: .center)
                     
                     
@@ -249,9 +249,10 @@ struct RecommendationResultView: View {
                                                 NavigationLink(destination: IntroActivityView(activityModel: activityModel)){
                                                     Text("Mulai")
                                                                     .fontWeight(.bold)
-                                                                    .foregroundColor(Color("AccentColor"))
+                                                                    .foregroundColor(Color("BlueAccent"))
                                                                     .frame(maxWidth: .infinity, alignment: .center)
-                                                            }.simultaneousGesture(TapGesture().onEnded{
+                                                            }
+                                                .isDetailLink(false).simultaneousGesture(TapGesture().onEnded{
                         
                                                                 activityModel.selectedActivity = data
                                                                 print(activityModel.selectedActivity)
@@ -265,7 +266,9 @@ struct RecommendationResultView: View {
                                             .fontWeight(.bold)
                                             .foregroundColor(.gray)
                                             .frame(maxWidth: .infinity, alignment: .center)
-                                    }.simultaneousGesture(TapGesture().onEnded{
+                                    }
+                        .isDetailLink(false)
+                        .simultaneousGesture(TapGesture().onEnded{
 
                                         activityModel.selectedActivity = data
                                         print(activityModel.selectedActivity)
@@ -282,7 +285,7 @@ struct RecommendationResultView: View {
 //                        NavigationLink(destination: Mindful_Breathing_Intro(activityModel: activityModel)){
 //                            Text("Mulai")
 //                                            .fontWeight(.bold)
-//                                            .foregroundColor(Color("AccentColor"))
+//                                            .foregroundColor(Color("BlueAccent"))
 //                                            .frame(maxWidth: .infinity, alignment: .center)
 //                                    }.simultaneousGesture(TapGesture().onEnded{
 //
@@ -296,7 +299,7 @@ struct RecommendationResultView: View {
 //                        NavigationLink(destination: JournalingView(activityModel: activityModel)){
 //                            Text("Mulai")
 //                                            .fontWeight(.bold)
-//                                            .foregroundColor(Color("AccentColor"))
+//                                            .foregroundColor(Color("BlueAccent"))
 //                                            .frame(maxWidth: .infinity, alignment: .center)
 //                                    }.simultaneousGesture(TapGesture().onEnded{
 //
@@ -311,7 +314,7 @@ struct RecommendationResultView: View {
 //                        NavigationLink(destination: ScavengerHunt(activityModel: activityModel)){
 //                            Text("Mulai")
 //                                            .fontWeight(.bold)
-//                                            .foregroundColor(Color("AccentColor"))
+//                                            .foregroundColor(Color("BlueAccent"))
 //                                            .frame(maxWidth: .infinity, alignment: .center)
 ////                                            .disabled(true)
 //                                    }.simultaneousGesture(TapGesture().onEnded{
@@ -327,7 +330,7 @@ struct RecommendationResultView: View {
 //                        NavigationLink(destination: ComingSoonView(item: data)){
 //                            Text("Segera Hadir")
 //                                            .fontWeight(.bold)
-//                                            .foregroundColor(Color("AccentColor"))
+//                                            .foregroundColor(Color("BlueAccent"))
 //                                            .frame(maxWidth: .infinity, alignment: .center)
 ////                                            .disabled(true)
 //                                    }.simultaneousGesture(TapGesture().onEnded{

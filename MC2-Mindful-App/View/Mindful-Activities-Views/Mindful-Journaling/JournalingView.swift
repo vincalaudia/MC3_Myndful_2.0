@@ -19,7 +19,7 @@ struct JournalingView: View {
     @State var moveToNextScreen = false
     
     let selectedForegroundColor = Color.white
-    let selectedbackgroundColor = "AccentColor"
+    let selectedbackgroundColor = "BlueAccent"
     
     var body: some View {
         //INI CONTOH AJA BUAT JOURNALLING VIEW
@@ -40,7 +40,7 @@ struct JournalingView: View {
                     .padding(.leading, 30)
                 
                 Text("____")
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color("BlueAccent"))
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
                 
@@ -80,6 +80,7 @@ struct JournalingView: View {
                                     .font(.largeTitle)
                                 Text("Sedih")
                                     .font(.title3)
+                                    .foregroundColor(Color("BlueAccent"))
                                     .bold()
                             }.frame(width: 115, height: 115, alignment: .center)
                                 .background(Color.white)
@@ -119,6 +120,7 @@ struct JournalingView: View {
                                 Text("☺️")
                                     .font(.largeTitle)
                                 Text("Senang")
+                                    .foregroundColor(Color("BlueAccent"))
                                     .font(.title3)
                                     .bold()
                             }.frame(width: 115, height: 115, alignment: .center)
@@ -179,6 +181,7 @@ struct JournalingView: View {
                                 Text("😡")
                                     .font(.largeTitle)
                                 Text("Marah")
+                                    .foregroundColor(Color("BlueAccent"))
                                     .font(.title3)
                                     .bold()
                             }.frame(width: 115, height: 115, alignment: .center)
@@ -217,6 +220,7 @@ struct JournalingView: View {
                                     Text("😐")
                                         .font(.largeTitle)
                                     Text("Normal")
+                                        .foregroundColor(Color("BlueAccent"))
                                         .font(.title3)
                                         .bold()
                                 }.frame(width: 115, height: 115, alignment: .center)
@@ -280,7 +284,7 @@ struct JournalingView: View {
                     }
                 
                     .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
-                        .background(Color.accentColor)
+                        .background(Color("BlueAccent"))
                         .cornerRadius(25)
                         .padding()
                         .opacity(activityModel.isFeelingSelected ? 1 : 0.5)
@@ -306,7 +310,7 @@ struct JournalingView: View {
 //                    }
 //
 //                    .frame(width: UIScreen.main.bounds.width-70, height: 50, alignment: .center)
-//                        .background(Color.accentColor)
+//                        .background(Color("BlueAccent"))
 //                        .cornerRadius(25)
 //                        .padding(.horizontal)
 //                        .padding(.vertical,2)

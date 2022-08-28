@@ -31,7 +31,7 @@ struct Mindful_Breathing_Congrats: View {
             NavigationLink(destination: MainView()){
                 Text("Kembali")
                     .frame(width: 200, height: 50, alignment: .center)
-                    .foregroundColor(Color.accentColor)
+                    .foregroundColor(Color("BlueAccent"))
                     .background(Color.white)
                     .cornerRadius(10)
             }

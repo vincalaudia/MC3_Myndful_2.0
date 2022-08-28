@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import HalfASheet
 import WrappingHStack
 import SwiftUIBottomSheet
 
@@ -169,7 +168,7 @@ struct RiwayatView: View {
 //
 //
 //            Text("____")
-//                .foregroundColor(.accentColor)
+//                .foregroundColor(Color("BlueAccent"))
 //                .frame(maxWidth:.infinity, alignment: .leading)
 //                .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
 //        }
@@ -344,7 +343,7 @@ struct RiwayatView: View {
 //                                    .background{
 //
 //                                            Rectangle()
-//                                                .fill(Color("AccentColor"))
+//                                                .fill(Color("BlueAccent"))
 //
 //                                    }
 //                                    .cornerRadius(6)
@@ -405,7 +404,7 @@ struct RiwayatView: View {
                     Spacer()
 
                     Text("Atur Ulang")
-                        .foregroundColor(Color("AccentColor"))
+                        .foregroundColor(Color("BlueAccent"))
                         .font(.headline).bold()
                         .onTapGesture {
                             withAnimation {
@@ -454,7 +453,7 @@ struct RiwayatView: View {
                         .font(.callout)
 //                        .border(Color.blue)
                         .foregroundColor(.white)
-                        .background(Color("AccentColor"))
+                        .background(Color("BlueAccent"))
                         .cornerRadius(10)
 //                        .padding()
                 }
@@ -542,7 +541,7 @@ struct RiwayatView: View {
                     .background{
                         if activityModel.currentTimestampEnum == tab{
                             Rectangle()
-                                .fill(Color("AccentColor"))
+                                .fill(Color("BlueAccent"))
                                 .matchedGeometryEffect(id: "timestamp", in: animation)
 
                         }
@@ -596,7 +595,7 @@ struct RiwayatView: View {
                     .background{
                         if activityModel.currentTypeEnum == tab{
                             Rectangle()
-                                .fill(Color("AccentColor"))
+                                .fill(Color("BlueAccent"))
                                 .matchedGeometryEffect(id: "type", in: animation)
 
                         }

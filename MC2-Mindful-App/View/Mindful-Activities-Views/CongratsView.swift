@@ -36,13 +36,13 @@ struct CongratsView: View {
             NavigationLink(destination: MainView(selection: 1)){
                 Text("Menuju Beranda")
                     .frame(width: 200, height: 50, alignment: .center)
-                    .foregroundColor(Color.accentColor)
+                    .foregroundColor(Color("BlueAccent"))
                     .background(Color.white)
                     .cornerRadius(10)
 //                    .navigationBarTitle("")
 //                    .navigationBarHidden(true)
 //                    .navigationBarBackButtonHidden(true)
-            }        .navigationBarTitle("")
+            }    .isDetailLink(false)       .navigationBarTitle("")
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
             

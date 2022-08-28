@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.version, order: .forward)])
+    private var versions: FetchedResults<ActivityDataVersion>
+    
+    @StateObject var activityModel = ActivityViewModel()
     //Main View untuk segala yang punya tab bar : dashboard, list activities, and history
     @AppStorage("isBreathingIntroStarted") private var isBreathingIntroStarted: Bool = false
     // Hold the state for which tab is active/selected
     @State var selection: Int = 0
     
+    @AppStorage("preload") private var preload: Bool = false
+
     var body: some View {
+        
+        
         NavigationView{
             //             Your native TabView here
             if isBreathingIntroStarted{
@@ -29,7 +38,27 @@ struct MainView: View {
                         .tag(2)
                     
                 }
+                .onAppear(perform: {
+                    print("Isi jumlah Version")
+                    print(versions.count)
+                    
+                    print()
+                    if versions.count > 0 {
+                    
+                        // Already Loaded
+       
+                        
+                    } else if versions.count == 0{
+                        activityModel.deleteAllActivitiesData()
                 
+//                        activityModel.deleteAllActivitiesData()
+                        UserDefaults.standard.set(true, forKey: "preload")
+                        activityModel.loadFromLocalFile()
+                        activityModel.addPreloadDataVersion(desc: "Versi pertama yang berisi 16 activity dengan walking barefoot itu masih coming soon", version: 1)
+                        
+                    }
+                    
+                })
                 .overlay( // Overlay the custom TabView component here
                     Color.white // Base color for Tab Bar
                         .edgesIgnoringSafeArea(.vertical)

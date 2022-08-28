@@ -14,11 +14,10 @@
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="viewDestination" optional="YES" attributeType="String"/>
         <relationship name="userActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserActivity" inverseName="activity" inverseEntity="UserActivity"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="id"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
+    </entity>
+    <entity name="ActivityDataVersion" representedClassName="ActivityDataVersion" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="version" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <entity name="JournalingList" representedClassName="JournalingList" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -47,5 +46,6 @@
         <element name="Activity" positionX="-54" positionY="9" width="128" height="224"/>
         <element name="JournalingList" positionX="-45" positionY="126" width="128" height="104"/>
         <element name="UserActivity" positionX="-54" positionY="63" width="128" height="239"/>
+        <element name="ActivityDataVersion" positionX="-45" positionY="153" width="128" height="59"/>
     </elements>
 </model>

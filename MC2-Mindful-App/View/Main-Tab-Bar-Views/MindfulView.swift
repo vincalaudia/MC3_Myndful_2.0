@@ -51,7 +51,7 @@ struct MindfulView: View {
             }
                 
                 //            Text("____")
-                //                .foregroundColor(.accentColor)
+                //                .foregroundColor(Color("BlueAccent"))
                 //                .frame(maxWidth:.infinity, alignment: .leading)
                 //                .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
                 
@@ -63,7 +63,7 @@ struct MindfulView: View {
             
             
                         Text("____")
-                            .foregroundColor(.accentColor)
+                            .foregroundColor(Color("BlueAccent"))
                             .frame(maxWidth:.infinity, alignment: .leading)
                             .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
        
@@ -81,7 +81,7 @@ struct MindfulView: View {
 //
 //
 //            Text("____")
-//                .foregroundColor(.accentColor)
+//                .foregroundColor(Color("BlueAccent"))
 //                .frame(maxWidth:.infinity, alignment: .leading)
 //                .padding(EdgeInsets(top: 0, leading: 30, bottom: 15, trailing: 0))
 //
@@ -162,7 +162,7 @@ struct MindfulView: View {
                             .resizable()
                         )
 
-                }.simultaneousGesture(TapGesture().onEnded{
+                }   .isDetailLink(false).simultaneousGesture(TapGesture().onEnded{
                     activityModel.selectedActivity = item
                     print(activityModel.selectedActivity)
                 })
@@ -219,7 +219,7 @@ struct MindfulView: View {
                 Spacer()
 
                 Text("Atur Ulang")
-                    .foregroundColor(Color("AccentColor"))
+                    .foregroundColor(Color("BlueAccent"))
                     .font(.headline).bold()
                     .onTapGesture {
                         withAnimation {
@@ -278,7 +278,7 @@ struct MindfulView: View {
                     .font(.callout)
 //                        .border(Color.blue)
                     .foregroundColor(.white)
-                    .background(Color("AccentColor"))
+                    .background(Color("BlueAccent"))
                     .cornerRadius(10)
 //                        .padding()
             }
@@ -362,7 +362,7 @@ struct MindfulView: View {
                     .background{
                         if activityModel.currentTimeIntEnum == tab{
                             Rectangle()
-                                .fill(Color("AccentColor"))
+                                .fill(Color("BlueAccent"))
 //                                .matchedGeometryEffect(id: "timestamp", in: animation)
 
                         }
@@ -412,7 +412,7 @@ struct MindfulView: View {
                     .background{
                         if activityModel.currentTypeEnumActivities == tab{
                             Rectangle()
-                                .fill(Color("AccentColor"))
+                                .fill(Color("BlueAccent"))
 //                                .matchedGeometryEffect(id: "type", in: animation)
 
                         }
@@ -462,7 +462,7 @@ struct MindfulView: View {
 //                    .background{
 //                        if activityModel.currentSituationEnum == tab{
 //                            Rectangle()
-//                                .fill(Color("AccentColor"))
+//                                .fill(Color("BlueAccent"))
 ////                                .matchedGeometryEffect(id: "timestamp", in: animation)
 //
 //                        }
@@ -514,7 +514,7 @@ struct MindfulView: View {
                     .background{
                         if activityModel.currentEffectEnum == tab{
                             Rectangle()
-                                .fill(Color("AccentColor"))
+                                .fill(Color("BlueAccent"))
 //                                .matchedGeometryEffect(id: "type", in: animation)
 
                         }

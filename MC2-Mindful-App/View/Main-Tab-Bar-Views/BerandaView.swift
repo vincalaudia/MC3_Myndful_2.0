@@ -21,11 +21,14 @@ struct BerandaView: View {
     var body: some View {
         
         ScrollView(){
-            
+    
             VStack{
                 HStack(){
                     Image("Sadarly")
+                        .resizable()
+                            .frame(width: 99, height: 39)
                         .padding(.leading, UIScreen.main.bounds.width*1/13)
+                    
                     Spacer()
                     
 //                    Button {
@@ -44,7 +47,7 @@ struct BerandaView: View {
                 }
                 
                 Text("____")
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color("BlueAccent"))
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.leading,30)
                 
@@ -77,7 +80,7 @@ struct BerandaView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth:UIScreen.main.bounds.width*11/12, alignment: .leading)
                         .shadow(color: Color(hue: 1.0, saturation: 1.0, brightness: 0.001, opacity: 0.1), radius: 5, x: 0, y: 4)
-                }
+                }   .isDetailLink(false)
                 
                 Text("Aktivitas Terakhir")
                     .foregroundColor(Color(UIColor(named:"darkBrown")!))
