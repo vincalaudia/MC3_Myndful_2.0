@@ -39,6 +39,17 @@ struct MainView: View {
                     
                 }
                 .onAppear(perform: {
+                    
+                    
+                    let queue = DispatchQueue(label: "com.app.queue")
+                    queue.sync {
+                        SyncMonitor.init()
+                        
+                        NSUbiquitousKeyValueStore.default.synchronize()
+                    }
+                    print("Sync Is Done!")
+               
+                    
                     print("Isi jumlah Version")
                     print(versions.count)
                     

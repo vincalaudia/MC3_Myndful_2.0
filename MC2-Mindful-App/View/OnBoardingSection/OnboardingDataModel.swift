@@ -17,7 +17,7 @@ struct OnboardingDataModel {
 
 extension OnboardingDataModel {
     static var data: [OnboardingDataModel] = [
-        OnboardingDataModel(image: "slide", heading: "Dapatkan Rekomendasi", text: "Kamu bisa mendapatkan rekomondasi mindfulnes activity yang cocok denganmu"),
+        OnboardingDataModel(image: "slide", heading: "Dapatkan Rekomendasi", text: "Kamu bisa mendapatkan rekomendasi mindfulnes activity yang cocok denganmu"),
         OnboardingDataModel(image: "nanjak", heading: "Mudah Digunakan", text: "Dapat digunakan dimanapun dan kapanpun."),
         OnboardingDataModel(image: "anjingJalan", heading: "Bentuk Habit Baru", text: "Ayo coba berbagai macam jenis Aktivitas mindfulness."),
        
