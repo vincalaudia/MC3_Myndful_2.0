@@ -40,35 +40,16 @@ struct MainView: View {
                 }
                 .onAppear(perform: {
                     
-                    
-                    let queue = DispatchQueue(label: "com.app.queue")
-                    queue.sync {
-                        SyncMonitor.init()
-                        
-                        NSUbiquitousKeyValueStore.default.synchronize()
-                    }
-                    print("Sync Is Done!")
-               
-                    
-                    print("Isi jumlah Version")
-                    print(versions.count)
-                    
-                    print()
-                    if versions.count > 0 {
-                    
-                        // Already Loaded
-       
-                        
-                    } else if versions.count == 0{
-                        activityModel.deleteAllActivitiesData()
                 
-//                        activityModel.deleteAllActivitiesData()
+                    if versions.count == 0{
+                
+                
+                        activityModel.deleteAllActivitiesData()
                         UserDefaults.standard.set(true, forKey: "preload")
                         activityModel.loadFromLocalFile()
                         activityModel.addPreloadDataVersion(desc: "Versi pertama yang berisi 16 activity dengan walking barefoot itu masih coming soon", version: 1)
                         
                     }
-                    
                 })
                 .overlay( // Overlay the custom TabView component here
                     Color.white // Base color for Tab Bar

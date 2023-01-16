@@ -545,6 +545,23 @@ class ActivityViewModel: ObservableObject {
 //
 //    }
     
+    
+    func deleteActivity(activity: Activity){
+        let context = persistenceController.container.viewContext
+
+        do {
+            try context.delete(activity)
+            print("Deleted !")
+        } catch let error as NSError {
+            // TODO: handle the error
+            print("Error getting data. \(error.localizedDescription)")
+        }
+   
+        
+    
+    }
+    
+    
     func deleteAllActivitiesData(){
         let context = persistenceController.container.viewContext
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Activity")
@@ -929,6 +946,7 @@ class ActivityViewModel: ObservableObject {
             activity.howTo = item.howTo
             activity.situation = item.situation
             activity.effect = item.effect
+            activity.createdAt = Date()
             
             do {
                 try context.save()

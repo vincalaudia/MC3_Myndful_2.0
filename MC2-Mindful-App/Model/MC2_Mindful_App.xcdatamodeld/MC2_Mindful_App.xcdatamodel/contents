@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Activity" representedClassName="Activity" syncable="YES" codeGenerationType="class">
         <attribute name="activityDescription" optional="YES" attributeType="String"/>
         <attribute name="breathingData" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="effect" optional="YES" attributeType="String"/>
         <attribute name="howTo" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -42,10 +43,4 @@
         <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="userActivity" inverseEntity="Activity"/>
         <relationship name="journalingList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalingList" inverseName="userActivity" inverseEntity="JournalingList"/>
     </entity>
-    <elements>
-        <element name="Activity" positionX="-54" positionY="9" width="128" height="224"/>
-        <element name="JournalingList" positionX="-45" positionY="126" width="128" height="104"/>
-        <element name="UserActivity" positionX="-54" positionY="63" width="128" height="239"/>
-        <element name="ActivityDataVersion" positionX="-45" positionY="153" width="128" height="59"/>
-    </elements>
 </model>

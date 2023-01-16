@@ -133,6 +133,9 @@ struct MindfulView: View {
 
 //                    ActivityCard(item: item, viewDestination: AnyView(ComingSoonView(item: item)))
 
+                
+
+            
                     NavigationLink(destination: IntroActivityView(activityModel: activityModel)) {
                     HStack(){
                         Image(systemName: item.image ?? "wind")
@@ -142,6 +145,7 @@ struct MindfulView: View {
                             .padding(.leading, UIScreen.main.bounds.width*1/14)
 
 
+//                        Text(Date(item.createdAt ?? Date(),style: .time)
                         VStack(alignment : .leading){
                             Text(item.title ?? "")
                                 .font(.headline)
@@ -207,6 +211,28 @@ struct MindfulView: View {
 //            .navigationBarBackButtonHidden(true)
             .onAppear(perform: {
                 activityModel.loadActivities()
+            
+                
+                if activityModel.activityArray.count > 17 {
+                
+                    // Already Loaded
+             
+                    var afga = activityModel.activityArray;
+                    
+                    afga.sort(by: { $0.createdAt?.compare($1.createdAt ?? Date()) == .orderedAscending})
+                    
+                    for act in afga {
+                        if afga[0].createdAt!.addingTimeInterval(10) < act.createdAt! {
+
+                            activityModel.deleteActivity(activity: act)
+
+                        }
+                    }
+
+
+                }
+                
+                
             })
           
         
